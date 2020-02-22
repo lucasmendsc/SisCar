@@ -1,0 +1,196 @@
+C:\Users\Aluno\Desktop\SisCar\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\SisCar\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\SisCar\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\SisCar\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\SisCar\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\SisCar\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\SisCar\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\SisCar\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\SisCar\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula11\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula11\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula11\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula11\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula12\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula12\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula12\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula12\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula14\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula14\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula14\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula14\BLL\obj\Debug\BLL.pdb
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\BLL.dll
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\BLL.pdb
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\DAL.dll
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\Models.dll
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\Npgsql.dll
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\Mono.Security.dll
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\DAL.pdb
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\bin\Debug\Models.pdb
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\obj\Debug\BLL.dll
+C:\C# MOD II\Anderson - C# 2\Aula14\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula15\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula15\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula15\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula15\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula16\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula16\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula16\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula16\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula16 - Ainda (Usuario)\BLL\obj\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\BLL.pdb
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\DAL.dll
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\Models.dll
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\Npgsql.dll
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\Mono.Security.dll
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\DAL.pdb
+C:\Users\Aluno\Desktop\Aula17\BLL\bin\Debug\Models.pdb
+C:\Users\Aluno\Desktop\Aula17\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Desktop\Aula17\BLL\obj\Debug\BLL.dll
+C:\Users\Aluno\Desktop\Aula17\BLL\obj\Debug\BLL.pdb
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\BLL.dll
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\BLL.pdb
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\DAL.dll
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\Models.dll
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\Npgsql.dll
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\Mono.Security.dll
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\DAL.pdb
+W:\VisualStudioC#\SisCar\BLL\bin\Debug\Models.pdb
+W:\VisualStudioC#\SisCar\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+W:\VisualStudioC#\SisCar\BLL\obj\Debug\BLL.dll
+W:\VisualStudioC#\SisCar\BLL\obj\Debug\BLL.pdb
+E:\SisCar\SisCar\BLL\bin\Debug\BLL.dll
+E:\SisCar\SisCar\BLL\bin\Debug\BLL.pdb
+E:\SisCar\SisCar\BLL\bin\Debug\DAL.dll
+E:\SisCar\SisCar\BLL\bin\Debug\Models.dll
+E:\SisCar\SisCar\BLL\bin\Debug\Npgsql.dll
+E:\SisCar\SisCar\BLL\bin\Debug\Mono.Security.dll
+E:\SisCar\SisCar\BLL\bin\Debug\DAL.pdb
+E:\SisCar\SisCar\BLL\bin\Debug\Models.pdb
+E:\SisCar\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\SisCar\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\SisCar\SisCar\BLL\obj\Debug\BLL.dll
+E:\SisCar\SisCar\BLL\obj\Debug\BLL.pdb
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\obj\Debug\BLL.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\obj\Debug\BLL.pdb
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\BLL.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\BLL.pdb
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\DAL.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\Models.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\DAL.pdb
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\Models.pdb
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\DAL.dll.config
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\BLL.dll.config
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\EntityFramework.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\EntityFramework.Firebird.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\Models.dll.config
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\EntityFramework.xml
+C:\Users\jenil\Documents\SisCar\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\SisCar\SisCar\BLL\bin\Debug\BLL.dll.config
+C:\SisCar\SisCar\BLL\bin\Debug\BLL.dll
+C:\SisCar\SisCar\BLL\bin\Debug\BLL.pdb
+C:\SisCar\SisCar\BLL\bin\Debug\DAL.dll
+C:\SisCar\SisCar\BLL\bin\Debug\EntityFramework.dll
+C:\SisCar\SisCar\BLL\bin\Debug\EntityFramework.Firebird.dll
+C:\SisCar\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\SisCar\SisCar\BLL\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\SisCar\SisCar\BLL\bin\Debug\Models.dll
+C:\SisCar\SisCar\BLL\bin\Debug\DAL.pdb
+C:\SisCar\SisCar\BLL\bin\Debug\DAL.dll.config
+C:\SisCar\SisCar\BLL\bin\Debug\Models.pdb
+C:\SisCar\SisCar\BLL\bin\Debug\Models.dll.config
+C:\SisCar\SisCar\BLL\bin\Debug\EntityFramework.xml
+C:\SisCar\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\SisCar\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\SisCar\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\SisCar\SisCar\BLL\obj\Debug\BLL.dll
+C:\SisCar\SisCar\BLL\obj\Debug\BLL.pdb
+C:\SisCar\BLL\bin\Debug\BLL.dll.config
+C:\SisCar\BLL\bin\Debug\BLL.dll
+C:\SisCar\BLL\bin\Debug\BLL.pdb
+C:\SisCar\BLL\bin\Debug\DAL.dll
+C:\SisCar\BLL\bin\Debug\EntityFramework.dll
+C:\SisCar\BLL\bin\Debug\EntityFramework.Firebird.dll
+C:\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\SisCar\BLL\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\SisCar\BLL\bin\Debug\Models.dll
+C:\SisCar\BLL\bin\Debug\DAL.pdb
+C:\SisCar\BLL\bin\Debug\DAL.dll.config
+C:\SisCar\BLL\bin\Debug\Models.pdb
+C:\SisCar\BLL\bin\Debug\Models.dll.config
+C:\SisCar\BLL\bin\Debug\EntityFramework.xml
+C:\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\SisCar\BLL\obj\Debug\BLL.dll
+C:\SisCar\BLL\obj\Debug\BLL.pdb
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\BLL.dll.config
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\BLL.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\BLL.pdb
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\DAL.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\EntityFramework.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\EntityFramework.Firebird.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\Models.dll
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\DAL.pdb
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\DAL.dll.config
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\Models.pdb
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\Models.dll.config
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\EntityFramework.xml
+C:\Users\evert\Documents\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.dll
+C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.pdb
