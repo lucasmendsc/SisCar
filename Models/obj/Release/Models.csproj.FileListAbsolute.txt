@@ -1,0 +1,5 @@
+E:\SisCar\SisCar\Models\bin\Release\Models.dll
+E:\SisCar\SisCar\Models\bin\Release\Models.pdb
+E:\SisCar\SisCar\Models\obj\Release\Models.csprojAssemblyReference.cache
+E:\SisCar\SisCar\Models\obj\Release\Models.dll
+E:\SisCar\SisCar\Models\obj\Release\Models.pdb

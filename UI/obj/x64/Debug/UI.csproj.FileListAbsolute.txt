@@ -1,0 +1,12 @@
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmClientes.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmEstoque.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmGraficos.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmLogin.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmMarcas.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmModelos.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmMovimentacao.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmPrincipal.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmSplash.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.frmUsuarios.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.Properties.Resources.resources
+E:\SisCar\SisCar\UI\obj\x64\Debug\UI.csproj.GenerateResource.cache

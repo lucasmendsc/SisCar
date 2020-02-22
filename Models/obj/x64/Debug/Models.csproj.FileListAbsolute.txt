@@ -1,0 +1,4 @@
+E:\SisCar\SisCar\Models\bin\x64\Debug\Models.dll
+E:\SisCar\SisCar\Models\bin\x64\Debug\Models.pdb
+E:\SisCar\SisCar\Models\obj\x64\Debug\Models.dll
+E:\SisCar\SisCar\Models\obj\x64\Debug\Models.pdb

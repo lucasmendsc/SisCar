@@ -1,0 +1,1 @@
+E:\SisCar\SisCar\DAL\obj\x64\Debug\DAL.csprojAssemblyReference.cache
