@@ -256,7 +256,7 @@ namespace DAL
             FbDataAdapter da = new FbDataAdapter(new FbCommand(pesquisaC, ConnectionFactory.Connect()));
             DataTable dt = new DataTable();
             da.Fill(dt);
-            
+            ConnectionFactory.Connect().Close();
             if(dt.Rows.Count > 0)
             {
                 cliente.Cod_Cliente = dt.Rows[0]["COD_CLIENTE"].ToString();
@@ -283,7 +283,7 @@ namespace DAL
             
 
 
-            ConnectionFactory.Connect().Close();
+            
 
            
         }

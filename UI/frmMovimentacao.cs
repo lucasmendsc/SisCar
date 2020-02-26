@@ -21,6 +21,7 @@ namespace UI
         private String consulta1 = null;
         public string NomeCliente = null;
         public string CodigoCliente = null;
+        int rowSelected = 0;
 
         public frmMovimentacao()
         {
@@ -540,8 +541,6 @@ namespace UI
 
         }
 
-        int rowSelected = 0;
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             switch (MouseButtons)
@@ -593,7 +592,6 @@ namespace UI
         {
             string data1 = dtInicio.Value.ToString("dd.MM.yyyy");
             string data2 = dtFim.Value.ToString("dd.MM.yyyy");
-
             //Console.WriteLine(data1.ToString());
             //Console.WriteLine(data2.ToString());
 
@@ -978,7 +976,7 @@ namespace UI
 
         public void button1_Click(object sender, EventArgs e)
         {     
- 
+
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -1026,6 +1024,10 @@ namespace UI
 
                 }
 
+                PrintDocument pd = new PrintDocument();
+                PrintDialog pdi = new PrintDialog();
+                pdi.Document = pd;
+
                 MessageBox.Show(data);
 
             }
@@ -1035,6 +1037,38 @@ namespace UI
             }
            
 
+        }
+
+        private void label17_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cliente_consulta(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MovimentacaoBLL movimentacaoBLL = new MovimentacaoBLL();
+                movimentacaoBLL.filtrarNomeSaida(clienteConsulta.Text);
+                dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
+                dataGridView1.Columns[1].HeaderText = "Marca";
+                dataGridView1.Columns[2].HeaderText = "Modelo";
+                dataGridView1.Columns[3].HeaderText = "Versão";
+                dataGridView1.Columns[4].HeaderText = "Ano Fab.";
+                dataGridView1.Columns[5].HeaderText = "Ano Mod.";
+                dataGridView1.Columns[6].HeaderText = "Cor";
+                dataGridView1.Columns[7].HeaderText = "Placa";
+                dataGridView1.Columns[8].HeaderText = "Renavam";
+                dataGridView1.Columns[9].HeaderText = "Observações";
+                dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
+                //dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
+                dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
+            }
         }
     }
 }

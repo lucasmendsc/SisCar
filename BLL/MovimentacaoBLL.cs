@@ -176,5 +176,10 @@ namespace BLL
             MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
             return movimentacaodal.consultarTodaMovimentacao();
         }
+
+        public DataTable filtrarNomeSaida(string nome){
+             MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
+            return movimentacaodal.filtrarNomeSaida(nome);
+        }
     }
 }
