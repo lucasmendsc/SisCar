@@ -537,8 +537,7 @@ namespace DAL
                      "MODELOS MO, " +
                      "CLIENTES C2, " +
                      "CLIENTES C1 " +
-                    "WHERE COD_CLIENTE_ENTRADA = {0} ",
-                     6.ToString() ));
+                    "WHERE COD_CLIENTE_ENTRADA = {0} ", cod_cliente ));
 
             FbDataAdapter da = new FbDataAdapter
                     (new FbCommand(consultaS, ConnectionFactory.Connect()));
