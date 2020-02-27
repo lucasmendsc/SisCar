@@ -1054,7 +1054,7 @@ namespace UI
             if (e.KeyCode == Keys.Enter)
             {
                 MovimentacaoBLL movimentacaoBLL = new MovimentacaoBLL();
-                movimentacaoBLL.filtrarNomeSaida(clienteConsulta.Text);
+               // movimentacaoBLL.filtrarNomeSaida(clienteConsulta.Text);
                 dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
                 dataGridView1.Columns[1].HeaderText = "Marca";
                 dataGridView1.Columns[2].HeaderText = "Modelo";

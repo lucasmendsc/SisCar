@@ -69,6 +69,7 @@
             this.rbEntrada.TabStop = true;
             this.rbEntrada.Text = "Entrada";
             this.rbEntrada.UseVisualStyleBackColor = true;
+            this.rbEntrada.CheckedChanged += new System.EventHandler(this.rbEntrada_CheckedChanged);
             // 
             // rbSaida
             // 
@@ -102,6 +103,7 @@
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(457, 23);
             this.txtDesc.TabIndex = 4;
+            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
             // 
             // label3
             // 

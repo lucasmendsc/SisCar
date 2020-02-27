@@ -24,7 +24,7 @@ namespace UI
         public frmLancamento(int id)
         {
             InitializeComponent();
-            id_caixa =id;
+            id_caixa = id;
         }
 
         int id_caixa = 0;
@@ -38,14 +38,31 @@ namespace UI
             lancamentos.Data = dtLanc.Text.ToString();
             lancamentos.Valor = Convert.ToDouble(txtValor.Text);
             lancamentos.Caixa = id_caixa;
+            CaixaBLL caixabll = new CaixaBLL();
 
             if (rbEntrada.Checked)
+            {
                 lancamentos.Tipo = "ENTRADA";
-            if (rbSaida.Checked)
+                caixabll.inserirLancamentos(lancamentos);
+
+
+            }
+            else if (rbSaida.Checked)
+            {
                 lancamentos.Tipo = "SAIDA";
 
-            CaixaBLL caixabll = new CaixaBLL();
-            caixabll.inserirLancamentos(lancamentos);
+                if (rbCaixa.Checked)
+                {
+
+                    caixabll.inserirLancamentos(lancamentos);
+                }
+                else if (rbVeiculo.Checked)
+                {
+
+                }
+
+            }
+
 
             MessageBox.Show("Lançamento inserido com sucesso !");
 
@@ -55,7 +72,7 @@ namespace UI
 
         private string converterData(string data)
         {
-            string[] dt = data.Split('/',' ');
+            string[] dt = data.Split('/', ' ');
             return dt[0] + "." + dt[1] + "." + dt[2];
         }
 
@@ -75,8 +92,8 @@ namespace UI
         private void verificarCampos()
         {
             if (string.IsNullOrEmpty(txtDesc.Text))
-               MessageBox.Show("A descrição deve ser informada");
-            if(string.IsNullOrEmpty(txtValor.Text))
+                MessageBox.Show("A descrição deve ser informada");
+            if (string.IsNullOrEmpty(txtValor.Text))
                 MessageBox.Show("O valor deve ser informado");
         }
 
@@ -90,6 +107,8 @@ namespace UI
             lbCategoria.Visible = false;
             rbVeiculo.Visible = false;
             rbCaixa.Visible = false;
+            label6.Visible = false;
+            edtPlaca.Visible = false;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -97,6 +116,13 @@ namespace UI
             lbCategoria.Visible = false;
             rbVeiculo.Visible = false;
             rbCaixa.Visible = false;
+
+            if (label6.Visible || edtPlaca.Visible)
+            {
+                label6.Visible = false;
+                edtPlaca.Visible = false;
+            }
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -106,7 +132,8 @@ namespace UI
 
         private void rbVeiculo_CheckedChanged(object sender, EventArgs e)
         {
-
+            label6.Visible = true;
+            edtPlaca.Visible = true;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -119,6 +146,27 @@ namespace UI
             lbCategoria.Visible = true;
             rbCaixa.Visible = true;
             rbVeiculo.Visible = true;
+        }
+
+        private void txtDesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbEntrada_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lbCategoria.Visible || rbVeiculo.Visible || rbCaixa.Visible)
+            {
+                lbCategoria.Visible = false;
+                rbVeiculo.Visible = false;
+                rbCaixa.Visible = false;
+            }
+            if (label6.Visible || edtPlaca.Visible)
+            {
+                label6.Visible = false;
+                edtPlaca.Visible = false;
+            }
+
         }
     }
 }
