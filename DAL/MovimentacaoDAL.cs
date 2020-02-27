@@ -509,7 +509,12 @@ namespace DAL
         }
         public DataTable filtrarNomeSaida(string nome)
         {
-            String consultaS = (String.Format(
+            try{
+                ClienteDAL clienteDAL = new ClienteDAL();
+                DataTable data = clienteDAL.ConsultarCliente(nome.ToUpper());
+                String cod_cliente = data.Rows[0]["COD_CLIENTE"].ToString();
+
+                String consultaS = (String.Format(
                      "SELECT MV.COD_MOV_VEICULOS, " +
                      "MA.DS_MARCA, " +
                      "MO.DS_MODELO, " +
@@ -532,20 +537,19 @@ namespace DAL
                      "MODELOS MO, " +
                      "CLIENTES C2, " +
                      "CLIENTES C1 " +
-                    "WHERE C1.nome =" + nome +
-                    "AND MV.COD_MODELO = MO.COD_MODELO " +
-                    "AND MV.COD_CLIENTE_SAIDA = C2.COD_CLIENTE " +
-                    "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
-                    "AND MV.DATA_SAIDA >= '{0}' AND MV.DATA_SAIDA <= '{1}'" +
-                    "ORDER BY MV.COD_MOV_VEICULOS "));
+                    "WHERE COD_CLIENTE_ENTRADA = {0} ", cod_cliente ));
 
             FbDataAdapter da = new FbDataAdapter
                     (new FbCommand(consultaS, ConnectionFactory.Connect()));
             DataTable dt = new DataTable();
             da.Fill(dt);
-
-            ConnectionFactory.Connect().Close();
-            return dt;
+                 return dt;
+            }catch(Exception e){
+                 throw new Exception("Falha ao filtrar movimentações!" + e.Message);
+            }finally{
+                ConnectionFactory.Connect().Close();
+            }
+    
 
         }
 
