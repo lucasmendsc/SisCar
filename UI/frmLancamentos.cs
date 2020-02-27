@@ -86,6 +86,39 @@ namespace UI
             string data = DateTime.Now.Date.ToString();
 
             dtLanc.Text = converterData(data);
+
+            lbCategoria.Visible = false;
+            rbVeiculo.Visible = false;
+            rbCaixa.Visible = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            lbCategoria.Visible = false;
+            rbVeiculo.Visible = false;
+            rbCaixa.Visible = false;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbVeiculo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbSaida_CheckedChanged(object sender, EventArgs e)
+        {
+            lbCategoria.Visible = true;
+            rbCaixa.Visible = true;
+            rbVeiculo.Visible = true;
         }
     }
 }

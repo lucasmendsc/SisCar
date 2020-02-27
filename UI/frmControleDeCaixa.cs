@@ -127,7 +127,7 @@ namespace UI
 
             if (dataTable.Rows.Count > 0)
             {
-                string situacao = dataTable.Rows[0]["SITUACAO"].ToString();
+                string situacao = retornaSitiacao();
                 if (situacao.Equals("A"))
                 {
                     lbSituacaoF.Visible = false;
@@ -139,7 +139,7 @@ namespace UI
                     
                     preencherDataGrid();
                 }
-                else if (situacao.Equals("F"))
+                else if (situacao.Equals("F") || situacao.Equals(""))
                 {
                     lbDataCaixa.Text = converterDataTime(dt);
                     lbSaldoInicial.Text = "0,00";
@@ -172,6 +172,10 @@ namespace UI
         {
             try
             {
+                if (lbSituacaoF.Visible)
+                {
+                   
+                }
                 CaixaBLL caixabll = new CaixaBLL();
                 DataTable dataTable = caixabll.recuperarUltimoCaixa();
                 int id_caixa = Convert.ToInt32(dataTable.Rows[0]["ID"].ToString());
