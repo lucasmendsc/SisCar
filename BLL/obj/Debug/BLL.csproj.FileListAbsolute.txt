@@ -194,3 +194,22 @@ C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
 C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.dll
 C:\Users\evert\Documents\SisCar\BLL\obj\Debug\BLL.pdb
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\BLL.dll.config
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\BLL.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\BLL.pdb
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\DAL.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\EntityFramework.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\EntityFramework.Firebird.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\Models.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\DAL.pdb
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\DAL.dll.config
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\Models.pdb
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\Models.dll.config
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\EntityFramework.xml
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.dll
+C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.pdb

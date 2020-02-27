@@ -113,9 +113,6 @@ namespace UI
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            lbCategoria.Visible = false;
-            rbVeiculo.Visible = false;
-            rbCaixa.Visible = false;
 
             if (label6.Visible || edtPlaca.Visible)
             {
