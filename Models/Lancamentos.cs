@@ -35,12 +35,11 @@ namespace Models
         }
 
 
-        public int Id { get => id; set => id = value; }
         public string Tipo { get => tipo; set => tipo = value; }
         public string Descricao { get => descricao; set => descricao = value; }
         public double Valor { get => valor; set => valor = value; }
         public int Caixa { get => caixa; set => caixa = value; }
-        public string Data { get => data; set => data = value; }
+        public string Data {get => data; set => data = value; }
         public string Placa { get => placa; set => placa = value; }
         public string Responsavel { get => responsavel; set => responsavel = value; }
 

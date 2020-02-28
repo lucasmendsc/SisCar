@@ -147,6 +147,32 @@ namespace DAL
             }
             
         }
+        public DataTable consultarLancamentos()
+        {
+            try
+            {
+                String consultaLanc = (String.Format(
+                    "SELECT *                 " +
+                    "  FROM LANCAMENTOS"));
+
+                FbDataAdapter da = new FbDataAdapter
+                       (new FbCommand(consultaLanc, ConnectionFactory.Connect()));
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao buscar lancamentos :" + ex.Message);
+            }
+            finally
+            {
+                ConnectionFactory.Connect().Close();
+            }
+
+        }
 
         public DataTable consultarCaixaPorData(string data)
         {

@@ -109,3 +109,8 @@ C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Mod
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Models.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Models.pdb
 C:\SisCar\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\SisCar\Models\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\SisCar\Models\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\SisCar\Models\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\SisCar\Models\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\SisCar\Models\bin\Debug\Microsoft.SqlServer.Types.dll

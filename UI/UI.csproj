@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UI</RootNamespace>
     <AssemblyName>UI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -95,6 +95,18 @@
     <ApplicationIcon>desktop.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\Models\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\Models\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\Models\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\Models\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -133,12 +145,19 @@
     <Compile Include="frmControleDeCaixa.Designer.cs">
       <DependentUpon>frmControleDeCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRelatorio_lancamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorio_lancamentos.Designer.cs">
+      <DependentUpon>frmRelatorio_lancamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmViewVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmViewVeiculo.Designer.cs">
       <DependentUpon>frmViewVeiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Veiculos_crud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,9 +238,13 @@
     <EmbeddedResource Include="frmControleDeCaixa.resx">
       <DependentUpon>frmControleDeCaixa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorio_lancamentos.resx">
+      <DependentUpon>frmRelatorio_lancamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmViewVeiculo.resx">
       <DependentUpon>frmViewVeiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="relatorio_lancamentos.rdlc" />
     <EmbeddedResource Include="Veiculos_crud.resx">
       <DependentUpon>Veiculos_crud.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +288,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -295,6 +320,19 @@
   <ItemGroup>
     <Content Include="desktop.ico" />
     <Content Include="favicon %281%29.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -302,6 +340,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
