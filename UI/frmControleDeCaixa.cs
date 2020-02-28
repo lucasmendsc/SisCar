@@ -261,5 +261,29 @@ namespace UI
                 }
             }
         }
+
+        private void btImprimir_Click(object sender, EventArgs e)
+        {
+
+            int height = dataGridLanc.Height;
+            dataGridLanc.Height = dataGridLanc.RowCount * dataGridLanc.RowTemplate.Height;
+            Bitmap bitmap = new Bitmap(dataGridLanc.Width, dataGridLanc.Height);
+
+            dataGridLanc.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridLanc.Width, this.dataGridLanc.Height));
+            dataGridLanc.Height = height;
+
+            printDialog1.Document = printDocument1;
+            printDialog1.ShowDialog();
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int height = dataGridLanc.Height;
+            dataGridLanc.Height = dataGridLanc.RowCount * dataGridLanc.RowTemplate.Height * 2;
+            Bitmap bpm = new Bitmap(dataGridLanc.Height + 300, dataGridLanc.Width + 300);
+            dataGridLanc.DrawToBitmap(bpm, new Rectangle(0, 0, this.dataGridLanc.Height + 300, this.dataGridLanc.Width + 300));
+            e.Graphics.DrawImage(bpm, 0, 0);
+        }
     }
 }

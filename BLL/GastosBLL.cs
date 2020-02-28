@@ -43,15 +43,14 @@ namespace BLL
                     gastosVeiculosDAL.InserirGastosVeiculos(gastos);
 
                     gerarLancamento(gastos, lancamentos.Placa);
+                     MessageBox.Show("Lamcamento realizado com sucesso !");
                 }
                 else
                 {
                     MessageBox.Show("Placa não invalida ou inexistente nos registros.");
                 }
-            }
-            finally
-            {
-                MessageBox.Show("Lamcamento realizado com sucesso !");
+            }catch(Exception e){
+                MessageBox.Show("Ocorreu um erro ao inserir um Lançamento.");
             }
         }
 

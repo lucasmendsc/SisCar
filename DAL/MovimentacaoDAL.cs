@@ -378,8 +378,9 @@ namespace DAL
         }
 
         public DataTable ConsultarMovimentacaoSaida(String TEXTO)
-        {
-            String consultaS = (String.Format(
+        {   
+            try{
+                    String consultaS = (String.Format(
                      "SELECT MV.COD_MOV_VEICULOS, " +
                       "MA.DS_MARCA, " +
                       "MO.DS_MODELO, " +
@@ -415,9 +416,16 @@ namespace DAL
                    (new FbCommand(consultaS, ConnectionFactory.Connect()));
             DataTable dt = new DataTable();
             da.Fill(dt);
-
-            ConnectionFactory.Connect().Close();
             return dt;
+
+            }catch(Exception e){
+                throw new Exception("Falha ao filtrar movimentações!" + e.Message);
+            }finally{
+                 ConnectionFactory.Connect().Close();
+                
+            }
+        
+           
         }
         
         public DataTable filtrarMovimentacaoSaida(string dataInicio, string dataFim)

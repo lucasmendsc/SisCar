@@ -289,7 +289,8 @@ namespace UI
 
         private void btEXCLUIR_Click(object sender, EventArgs e)
         {
-            Movimentacao movimentacao = new Movimentacao();
+            try{
+                Movimentacao movimentacao = new Movimentacao();
             MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
             movimentacao.Cod_Mov_Veiculos = txtCOD_MOV_VEICULOS.Text;
@@ -303,6 +304,10 @@ namespace UI
                 consulta = null;
                 btEXCLUIR.Enabled = false;
             }
+            }catch(Exception){
+                MessageBox.Show("Ocorreu um erro ao excluir movimentação.");
+            }
+            
         }
 
         private void txtCONSULTA_KeyDown(object sender, KeyEventArgs e)
@@ -829,6 +834,7 @@ namespace UI
             Cliente cliente = new Cliente();
             ClienteBLL clientebll = new ClienteBLL();
 
+            try{
             cliente.Cod_Cliente = txtCOD_CLIENTE.Text;
             cliente.Nome = txtNOME.Text;
 
@@ -840,6 +846,10 @@ namespace UI
                 txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
                 consulta1 = null;
             }
+            }catch(Exception){
+                MessageBox.Show("Ocorreu um erro ao excluir um cliente.");
+            }
+            
         }
 
         private void txtDATA_NASC_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -975,8 +985,17 @@ namespace UI
         }
 
         public void button1_Click(object sender, EventArgs e)
-        {     
+        {
+            int height = dataGridView1.Height;
+            dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
+            Bitmap bitmap = new Bitmap(dataGridView1.Width, dataGridView1.Height);
 
+            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+            dataGridView1.Height = height;
+
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -1069,6 +1088,11 @@ namespace UI
                 //dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
                 dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
             }
+        }
+
+        private void txtPLACA_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

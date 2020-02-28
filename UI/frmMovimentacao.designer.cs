@@ -878,6 +878,7 @@
             this.txtPLACA.PromptChar = ' ';
             this.txtPLACA.Size = new System.Drawing.Size(93, 20);
             this.txtPLACA.TabIndex = 9;
+            this.txtPLACA.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtPLACA_MaskInputRejected);
             // 
             // txtVERSAO
             // 

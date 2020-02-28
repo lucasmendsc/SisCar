@@ -5,9 +5,8 @@
     "\\BLL\\bin",
     "\\BLL\\bin\\Debug",
     "\\DAL",
-    "\\Models",
     "\\UI"
   ],
-  "SelectedNode": "\\UI\\UI.sln",
+  "SelectedNode": "\\UI\\frmMovimentacao.designer.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -44,6 +44,8 @@
             this.lbSituacaoF = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbSaldoInicial = new System.Windows.Forms.Label();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLanc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +103,7 @@
             this.btImprimir.Text = "IMPRIMIR";
             this.btImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btImprimir.UseVisualStyleBackColor = false;
+            this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
             // 
             // label1
             // 
@@ -229,6 +232,14 @@
             this.lbSaldoInicial.Size = new System.Drawing.Size(100, 23);
             this.lbSaldoInicial.TabIndex = 14;
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // frmCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,5 +293,7 @@
         private System.Windows.Forms.Label lbSituacaoF;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbSaldoInicial;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

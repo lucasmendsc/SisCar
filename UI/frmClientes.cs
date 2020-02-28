@@ -152,7 +152,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Ocorreu um erro ao cadastrar um cliente " + ex.Message);
             }
         }
 
@@ -218,16 +218,20 @@ namespace UI
 
             //cliente.Cod_Cliente = txtCOD_CLIENTE.Text;
             //cliente.Nome = txtNOME.Text;
-
-            if (MessageBox.Show("Deseja EXCLUIR o usuário " + cliente.Nome + "?", "Excluir Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                clientebll.excluirCliente(cliente);                
-                ZeraCampos();
-                clientebll.inserirCodigo(cliente);
-                //txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-                consulta1 = null;
-               // btEXCLUIR.Enabled = false;
+            try{
+                 if (MessageBox.Show("Deseja EXCLUIR o usuário " + cliente.Nome + "?", "Excluir Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                 {
+                    clientebll.excluirCliente(cliente);                
+                    ZeraCampos();
+                    clientebll.inserirCodigo(cliente);
+                    //txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
+                    consulta1 = null;
+                    // btEXCLUIR.Enabled = false;
+                  }
+            }catch(Exception){
+                MessageBox.Show("Ocorreu um erro ao excluir o cliente.");
             }
+           
         }
 
         private void txtDATA_NASC_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

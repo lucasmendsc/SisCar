@@ -43,11 +43,11 @@
             this.dtLanc = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.lbPlaca = new System.Windows.Forms.Label();
-            this.edtPlaca = new System.Windows.Forms.TextBox();
             this.chkLoja = new System.Windows.Forms.CheckBox();
             this.chkVeiculo = new System.Windows.Forms.CheckBox();
             this.lbResponsavel = new System.Windows.Forms.Label();
             this.edtResponsavel = new System.Windows.Forms.TextBox();
+            this.edtPlaca = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +131,7 @@
             // 
             this.txtValor.BackColor = System.Drawing.Color.Snow;
             this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(277, 130);
+            this.txtValor.Location = new System.Drawing.Point(277, 132);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(100, 23);
             this.txtValor.TabIndex = 8;
@@ -197,21 +197,12 @@
             // 
             this.lbPlaca.AutoSize = true;
             this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlaca.Location = new System.Drawing.Point(392, 133);
+            this.lbPlaca.Location = new System.Drawing.Point(399, 132);
             this.lbPlaca.Name = "lbPlaca";
             this.lbPlaca.Size = new System.Drawing.Size(48, 17);
             this.lbPlaca.TabIndex = 16;
             this.lbPlaca.Text = "Placa";
             this.lbPlaca.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // edtPlaca
-            // 
-            this.edtPlaca.BackColor = System.Drawing.Color.Snow;
-            this.edtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edtPlaca.Location = new System.Drawing.Point(444, 130);
-            this.edtPlaca.Name = "edtPlaca";
-            this.edtPlaca.Size = new System.Drawing.Size(100, 23);
-            this.edtPlaca.TabIndex = 17;
             // 
             // chkLoja
             // 
@@ -256,17 +247,27 @@
             this.edtResponsavel.TabIndex = 21;
             this.edtResponsavel.Visible = false;
             // 
+            // edtPlaca
+            // 
+            this.edtPlaca.BackColor = System.Drawing.Color.Snow;
+            this.edtPlaca.Location = new System.Drawing.Point(453, 132);
+            this.edtPlaca.Mask = "AAA-9999";
+            this.edtPlaca.Name = "edtPlaca";
+            this.edtPlaca.Size = new System.Drawing.Size(100, 20);
+            this.edtPlaca.TabIndex = 22;
+            this.edtPlaca.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.edtPlaca_MaskInputRejected);
+            // 
             // frmLancamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(577, 271);
+            this.Controls.Add(this.edtPlaca);
             this.Controls.Add(this.edtResponsavel);
             this.Controls.Add(this.lbResponsavel);
             this.Controls.Add(this.chkVeiculo);
             this.Controls.Add(this.chkLoja);
-            this.Controls.Add(this.edtPlaca);
             this.Controls.Add(this.lbPlaca);
             this.Controls.Add(this.lbCategoria);
             this.Controls.Add(this.dtLanc);
@@ -310,10 +311,10 @@
         private System.Windows.Forms.Label dtLanc;
         private System.Windows.Forms.Label lbCategoria;
         private System.Windows.Forms.Label lbPlaca;
-        private System.Windows.Forms.TextBox edtPlaca;
         private System.Windows.Forms.CheckBox chkLoja;
         private System.Windows.Forms.CheckBox chkVeiculo;
         private System.Windows.Forms.Label lbResponsavel;
         private System.Windows.Forms.TextBox edtResponsavel;
+        private System.Windows.Forms.MaskedTextBox edtPlaca;
     }
 }

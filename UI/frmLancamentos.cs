@@ -41,17 +41,16 @@ namespace UI
             
             CaixaBLL caixabll = new CaixaBLL();
             GastosBLL gastosbll = new GastosBLL();
-
-            if (rbEntrada.Checked)
-            {
+            try{
+                if (rbEntrada.Checked)
+                {
                 lancamentos.Tipo = "ENTRADA";
                 caixabll.inserirLancamentos(lancamentos);
 
 
-            }
+                }
             else if (rbSaida.Checked)
-            {
-                lancamentos.Tipo = "SAIDA";
+                    lancamentos.Tipo = "SAIDA";
 
                 if (chkLoja.Checked)
                 {
@@ -64,14 +63,17 @@ namespace UI
                     lancamentos.Placa = edtPlaca.Text;
                     lancamentos.Responsavel = edtResponsavel.Text;
                     gastosbll.inserirLancamentoComoGasto(lancamentos);
+                    caixabll.inserirLancamentos(lancamentos);
                 }
 
+            }catch(Exception){
+                MessageBox.Show("Ocorreu um erro ao inserir a movimentação.");
+            }finally{
+                this.Close();
             }
 
-
-            this.Close();
-
-        }
+         }
+            
 
         private string converterData(string data)
         {
@@ -172,6 +174,11 @@ namespace UI
 
 
             chkLoja.Checked = false;
+        }
+
+        private void edtPlaca_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
