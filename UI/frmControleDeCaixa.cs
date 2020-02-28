@@ -264,8 +264,11 @@ namespace UI
 
         private void btImprimir_Click(object sender, EventArgs e)
         {
+            frmRelatorio_lancamentos frmRelatorio = new frmRelatorio_lancamentos();
+            frmRelatorio.Show();
 
-            int height = dataGridLanc.Height;
+
+           /* int height = dataGridLanc.Height;
             dataGridLanc.Height = dataGridLanc.RowCount * dataGridLanc.RowTemplate.Height;
             Bitmap bitmap = new Bitmap(dataGridLanc.Width, dataGridLanc.Height);
 
@@ -274,7 +277,7 @@ namespace UI
 
             printDialog1.Document = printDocument1;
             printDialog1.ShowDialog();
-
+            */
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

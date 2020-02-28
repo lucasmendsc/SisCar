@@ -213,3 +213,8 @@ C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.cs
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\BLL\obj\Debug\BLL.pdb
+C:\SisCar\BLL\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\SisCar\BLL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\SisCar\BLL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\SisCar\BLL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\SisCar\BLL\bin\Debug\Microsoft.SqlServer.Types.dll
