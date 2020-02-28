@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BLL",
-    "\\BLL\\bin",
-    "\\BLL\\bin\\Debug",
-    "\\DAL",
+    "\\Aqui contém o Banco de Dados",
     "\\UI"
   ],
   "SelectedNode": "\\UI\\UI.sln",

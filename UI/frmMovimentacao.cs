@@ -155,7 +155,8 @@ namespace UI
         private void frmMovimentacao_Load(object sender, EventArgs e)
         {
             MarcaBLL marcabll = new MarcaBLL();
-
+            richTextBox1.Visible = false;
+            sairClienteView.Visible = false;
             if (Entrada_Saida == "E")
             {
                 gbVenda.Visible = false;
@@ -1009,20 +1010,28 @@ namespace UI
 
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
-            switch (MouseButtons)
+            try
             {
-                case MouseButtons.Left:
-                   
-                    break;
+                switch (MouseButtons)
+                {
+                    case MouseButtons.Left:
 
-                case MouseButtons.Right:
-                    dataGridView1.ClearSelection();
-                    dataGridView1.Rows[rowSelected].Selected = true;
-                    Point point = new Point(this.Location.X + dataGridView1.Location.X + e.X +15,
-                    this.Location.Y + dataGridView1.Location.Y + e.Y + 30);
-                    contextMenuStrip1.Show(point);
-                    break;
+                        break;
+
+                    case MouseButtons.Right:
+                        dataGridView1.ClearSelection();
+                        dataGridView1.Rows[rowSelected].Selected = true;
+                        Point point = new Point(this.Location.X + dataGridView1.Location.X + e.X + 15,
+                        this.Location.Y + dataGridView1.Location.Y + e.Y + 30);
+                        contextMenuStrip1.Show(point);
+                        break;
+                }
             }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -1031,30 +1040,23 @@ namespace UI
         }
 
         private void visualizarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {           
             try
             {
-                string data = "";
-
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                sairClienteView.Visible = true;
+                richTextBox1.Visible = true;
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
                 {
-                    data += dataGridView1.Columns[i].HeaderText
-                       + " : " + (string)dataGridView1[i, rowSelected].Value.ToString() + "\n\n";
+                    richTextBox1.Text += dataGridView1.Columns[i].HeaderText;
+                    richTextBox1.Text +=  " : " + dataGridView1[i, rowSelected].Value.ToString() + "\n\n"; 
 
                 }
-
-                PrintDocument pd = new PrintDocument();
-                PrintDialog pdi = new PrintDialog();
-                pdi.Document = pd;
-
-                MessageBox.Show(data);
-
+                
             }
             catch(Exception exc)
             {
                 MessageBox.Show("Selecione uma linha para visualizar.");
             }
-           
 
         }
 
@@ -1092,7 +1094,24 @@ namespace UI
 
         private void txtPLACA_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
+            
+        }
 
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox1 = new RichTextBox();
+            richTextBox1.Dock = DockStyle.Fill;
+            richTextBox1.SelectionFont = new Font("Verdana", 12, FontStyle.Bold);
+            richTextBox1.SelectionColor = Color.Red;
+            richTextBox1.AppendText(dataGridView1[0, rowSelected].Value.ToString());
+            this.Controls.Add(richTextBox1);
+        }
+
+        private void sairClienteView_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Visible = false;
+            sairClienteView.Visible = false;
+            richTextBox1.Text = "";
         }
     }
 }
