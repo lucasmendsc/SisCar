@@ -55,6 +55,7 @@
             this.dataGridLanc.Size = new System.Drawing.Size(645, 299);
             this.dataGridLanc.TabIndex = 0;
             this.dataGridLanc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridLanc.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridLanc_CellFormatting);
             // 
             // btAbrirCaixa
             // 
@@ -210,6 +211,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(214, 412);
             this.label4.Name = "label4";
@@ -219,6 +221,7 @@
             // 
             // lbSaldoInicial
             // 
+            this.lbSaldoInicial.BackColor = System.Drawing.Color.Transparent;
             this.lbSaldoInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSaldoInicial.ForeColor = System.Drawing.Color.Navy;
             this.lbSaldoInicial.Location = new System.Drawing.Point(376, 412);

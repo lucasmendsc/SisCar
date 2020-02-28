@@ -38,7 +38,9 @@ namespace UI
             lancamentos.Data = dtLanc.Text.ToString();
             lancamentos.Valor = Convert.ToDouble(txtValor.Text);
             lancamentos.Caixa = id_caixa;
+            
             CaixaBLL caixabll = new CaixaBLL();
+            GastosBLL gastosbll = new GastosBLL();
 
             if (rbEntrada.Checked)
             {
@@ -51,20 +53,21 @@ namespace UI
             {
                 lancamentos.Tipo = "SAIDA";
 
-                if (rbCaixa.Checked)
+                if (chkLoja.Checked)
                 {
-
+                    lancamentos.Placa = null;
+                    lancamentos.Responsavel = null;
                     caixabll.inserirLancamentos(lancamentos);
                 }
-                else if (rbVeiculo.Checked)
+                else if (chkVeiculo.Checked)
                 {
-
+                    lancamentos.Placa = edtPlaca.Text;
+                    lancamentos.Responsavel = edtResponsavel.Text;
+                    gastosbll.inserirLancamentoComoGasto(lancamentos);
                 }
 
             }
 
-
-            MessageBox.Show("Lançamento inserido com sucesso !");
 
             this.Close();
 
@@ -104,34 +107,21 @@ namespace UI
 
             dtLanc.Text = converterData(data);
 
+            chkLoja.Visible = false;
+            chkVeiculo.Visible = false;
             lbCategoria.Visible = false;
-            rbVeiculo.Visible = false;
-            rbCaixa.Visible = false;
-            label6.Visible = false;
+            lbPlaca.Visible = false;
             edtPlaca.Visible = false;
+            lbResponsavel.Visible = false;
+            edtResponsavel.Visible = false;
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (label6.Visible || edtPlaca.Visible)
-            {
-                label6.Visible = false;
-                edtPlaca.Visible = false;
-            }
-
-        }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void rbVeiculo_CheckedChanged(object sender, EventArgs e)
-        {
-            label6.Visible = true;
-            edtPlaca.Visible = true;
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -141,8 +131,8 @@ namespace UI
         private void rbSaida_CheckedChanged(object sender, EventArgs e)
         {
             lbCategoria.Visible = true;
-            rbCaixa.Visible = true;
-            rbVeiculo.Visible = true;
+            chkLoja.Visible = true;
+            chkVeiculo.Visible = true;
         }
 
         private void txtDesc_TextChanged(object sender, EventArgs e)
@@ -152,18 +142,36 @@ namespace UI
 
         private void rbEntrada_CheckedChanged(object sender, EventArgs e)
         {
-            if (lbCategoria.Visible || rbVeiculo.Visible || rbCaixa.Visible)
-            {
-                lbCategoria.Visible = false;
-                rbVeiculo.Visible = false;
-                rbCaixa.Visible = false;
-            }
-            if (label6.Visible || edtPlaca.Visible)
-            {
-                label6.Visible = false;
-                edtPlaca.Visible = false;
-            }
+            lbCategoria.Visible = false;
+            chkLoja.Visible = false;
+            chkVeiculo.Visible = false;
+            lbResponsavel.Visible = false;
+            edtResponsavel.Visible = false;
 
+        }
+        private void chkLoja_CheckedChanged_1(object sender, EventArgs e)
+        {
+            edtPlaca.Visible = false;
+            lbPlaca.Visible = false;
+            edtPlaca.Enabled = false;
+            lbPlaca.Enabled = false;
+            lbResponsavel.Visible = false;
+            edtResponsavel.Visible = false;
+
+            chkVeiculo.Checked = false;
+        }
+
+        private void chkVeiculo_CheckedChanged_1(object sender, EventArgs e)
+        {
+            edtPlaca.Visible = true;
+            lbPlaca.Visible = true;
+            edtPlaca.Enabled = true;
+            lbPlaca.Enabled = true;
+            lbResponsavel.Visible = true;
+            edtResponsavel.Visible = true;
+
+
+            chkLoja.Checked = false;
         }
     }
 }

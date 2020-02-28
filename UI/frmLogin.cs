@@ -93,5 +93,14 @@ namespace UI
         {
 
         }
+
+        private void txtUsuario_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSenha_Enter(object sender, EventArgs e)
+        {
+        }
     }
 }

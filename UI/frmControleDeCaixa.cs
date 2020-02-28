@@ -209,6 +209,9 @@ namespace UI
             dataGridLanc.Columns[4].HeaderText = "VALOR.";
             dataGridLanc.Columns[5].HeaderText = "ID_CAIXA";
 
+            this.dataGridLanc.Columns[0].Visible = false;
+            this.dataGridLanc.Columns[5].Visible = false;
+
             double entradas = 0, saidas = 0, saldo = 0;
             foreach (DataRow linha in dataTable1.Rows)
             {
@@ -242,6 +245,21 @@ namespace UI
                 verificarSituacaoCaixa();
             }
             
+        }
+
+        private void dataGridLanc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridViewRow row = dataGridLanc.Rows[e.RowIndex];
+            if (row.Cells["TIPO"].Value != null) {
+                if (row.Cells["TIPO"].Value.Equals("SAIDA"))
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else if ((row.Cells["TIPO"].Value.Equals("ENTRADA")))
+                {
+                    row.DefaultCellStyle.BackColor = Color.Green;
+                }
+            }
         }
     }
 }

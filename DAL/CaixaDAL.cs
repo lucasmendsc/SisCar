@@ -84,19 +84,25 @@ namespace DAL
                     "DESCRICAO, " +
                     "DATA, "+
                     "VALOR, "+
-                    "ID_CAIXA)" +
+                    "ID_CAIXA," +
+                    "PLACA," +
+                    "RESPONSAVEL)" +
                     "VALUES ({0}," +
                     "'{1}'," +
                     "'{2}'," +
                     "'{3}',"+
                     "{4},"+
-                    "{5})",
+                    "{5}," +
+                    "'{6}'," +
+                    "'{7}')",
                     "null",
                     lancamentos.Tipo,
                     lancamentos.Descricao,
                     lancamentos.Data,
                     lancamentos.Valor,
-                    lancamentos.Caixa));
+                    lancamentos.Caixa,
+                    lancamentos.Placa,
+                    lancamentos.Responsavel));
 
                 FbCommand comandoInsert = new FbCommand
                     (inserelancamento, ConnectionFactory.Connect());
@@ -105,7 +111,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao inserir lançamento!" + ex.Message);
+                throw new Exception("Falha ao inserir lançamento no caixa!" + ex.Message);
             }
             finally
             {

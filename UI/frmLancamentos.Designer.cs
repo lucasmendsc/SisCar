@@ -42,10 +42,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtLanc = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
-            this.rbCaixa = new System.Windows.Forms.RadioButton();
-            this.rbVeiculo = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbPlaca = new System.Windows.Forms.Label();
             this.edtPlaca = new System.Windows.Forms.TextBox();
+            this.chkLoja = new System.Windows.Forms.CheckBox();
+            this.chkVeiculo = new System.Windows.Forms.CheckBox();
+            this.lbResponsavel = new System.Windows.Forms.Label();
+            this.edtResponsavel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +89,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(15, 55);
+            this.label2.Location = new System.Drawing.Point(13, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 3;
@@ -99,7 +101,7 @@
             this.txtDesc.BackColor = System.Drawing.Color.Snow;
             this.txtDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesc.Location = new System.Drawing.Point(102, 54);
+            this.txtDesc.Location = new System.Drawing.Point(96, 86);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(457, 23);
             this.txtDesc.TabIndex = 4;
@@ -108,10 +110,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 92);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Data";
             // 
@@ -119,7 +121,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(225, 88);
+            this.label4.Location = new System.Drawing.Point(225, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 7;
@@ -129,7 +131,7 @@
             // 
             this.txtValor.BackColor = System.Drawing.Color.Snow;
             this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(277, 85);
+            this.txtValor.Location = new System.Drawing.Point(277, 130);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(100, 23);
             this.txtValor.TabIndex = 8;
@@ -140,7 +142,7 @@
             this.btConcluir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btConcluir.Image = ((System.Drawing.Image)(resources.GetObject("btConcluir.Image")));
             this.btConcluir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btConcluir.Location = new System.Drawing.Point(386, 112);
+            this.btConcluir.Location = new System.Drawing.Point(395, 188);
             this.btConcluir.Name = "btConcluir";
             this.btConcluir.Size = new System.Drawing.Size(75, 71);
             this.btConcluir.TabIndex = 9;
@@ -154,7 +156,7 @@
             this.btCancelar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
             this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCancelar.Location = new System.Drawing.Point(484, 112);
+            this.btCancelar.Location = new System.Drawing.Point(493, 188);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 71);
             this.btCancelar.TabIndex = 10;
@@ -166,7 +168,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 133);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 209);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(129, 50);
             this.pictureBox1.TabIndex = 11;
@@ -174,8 +176,8 @@
             // 
             // dtLanc
             // 
-            this.dtLanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtLanc.Location = new System.Drawing.Point(59, 90);
+            this.dtLanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtLanc.Location = new System.Drawing.Point(65, 133);
             this.dtLanc.Name = "dtLanc";
             this.dtLanc.Size = new System.Drawing.Size(149, 23);
             this.dtLanc.TabIndex = 12;
@@ -185,68 +187,87 @@
             // 
             this.lbCategoria.AutoSize = true;
             this.lbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategoria.Location = new System.Drawing.Point(13, 30);
+            this.lbCategoria.Location = new System.Drawing.Point(14, 51);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(78, 17);
             this.lbCategoria.TabIndex = 13;
             this.lbCategoria.Text = "Categoria";
             // 
-            // rbCaixa
+            // lbPlaca
             // 
-            this.rbCaixa.AutoSize = true;
-            this.rbCaixa.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCaixa.Location = new System.Drawing.Point(102, 31);
-            this.rbCaixa.Name = "rbCaixa";
-            this.rbCaixa.Size = new System.Drawing.Size(108, 19);
-            this.rbCaixa.TabIndex = 14;
-            this.rbCaixa.TabStop = true;
-            this.rbCaixa.Text = "Lançamentos loja";
-            this.rbCaixa.UseVisualStyleBackColor = true;
-            this.rbCaixa.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // rbVeiculo
-            // 
-            this.rbVeiculo.AutoSize = true;
-            this.rbVeiculo.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbVeiculo.Location = new System.Drawing.Point(216, 30);
-            this.rbVeiculo.Name = "rbVeiculo";
-            this.rbVeiculo.Size = new System.Drawing.Size(144, 19);
-            this.rbVeiculo.TabIndex = 15;
-            this.rbVeiculo.TabStop = true;
-            this.rbVeiculo.Text = "Lancamento para veiculo";
-            this.rbVeiculo.UseVisualStyleBackColor = true;
-            this.rbVeiculo.CheckedChanged += new System.EventHandler(this.rbVeiculo_CheckedChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(392, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 17);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Placa";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lbPlaca.AutoSize = true;
+            this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlaca.Location = new System.Drawing.Point(392, 133);
+            this.lbPlaca.Name = "lbPlaca";
+            this.lbPlaca.Size = new System.Drawing.Size(48, 17);
+            this.lbPlaca.TabIndex = 16;
+            this.lbPlaca.Text = "Placa";
+            this.lbPlaca.Click += new System.EventHandler(this.label6_Click);
             // 
             // edtPlaca
             // 
             this.edtPlaca.BackColor = System.Drawing.Color.Snow;
             this.edtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edtPlaca.Location = new System.Drawing.Point(444, 85);
+            this.edtPlaca.Location = new System.Drawing.Point(444, 130);
             this.edtPlaca.Name = "edtPlaca";
             this.edtPlaca.Size = new System.Drawing.Size(100, 23);
             this.edtPlaca.TabIndex = 17;
+            // 
+            // chkLoja
+            // 
+            this.chkLoja.AutoSize = true;
+            this.chkLoja.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.chkLoja.Location = new System.Drawing.Point(98, 52);
+            this.chkLoja.Name = "chkLoja";
+            this.chkLoja.Size = new System.Drawing.Size(124, 20);
+            this.chkLoja.TabIndex = 18;
+            this.chkLoja.Text = "Lançamentos loja";
+            this.chkLoja.UseVisualStyleBackColor = true;
+            this.chkLoja.CheckedChanged += new System.EventHandler(this.chkLoja_CheckedChanged_1);
+            // 
+            // chkVeiculo
+            // 
+            this.chkVeiculo.AutoSize = true;
+            this.chkVeiculo.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.chkVeiculo.Location = new System.Drawing.Point(228, 52);
+            this.chkVeiculo.Name = "chkVeiculo";
+            this.chkVeiculo.Size = new System.Drawing.Size(179, 20);
+            this.chkVeiculo.TabIndex = 19;
+            this.chkVeiculo.Text = "Lançamentos para veiculos";
+            this.chkVeiculo.UseVisualStyleBackColor = true;
+            this.chkVeiculo.CheckedChanged += new System.EventHandler(this.chkVeiculo_CheckedChanged_1);
+            // 
+            // lbResponsavel
+            // 
+            this.lbResponsavel.AutoSize = true;
+            this.lbResponsavel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.lbResponsavel.Location = new System.Drawing.Point(9, 178);
+            this.lbResponsavel.Name = "lbResponsavel";
+            this.lbResponsavel.Size = new System.Drawing.Size(84, 17);
+            this.lbResponsavel.TabIndex = 20;
+            this.lbResponsavel.Text = "Responsável";
+            this.lbResponsavel.Visible = false;
+            // 
+            // edtResponsavel
+            // 
+            this.edtResponsavel.Location = new System.Drawing.Point(100, 178);
+            this.edtResponsavel.Name = "edtResponsavel";
+            this.edtResponsavel.Size = new System.Drawing.Size(150, 20);
+            this.edtResponsavel.TabIndex = 21;
+            this.edtResponsavel.Visible = false;
             // 
             // frmLancamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(577, 185);
+            this.ClientSize = new System.Drawing.Size(577, 271);
+            this.Controls.Add(this.edtResponsavel);
+            this.Controls.Add(this.lbResponsavel);
+            this.Controls.Add(this.chkVeiculo);
+            this.Controls.Add(this.chkLoja);
             this.Controls.Add(this.edtPlaca);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.rbVeiculo);
-            this.Controls.Add(this.rbCaixa);
+            this.Controls.Add(this.lbPlaca);
             this.Controls.Add(this.lbCategoria);
             this.Controls.Add(this.dtLanc);
             this.Controls.Add(this.pictureBox1);
@@ -288,9 +309,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label dtLanc;
         private System.Windows.Forms.Label lbCategoria;
-        private System.Windows.Forms.RadioButton rbCaixa;
-        private System.Windows.Forms.RadioButton rbVeiculo;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbPlaca;
         private System.Windows.Forms.TextBox edtPlaca;
+        private System.Windows.Forms.CheckBox chkLoja;
+        private System.Windows.Forms.CheckBox chkVeiculo;
+        private System.Windows.Forms.Label lbResponsavel;
+        private System.Windows.Forms.TextBox edtResponsavel;
     }
 }

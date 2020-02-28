@@ -95,7 +95,6 @@ C:\Users\evert\Documents\SisCar\Models\obj\Debug\Models.csprojAssemblyReference.
 C:\Users\evert\Documents\SisCar\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\evert\Documents\SisCar\Models\obj\Debug\Models.dll
 C:\Users\evert\Documents\SisCar\Models\obj\Debug\Models.pdb
-C:\SisCar\Models\obj\Debug\Models.csprojAssemblyReference.cache
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\bin\Debug\Models.dll.config
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\bin\Debug\Models.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\bin\Debug\Models.pdb
@@ -109,3 +108,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Mod
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Models.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\Nova pasta\SisCar\Models\obj\Debug\Models.pdb
+C:\SisCar\Models\obj\Debug\Models.csprojAssemblyReference.cache

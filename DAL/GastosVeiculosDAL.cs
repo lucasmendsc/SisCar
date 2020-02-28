@@ -68,6 +68,20 @@ namespace DAL
             return dt;
         }
 
+        public DataTable buscarVeiculoPorPlaca(string placa)
+        {
+            String consultaE = (String.Format(
+                     "SELECT * " +
+                     "FROM mov_veiculos " +
+                     "WHERE placa like '{0}'; ",
+                     placa));
+            FbDataAdapter da = new FbDataAdapter
+                   (new FbCommand(consultaE, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
+            ConnectionFactory.Connect().Close();
+            return dt;
+        }
     }
 }
