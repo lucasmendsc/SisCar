@@ -1015,6 +1015,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.clienteConsulta);
             this.panel3.Controls.Add(this.button1);
@@ -1213,6 +1214,7 @@
             // 
             // tabClientes
             // 
+            this.tabClientes.BackColor = System.Drawing.Color.Transparent;
             this.tabClientes.Controls.Add(this.edtCpfConsultaCliente);
             this.tabClientes.Controls.Add(this.dataGridViewCliente);
             this.tabClientes.Controls.Add(this.label11);
@@ -1222,7 +1224,6 @@
             this.tabClientes.Size = new System.Drawing.Size(857, 554);
             this.tabClientes.TabIndex = 2;
             this.tabClientes.Text = "Consultar Clientes";
-            this.tabClientes.UseVisualStyleBackColor = true;
             // 
             // edtCpfConsultaCliente
             // 
