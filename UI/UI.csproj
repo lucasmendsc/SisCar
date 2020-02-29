@@ -151,6 +151,12 @@
     <Compile Include="frmRelatorio_lancamentos.Designer.cs">
       <DependentUpon>frmRelatorio_lancamentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSelecionaRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelecionaRelatorio.Designer.cs">
+      <DependentUpon>frmSelecionaRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmViewVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRelatorio_lancamentos.resx">
       <DependentUpon>frmRelatorio_lancamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelecionaRelatorio.resx">
+      <DependentUpon>frmSelecionaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewVeiculo.resx">
       <DependentUpon>frmViewVeiculo.cs</DependentUpon>

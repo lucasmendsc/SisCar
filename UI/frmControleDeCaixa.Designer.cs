@@ -93,14 +93,14 @@
             // btImprimir
             // 
             this.btImprimir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btImprimir.Image")));
             this.btImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btImprimir.Location = new System.Drawing.Point(713, 310);
             this.btImprimir.Name = "btImprimir";
             this.btImprimir.Size = new System.Drawing.Size(75, 71);
             this.btImprimir.TabIndex = 3;
-            this.btImprimir.Text = "IMPRIMIR";
+            this.btImprimir.Text = "RELATÓRIOS";
             this.btImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btImprimir.UseVisualStyleBackColor = false;
             this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
