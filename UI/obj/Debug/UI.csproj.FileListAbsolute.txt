@@ -737,3 +737,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\UI\obj\Debug\UI.csproj.CopyComp
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\UI\obj\Debug\UI.exe
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\UI\obj\Debug\UI.pdb
 C:\SisCar\UI\obj\Debug\UI.frmSelecionaRelatorio.resources
+C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\UI\obj\Debug\UI.frmSelecionaRelatorio.resources

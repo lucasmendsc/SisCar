@@ -99,6 +99,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtCONSULTA = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.sairClienteView = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.clienteConsulta = new System.Windows.Forms.TextBox();
@@ -125,8 +127,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.sairClienteView = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1017,6 +1017,26 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
+            // sairClienteView
+            // 
+            this.sairClienteView.BackColor = System.Drawing.Color.Transparent;
+            this.sairClienteView.Location = new System.Drawing.Point(686, 117);
+            this.sairClienteView.Name = "sairClienteView";
+            this.sairClienteView.Size = new System.Drawing.Size(29, 23);
+            this.sairClienteView.TabIndex = 3;
+            this.sairClienteView.Text = "X";
+            this.sairClienteView.UseVisualStyleBackColor = false;
+            this.sairClienteView.Click += new System.EventHandler(this.sairClienteView_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(147, 117);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(568, 376);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
@@ -1288,26 +1308,6 @@
             this.visualizarToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.visualizarToolStripMenuItem.Text = "Visualizar";
             this.visualizarToolStripMenuItem.Click += new System.EventHandler(this.visualizarToolStripMenuItem_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(147, 117);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(568, 376);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // sairClienteView
-            // 
-            this.sairClienteView.BackColor = System.Drawing.Color.Transparent;
-            this.sairClienteView.Location = new System.Drawing.Point(686, 117);
-            this.sairClienteView.Name = "sairClienteView";
-            this.sairClienteView.Size = new System.Drawing.Size(29, 23);
-            this.sairClienteView.TabIndex = 3;
-            this.sairClienteView.Text = "X";
-            this.sairClienteView.UseVisualStyleBackColor = false;
-            this.sairClienteView.Click += new System.EventHandler(this.sairClienteView_Click);
             // 
             // frmMovimentacao
             // 

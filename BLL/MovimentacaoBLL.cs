@@ -43,7 +43,7 @@ namespace BLL
                 throw new Exception("É obrigatório o preenchimento do campo Cor!");
             }
 
-            if (movimentacao.Placa.Trim().Length == 0)
+            if (movimentacao.Placa.Trim().Length == 0 || movimentacao.Placa == null || movimentacao.Placa.Equals("   -"))
             {
                 throw new Exception("É obrigatório o preenchimento do campo Placa!");
             }
