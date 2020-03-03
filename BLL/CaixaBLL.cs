@@ -41,10 +41,10 @@ namespace BLL
             return caixadal.consultarLancamentos(id_caixa);
         }
 
-        public DataTable consultaLancamentos(string tipo, string dtInicio, string dtFim, string placa)
+        public DataTable consultaLancamentos(string tipo, string dtInicio, string dtFim, string placa, string simb)
         {
             CaixaDAL caixadal = new CaixaDAL();
-            return caixadal.consultarLancamentos(tipo, dtInicio, dtFim, placa);
+            return caixadal.consultarLancamentos(tipo, dtInicio, dtFim, placa, simb);
         }
 
         public DataTable consultarCaixaPorData(string data)

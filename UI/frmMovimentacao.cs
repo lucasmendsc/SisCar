@@ -11,6 +11,7 @@ using Models;
 using DAL;
 using BLL;
 using System.Drawing.Printing;
+using System.Collections;
 
 namespace UI
 {
@@ -99,14 +100,13 @@ namespace UI
 
             if (Entrada_Saida == "E")
             {
-                lbTTvendas.Visible = false;
-                lbValorTotal.Visible = false;
-                lbLucro.Visible = false;
-                lbValorLucro.Visible = false;
+                
                 dataGridView1.DataSource = movimentacaobll.consultarMovimentacaoApenasEntrada(Texto);
                 dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
                 // dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
                 dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
+
+                dataGridView1.Columns[11].Visible = false;
 
 
             }
@@ -120,11 +120,12 @@ namespace UI
                 dataGridView1.Columns[14].HeaderText = "Vr. Saída";
                 dataGridView1.Columns[15].HeaderText = "Cliente Saída";
 
-                lbTTvendas.Visible = true;
-                lbValorTotal.Visible = true;
+                dataGridView1.Columns[11].Visible = false;
+                dataGridView1.Columns[14].Visible = false;
+
+                
                 //PreencherValorTotal(dataTable);
-                lbLucro.Visible = true;
-                lbValorLucro.Visible = true;
+                
 
             }
 
@@ -138,6 +139,9 @@ namespace UI
             dataGridView1.Columns[7].HeaderText = "Placa";
             dataGridView1.Columns[8].HeaderText = "Renavam";
             dataGridView1.Columns[9].HeaderText = "Observações";
+
+            dataGridView1.Columns[0].Visible = false;
+            
 
             dataGridView1.Refresh();
 
@@ -155,8 +159,6 @@ namespace UI
         private void frmMovimentacao_Load(object sender, EventArgs e)
         {
             MarcaBLL marcabll = new MarcaBLL();
-            richTextBox1.Visible = false;
-            sairClienteView.Visible = false;
             if (Entrada_Saida == "E")
             {
                 gbVenda.Visible = false;
@@ -635,11 +637,6 @@ namespace UI
                 dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
                 dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
 
-                lbTTvendas.Visible = false;
-                lbValorTotal.Visible = false;
-                lbLucro.Visible = false;
-                lbValorLucro.Visible = false;
-
                 dataGridView1.Refresh();
             }
             else
@@ -887,6 +884,8 @@ namespace UI
             dataGridViewCliente.Columns[10].HeaderText = "Fone 2";
             dataGridViewCliente.Columns[11].HeaderText = "Sexo";
             dataGridViewCliente.Columns[12].HeaderText = "Restrição";
+
+            dataGridViewCliente.Columns[0].Visible = false;
         }
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -985,29 +984,6 @@ namespace UI
             tabControl1.SelectTab(0);
         }
 
-        public void button1_Click(object sender, EventArgs e)
-        {
-            int height = dataGridView1.Height;
-            dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
-            Bitmap bitmap = new Bitmap(dataGridView1.Width, dataGridView1.Height);
-
-            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
-            dataGridView1.Height = height;
-
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-            printPreviewDialog1.ShowDialog();
-        }
-
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            int height = dataGridView1.Height;
-            dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height * 2;
-            Bitmap bpm = new Bitmap(dataGridView1.Height + 300, dataGridView1.Width + 300);
-            dataGridView1.DrawToBitmap(bpm, new Rectangle(0, 0, this.dataGridView1.Height + 300, this.dataGridView1.Width + 300));
-            e.Graphics.DrawImage(bpm, 0, 0);
-        }
-
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
             try
@@ -1034,29 +1010,50 @@ namespace UI
             
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        private void visualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ArrayList row = new ArrayList();
+            int flag = 0;
+            //1 para entrada
+            //2 para saida
 
+            if (dataGridView1[1, rowSelected].Value != null)
+            {
+
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+
+                    row.Add(dataGridView1[i, rowSelected].Value.ToString());
+                }
+
+
+                if (Entrada_Saida == "E")
+                {
+                    flag = 1;
+                }
+                else
+                {
+                    if (chkBoxFiltro.Checked)
+                        flag = 1;
+                    else
+
+                        flag = 2;
+                }
+
+                frmVisualizar frmVisualizar = new frmVisualizar(row, flag);
+                frmVisualizar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Não há itens a serem visualizados !");
+            }
+
+            
         }
 
-        private void visualizarToolStripMenuItem_Click(object sender, EventArgs e)
-        {           
-            try
-            {
-                sairClienteView.Visible = true;
-                richTextBox1.Visible = true;
-                for (int i = 1; i < dataGridView1.Columns.Count; i++)
-                {
-                    richTextBox1.Text += dataGridView1.Columns[i].HeaderText;
-                    richTextBox1.Text +=  " : " + dataGridView1[i, rowSelected].Value.ToString() + "\n\n"; 
 
-                }
-                
-            }
-            catch(Exception exc)
-            {
-                MessageBox.Show("Selecione uma linha para visualizar.");
-            }
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
 
         }
 
@@ -1075,7 +1072,7 @@ namespace UI
             if (e.KeyCode == Keys.Enter)
             {
                 MovimentacaoBLL movimentacaoBLL = new MovimentacaoBLL();
-               // movimentacaoBLL.filtrarNomeSaida(clienteConsulta.Text);
+                //movimentacaoBLL.filtrarNomeSaida(clienteConsulta.Text);
                 dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
                 dataGridView1.Columns[1].HeaderText = "Marca";
                 dataGridView1.Columns[2].HeaderText = "Modelo";
@@ -1097,21 +1094,24 @@ namespace UI
             
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            RichTextBox richTextBox1 = new RichTextBox();
-            richTextBox1.Dock = DockStyle.Fill;
-            richTextBox1.SelectionFont = new Font("Verdana", 12, FontStyle.Bold);
-            richTextBox1.SelectionColor = Color.Red;
-            richTextBox1.AppendText(dataGridView1[0, rowSelected].Value.ToString());
-            this.Controls.Add(richTextBox1);
-        }
+            DataTable dt = null;
+            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
-        private void sairClienteView_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Visible = false;
-            sairClienteView.Visible = false;
-            richTextBox1.Text = "";
+            if (Entrada_Saida == "E")
+            { 
+                dt = movimentacaobll.consultarMovimentacaoApenasEntrada(null);
+            }
+            else
+            {
+                dt = movimentacaobll.consultarMovimentacaoSaida(null);
+            }
+
+
+
+            frmImprimirMovimentacao frmImprimir = new frmImprimirMovimentacao(dt);
+            frmImprimir.ShowDialog();
         }
     }
 }

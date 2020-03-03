@@ -25,22 +25,25 @@ namespace UI
             ArrayList list = new ArrayList();
 
             list.Add("Todos os lançamentos");
-            list.Add("Lançamentos saída loja");
-            list.Add("Lançamentos entradas");
             list.Add("Lançamentos saidas veiculos");
+            list.Add("Lançamentos entradas");
+            list.Add("Lançamentos saidas loja");
 
             cbxRelatorios.DataSource = list;
         }
 
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        
 
-        private void btoOk_Click(object sender, EventArgs e)
+
+        private void btoOk_Click_1(object sender, EventArgs e)
         {
             frmRelatorio_lancamentos frmRelatorio = new frmRelatorio_lancamentos(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"), cbxRelatorios.SelectedIndex.ToString());
-            frmRelatorio.Show();
+            frmRelatorio.ShowDialog();
+        }
+
+        private void btCancelar_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

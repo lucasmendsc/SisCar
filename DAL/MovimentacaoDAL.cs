@@ -580,7 +580,8 @@ namespace DAL
                          "CAST(DATA_ENTRADA as date) AS DATA_ENTRADA, " +
                          "VALOR_ENTRADA, " +
                          "VALOR_SAIDA, " +
-                         "COD_CLIENTE_ENTRADA "+
+                         "COD_CLIENTE_ENTRADA, "+
+                         "COD_CLIENTE_SAIDA "+
                          "FROM MOV_VEICULOS"));
 
 

@@ -147,7 +147,7 @@ namespace DAL
             }
             
         }
-        public DataTable consultarLancamentos(string tipo, string dtInicio, string dtFim, string placa)
+        public DataTable consultarLancamentos(string tipo, string dtInicio, string dtFim, string placa, string simb)
         {
             try
             {
@@ -155,11 +155,12 @@ namespace DAL
                     "SELECT *                 " +
                     "  FROM LANCAMENTOS " +
                     "WHERE TIPO LIKE '{0}' " +
-                    "AND DATA >= '{1}' AND DATA <= '{2}' and PLACA <> '{3}'",
+                    "AND DATA >= '{1}' AND DATA <= '{2}' and PLACA {4} '{3}'",
                     tipo,
                     dtInicio,
                     dtFim,
-                    placa));
+                    placa,
+                    simb));
 
                 FbDataAdapter da = new FbDataAdapter
                        (new FbCommand(consultaLanc, ConnectionFactory.Connect()));

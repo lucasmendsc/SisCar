@@ -127,6 +127,12 @@
     <Compile Include="frmFecharCaixa.Designer.cs">
       <DependentUpon>frmFecharCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImprimirMovimentacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImprimirMovimentacao.Designer.cs">
+      <DependentUpon>frmImprimirMovimentacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLancamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,12 @@
     </Compile>
     <Compile Include="frmViewVeiculo.Designer.cs">
       <DependentUpon>frmViewVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualizar.Designer.cs">
+      <DependentUpon>frmVisualizar.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Veiculos_crud.cs">
@@ -235,6 +247,9 @@
     <EmbeddedResource Include="frmFecharCaixa.resx">
       <DependentUpon>frmFecharCaixa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmImprimirMovimentacao.resx">
+      <DependentUpon>frmImprimirMovimentacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLancamentos.resx">
       <DependentUpon>frmLancamentos.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,7 +268,11 @@
     <EmbeddedResource Include="frmViewVeiculo.resx">
       <DependentUpon>frmViewVeiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualizar.resx">
+      <DependentUpon>frmVisualizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="relatorio_lancamentos.rdlc" />
+    <EmbeddedResource Include="relatorioEntradaSaida.rdlc" />
     <EmbeddedResource Include="Veiculos_crud.resx">
       <DependentUpon>Veiculos_crud.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,7 +317,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DAL.MovimentacaoDAL.datasource" />
     <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
+    <None Include="Properties\DataSources\Models.Movimentacao.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

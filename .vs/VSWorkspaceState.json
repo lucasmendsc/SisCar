@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\BLL",
-    "\\BLL\\bin",
-    "\\BLL\\bin\\Debug",
     "\\DAL",
     "\\UI"
   ],
-  "SelectedNode": "\\UI\\UI.sln",
+  "SelectedNode": "\\UI\\frmMovimentacao.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -63,7 +63,6 @@ namespace UI
                     lancamentos.Placa = edtPlaca.Text;
                     lancamentos.Responsavel = edtResponsavel.Text;
                     gastosbll.inserirLancamentoComoGasto(lancamentos);
-                    caixabll.inserirLancamentos(lancamentos);
                 }
 
             }catch(Exception){

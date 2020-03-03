@@ -15,10 +15,11 @@ namespace UI
     public partial class frmRelatorio_lancamentos : Form
     {
         //Indice = 0 -> Todos os relatorios
-        //Indice = 1 -> Lançamentos saída loja
+        //Indice = 1 -> Lançamentos saidas veiculos
         //Indice = 2 -> Lançamentos entradas
-        //Indice = 3 -> Gastos Veiculos
+        //Indice = 3 -> Saídas loja
         string tipo, dtInicio, dtFim, indiceRelatorio, placa;
+        string simbolo = "<>";
 
         public frmRelatorio_lancamentos()
         {
@@ -48,10 +49,15 @@ namespace UI
             {
                 tipo = "ENTRADA";
                 placa = "%";
+            }else if (indiceRelatorio.Equals("3"))
+            {
+                tipo = "SAIDA";
+                simbolo = "=";
+                placa = "";
             }
 
             CaixaBLL caixaBLL = new CaixaBLL();
-            DataTable dt = caixaBLL.consultaLancamentos(tipo, dtInicio, dtFim, placa);
+            DataTable dt = caixaBLL.consultaLancamentos(tipo, dtInicio, dtFim, placa, simbolo);
             reportViewer1.LocalReport.DataSources.Clear();
 
             ReportDataSource rds = new ReportDataSource("DataSet1", dt);

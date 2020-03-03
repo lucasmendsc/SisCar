@@ -266,7 +266,7 @@ namespace UI
         {
 
             frmSelecionaRelatorio frmSeleciona = new frmSelecionaRelatorio();
-            frmSeleciona.Show();
+            frmSeleciona.ShowDialog();
 
             
 
