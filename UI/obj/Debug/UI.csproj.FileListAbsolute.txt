@@ -740,3 +740,4 @@ C:\SisCar\UI\obj\Debug\UI.frmSelecionaRelatorio.resources
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\UI\obj\Debug\UI.frmSelecionaRelatorio.resources
 C:\SisCar\UI\obj\Debug\UI.frmVisualizar.resources
 C:\SisCar\UI\obj\Debug\UI.frmImprimirMovimentacao.resources
+C:\SisCar\UI\obj\Debug\UI.frmGastosCarro.resources

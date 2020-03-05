@@ -83,5 +83,33 @@ namespace DAL
             ConnectionFactory.Connect().Close();
             return dt;
         }
+
+        public DataTable buscarTodosOsGastos()
+        {
+            try
+            {
+                String consultaE = (String.Format(
+                     "SELECT g.data, g.descricao, g.responsavel, c.ds_marca, mod.ds_modelo, m.cor, g.valor" +
+                     " FROM  gastos_veiculos as g " +
+                     "join mov_veiculos as m " +
+                     "on g.veiculoid = m.cod_mov_veiculos " +
+                     "join marcas c " +
+                     "on c.cod_marca = m.cod_marca " +
+                     "join modelos mod " +
+                     "on mod.cod_modelo = m.cod_modelo ; "));
+                FbDataAdapter da = new FbDataAdapter
+                       (new FbCommand(consultaE, ConnectionFactory.Connect()));
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                ConnectionFactory.Connect().Close();
+                return dt;
+            }catch(Exception ex)
+            {
+                throw new Exception("Falha ao Buscar Gastos!" + ex.Message);
+            }
+            return null;   
+        }
+
     }
 }

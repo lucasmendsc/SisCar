@@ -37,8 +37,16 @@ namespace UI
 
         private void btoOk_Click_1(object sender, EventArgs e)
         {
-            frmRelatorio_lancamentos frmRelatorio = new frmRelatorio_lancamentos(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"), cbxRelatorios.SelectedIndex.ToString());
-            frmRelatorio.ShowDialog();
+            if (cbxRelatorios.SelectedIndex.ToString().Equals("1"))
+            {
+                frmGastosCarro frmGastos = new frmGastosCarro(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"));
+                frmGastos.ShowDialog();
+            }
+            else
+            {
+                frmRelatorio_lancamentos frmRelatorio = new frmRelatorio_lancamentos(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"), cbxRelatorios.SelectedIndex.ToString());
+                frmRelatorio.ShowDialog();
+            }
         }
 
         private void btCancelar_Click_1(object sender, EventArgs e)

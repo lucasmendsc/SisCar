@@ -121,15 +121,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmGastosCarro.cs" />
-    <Compile Include="frmGastosCarro.Designer.cs">
-      <DependentUpon>frmGastosCarro.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmFecharCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFecharCaixa.Designer.cs">
       <DependentUpon>frmFecharCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGastosCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGastosCarro.Designer.cs">
+      <DependentUpon>frmGastosCarro.cs</DependentUpon>
     </Compile>
     <Compile Include="frmImprimirMovimentacao.cs">
       <SubType>Form</SubType>
@@ -328,6 +330,8 @@
     <None Include="Properties\DataSources\DAL.MovimentacaoDAL.datasource" />
     <None Include="Properties\DataSources\Models.Gastos.datasource" />
     <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
+    <None Include="Properties\DataSources\Models.Marca.datasource" />
+    <None Include="Properties\DataSources\Models.Modelo.datasource" />
     <None Include="Properties\DataSources\Models.Movimentacao.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
