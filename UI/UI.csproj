@@ -121,6 +121,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmGastosCarro.cs" />
+    <Compile Include="frmGastosCarro.Designer.cs">
+      <DependentUpon>frmGastosCarro.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFecharCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +251,9 @@
     <EmbeddedResource Include="frmFecharCaixa.resx">
       <DependentUpon>frmFecharCaixa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGastosCarro.resx">
+      <DependentUpon>frmGastosCarro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmImprimirMovimentacao.resx">
       <DependentUpon>frmImprimirMovimentacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +280,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="relatorio_lancamentos.rdlc" />
     <EmbeddedResource Include="relatorioEntradaSaida.rdlc" />
+    <EmbeddedResource Include="relatorio_GatosCarro.rdlc" />
     <EmbeddedResource Include="Veiculos_crud.resx">
       <DependentUpon>Veiculos_crud.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +326,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DAL.MovimentacaoDAL.datasource" />
+    <None Include="Properties\DataSources\Models.Gastos.datasource" />
     <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
     <None Include="Properties\DataSources\Models.Movimentacao.datasource" />
     <None Include="Properties\Settings.settings">
