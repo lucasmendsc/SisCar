@@ -11,10 +11,13 @@ namespace BLL
 {
     public class CaixaBLL
     {
-        public void abrirCaixa(Caixa caixa)
+        public void abrirCaixa(Caixa caixa, Lancamentos lancamentos)
         {
             CaixaDAL caixadal = new CaixaDAL();
             caixadal.novoCaixa(caixa);
+            DataTable dt = caixadal.recuperarUltimoCaixa();
+            lancamentos.Caixa = Int32.Parse(dt.Rows[0]["ID"].ToString());
+            caixadal.inserirLancamento(lancamentos);
         }
         public void inserirLancamentos(Lancamentos lancamentos)
         {
@@ -25,7 +28,7 @@ namespace BLL
         public void fecharCaixa(Lancamentos lancamentos)
         {
             CaixaDAL caixadal = new CaixaDAL();
-            caixadal.inserirLancamento(lancamentos);
+            //caixadal.inserirLancamento(lancamentos);
             caixadal.fechamentoCaixa(lancamentos.Caixa);
         }
 
@@ -45,6 +48,11 @@ namespace BLL
         {
             CaixaDAL caixadal = new CaixaDAL();
             return caixadal.consultarLancamentos(tipo, dtInicio, dtFim, placa, simb);
+        }
+        public DataTable consultarTodosOsCaixas()
+        {
+            CaixaDAL caixa = new CaixaDAL();
+            return caixa.consultarTodosOsCaixas();
         }
 
         public DataTable consultarCaixaPorData(string data)

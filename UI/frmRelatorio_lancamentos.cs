@@ -36,16 +36,7 @@ namespace UI
 
         private void frmRelatorio_lancamentos_Load(object sender, EventArgs e)
         {
-            if (indiceRelatorio.Equals("0"))
-            {
-                tipo = "%";
-                placa = "%";
-
-            }else if (indiceRelatorio.Equals("1"))
-            {
-                tipo = "SAIDA";
-                placa = "";
-            }else if (indiceRelatorio.Equals("2"))
+            if (indiceRelatorio.Equals("2"))
             {
                 tipo = "ENTRADA";
                 placa = "%";

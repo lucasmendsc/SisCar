@@ -50,6 +50,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.corDeFundoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.papelDeParedeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lembretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -92,6 +94,7 @@
             this.movimentaçãoToolStripMenuItem,
             this.consultaToolStripMenuItem,
             this.utilitáriosToolStripMenuItem,
+            this.lembretesToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -245,6 +248,21 @@
             this.papelDeParedeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.papelDeParedeToolStripMenuItem.Text = "&Papel de Parede";
             this.papelDeParedeToolStripMenuItem.Click += new System.EventHandler(this.papelDeParedeToolStripMenuItem_Click);
+            // 
+            // lembretesToolStripMenuItem
+            // 
+            this.lembretesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarToolStripMenuItem});
+            this.lembretesToolStripMenuItem.Name = "lembretesToolStripMenuItem";
+            this.lembretesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.lembretesToolStripMenuItem.Text = "Lembretes";
+            // 
+            // cadastrarToolStripMenuItem
+            // 
+            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarToolStripMenuItem.Text = "Cadastrar";
+            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -576,5 +594,7 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem lembretesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
     }
 }

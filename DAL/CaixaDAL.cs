@@ -250,5 +250,20 @@ namespace DAL
             }
             
         }
+
+        public DataTable consultarTodosOsCaixas()
+        {
+            String consultaCaixa = (String.Format(
+                    "SELECT * FROM CAIXA"));
+
+            FbDataAdapter da = new FbDataAdapter
+                   (new FbCommand(consultaCaixa, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            ConnectionFactory.Connect().Close();
+            return dt;
+
+        }
     }
 }

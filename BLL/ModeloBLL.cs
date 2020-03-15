@@ -55,5 +55,10 @@ namespace BLL
             ModeloDAL modelodal = new ModeloDAL();
             return modelodal.RetornaModelo(NomeMarca);
         }
+        public DataTable retornaModeloPorId(int id)
+        {
+            ModeloDAL modelodal = new ModeloDAL();
+            return modelodal.RetornaModeloPeloId(id);
+        }
     }
 }

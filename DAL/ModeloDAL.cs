@@ -136,5 +136,18 @@ namespace DAL
 
             return dt;
         }
+
+        public DataTable RetornaModeloPeloId(int cod_mod)
+        {
+            String retornaM = (String.Format(
+                "select * from modelos where cod_modelo = {0} ", cod_mod));
+
+            FbDataAdapter da = new FbDataAdapter
+                   (new FbCommand(retornaM, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
     }
 }

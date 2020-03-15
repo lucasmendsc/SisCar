@@ -862,8 +862,7 @@ namespace UI
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[index];
+            
         }
 
         private void preencherDataGrid_clientes()

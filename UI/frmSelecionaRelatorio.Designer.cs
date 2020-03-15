@@ -37,11 +37,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btoOk = new System.Windows.Forms.PictureBox();
-            this.btCancelar = new System.Windows.Forms.PictureBox();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.btoOk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btoOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btCancelar)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxRelatorios
@@ -131,25 +129,34 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // btoOk
-            // 
-            this.btoOk.Image = ((System.Drawing.Image)(resources.GetObject("btoOk.Image")));
-            this.btoOk.Location = new System.Drawing.Point(237, 201);
-            this.btoOk.Name = "btoOk";
-            this.btoOk.Size = new System.Drawing.Size(51, 50);
-            this.btoOk.TabIndex = 11;
-            this.btoOk.TabStop = false;
-            this.btoOk.Click += new System.EventHandler(this.btoOk_Click_1);
-            // 
             // btCancelar
             // 
+            this.btCancelar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
-            this.btCancelar.Location = new System.Drawing.Point(316, 201);
+            this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCancelar.Location = new System.Drawing.Point(295, 187);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(51, 50);
-            this.btCancelar.TabIndex = 12;
-            this.btCancelar.TabStop = false;
-            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click_1);
+            this.btCancelar.Size = new System.Drawing.Size(84, 71);
+            this.btCancelar.TabIndex = 14;
+            this.btCancelar.Text = "CANCELAR";
+            this.btCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btCancelar.UseVisualStyleBackColor = false;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
+            // 
+            // btoOk
+            // 
+            this.btoOk.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btoOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btoOk.Image = ((System.Drawing.Image)(resources.GetObject("btoOk.Image")));
+            this.btoOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btoOk.Location = new System.Drawing.Point(205, 187);
+            this.btoOk.Name = "btoOk";
+            this.btoOk.Size = new System.Drawing.Size(84, 71);
+            this.btoOk.TabIndex = 13;
+            this.btoOk.Text = "CONFIRMAR";
+            this.btoOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btoOk.UseVisualStyleBackColor = false;
+            this.btoOk.Click += new System.EventHandler(this.btoOk_Click);
             // 
             // frmSelecionaRelatorio
             // 
@@ -175,8 +182,6 @@
             this.Text = "Selecione o relatório";
             this.Load += new System.EventHandler(this.frmSelecionaRelatorio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btoOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btCancelar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +197,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox btoOk;
-        private System.Windows.Forms.PictureBox btCancelar;
+        private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btoOk;
     }
 }

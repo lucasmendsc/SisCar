@@ -32,24 +32,27 @@ namespace UI
             cbxRelatorios.DataSource = list;
         }
 
-        
-
-
-        private void btoOk_Click_1(object sender, EventArgs e)
+       
+        private void btoOk_Click(object sender, EventArgs e)
         {
-            if (cbxRelatorios.SelectedIndex.ToString().Equals("1"))
+            switch (cbxRelatorios.SelectedIndex.ToString())
             {
-                frmGastosCarro frmGastos = new frmGastosCarro(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"));
-                frmGastos.ShowDialog();
-            }
-            else
-            {
-                frmRelatorio_lancamentos frmRelatorio = new frmRelatorio_lancamentos(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"), cbxRelatorios.SelectedIndex.ToString());
-                frmRelatorio.ShowDialog();
+                case "0":
+                    frmRelatorioGeral frm = new frmRelatorioGeral(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"));
+                    frm.ShowDialog();
+                    break;
+                case "1":
+                    frmGastosCarro frmGastos = new frmGastosCarro(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"));
+                    frmGastos.ShowDialog();
+                    break;
+                default:
+                    frmRelatorio_lancamentos frmRelatorio = new frmRelatorio_lancamentos(dtInicio.Value.ToString("dd.MM.yyyy"), dtFim.Value.ToString("dd.MM.yyyy"), cbxRelatorios.SelectedIndex.ToString());
+                    frmRelatorio.ShowDialog();
+                    break;
             }
         }
 
-        private void btCancelar_Click_1(object sender, EventArgs e)
+        private void btCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }

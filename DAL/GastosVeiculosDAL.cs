@@ -24,19 +24,31 @@ namespace DAL
                     "responsavel, " +
                     "data, " +
                     "valor, " +
-                    "veiculoid )" +
+                    "veiculoid," +
+                    "marca," +
+                    "modelo," +
+                    "cor," +
+                    "placa )" +
                     "VALUES ({0}, " +
                     "'{1}', " +
                     "'{2}', " +
                     "'{3}', " +
                     "'{4}', " +
-                    "'{5}' )" ,
+                    "'{5}'," +
+                    "'{6}'," +
+                    "'{7}'," +
+                    "'{8}'," +
+                    "'{9}' )" ,
                     "null",
                     gastos.Descricao,
                     gastos.Responsavel,
                     gastos.Data,
                     gastos.Valor,
-                    gastos.Movimentacao.Cod_Mov_Veiculos));
+                    gastos.Movimentacao.Cod_Mov_Veiculos,
+                    gastos.Marca,
+                    gastos.Modelo,
+                    gastos.Cor,
+                    gastos.Placa));
 
                 FbCommand comandoInsert = new FbCommand
                     (insereS, ConnectionFactory.Connect());
@@ -84,19 +96,12 @@ namespace DAL
             return dt;
         }
 
-        public DataTable buscarTodosOsGastos()
+        public DataTable buscarTodosOsGastos(string dt1, string dt2)
         {
             try
             {
                 String consultaE = (String.Format(
-                     "SELECT g.data, g.descricao, g.responsavel, c.ds_marca, mod.ds_modelo, m.cor, g.valor" +
-                     " FROM  gastos_veiculos as g " +
-                     "join mov_veiculos as m " +
-                     "on g.veiculoid = m.cod_mov_veiculos " +
-                     "join marcas c " +
-                     "on c.cod_marca = m.cod_marca " +
-                     "join modelos mod " +
-                     "on mod.cod_modelo = m.cod_modelo ; "));
+                     "SELECT * FROM GASTOS_VEICULOS where DATA >= '{0}' AND DATA <= '{1}'", dt1, dt2));
                 FbDataAdapter da = new FbDataAdapter
                        (new FbCommand(consultaE, ConnectionFactory.Connect()));
                 DataTable dt = new DataTable();

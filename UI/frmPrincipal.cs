@@ -198,5 +198,11 @@ namespace UI
             frmCaixa frmCaixa = new frmCaixa();
             frmCaixa.ShowDialog();
         }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLembretes frmLembretes = new frmLembretes();
+            frmLembretes.ShowDialog();
+        }
     }
 }

@@ -13,6 +13,10 @@ namespace Models
         private String responsavel;
         private string data;
         private double valor;
+        private string marca;
+        private string modelo;
+        private string cor;
+        private string placa;
         private Movimentacao movimentacao;
 
         public Gastos()
@@ -24,5 +28,9 @@ namespace Models
         public string Responsavel { get => responsavel; set => responsavel = value; }
         public string Descricao { get => descricao; set => descricao = value; }
         public string Data { get => data; set => data = value; }
+        public string Marca { get => marca; set => marca = value; }
+        public string Modelo { get => modelo; set => modelo = value; }
+        public string Cor { get => cor; set => cor = value; }
+        public string Placa { get => placa; set => placa = value; }
     }
 }

@@ -128,5 +128,18 @@ namespace DAL
 
             return dt;
         }
+
+        public DataTable RetornaMarcaPorId(int id)
+        {
+            String retornaM = (String.Format(
+                     "SELECT * FROM MARCAS WHERE COD_MARCA = {0}", id));
+
+            FbDataAdapter da = new FbDataAdapter
+                   (new FbCommand(retornaM, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
     }
 }

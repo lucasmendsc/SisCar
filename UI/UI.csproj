@@ -157,6 +157,18 @@
     <Compile Include="frmControleDeCaixa.Designer.cs">
       <DependentUpon>frmControleDeCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLembretes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLembretes.Designer.cs">
+      <DependentUpon>frmLembretes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioGeral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioGeral.Designer.cs">
+      <DependentUpon>frmRelatorioGeral.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRelatorio_lancamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +280,12 @@
     <EmbeddedResource Include="frmControleDeCaixa.resx">
       <DependentUpon>frmControleDeCaixa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLembretes.resx">
+      <DependentUpon>frmLembretes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioGeral.resx">
+      <DependentUpon>frmRelatorioGeral.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRelatorio_lancamentos.resx">
       <DependentUpon>frmRelatorio_lancamentos.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +301,7 @@
     <EmbeddedResource Include="relatorio_lancamentos.rdlc" />
     <EmbeddedResource Include="relatorioEntradaSaida.rdlc" />
     <EmbeddedResource Include="relatorio_GatosCarro.rdlc" />
+    <EmbeddedResource Include="relatorio_Geral.rdlc" />
     <EmbeddedResource Include="Veiculos_crud.resx">
       <DependentUpon>Veiculos_crud.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +347,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DAL.MovimentacaoDAL.datasource" />
+    <None Include="Properties\DataSources\Models.Caixa.datasource" />
     <None Include="Properties\DataSources\Models.Gastos.datasource" />
     <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
     <None Include="Properties\DataSources\Models.Marca.datasource" />

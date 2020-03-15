@@ -50,16 +50,18 @@ namespace UI
 
                 }
             else if (rbSaida.Checked)
-                    lancamentos.Tipo = "SAIDA";
+                    lancamentos.Valor = lancamentos.Valor * (-1);
 
                 if (chkLoja.Checked)
                 {
+                    lancamentos.Tipo = "SAIDA LOJA";
                     lancamentos.Placa = null;
                     lancamentos.Responsavel = null;
                     caixabll.inserirLancamentos(lancamentos);
                 }
                 else if (chkVeiculo.Checked)
                 {
+                    lancamentos.Tipo = "SAIDA VEICULOS";
                     lancamentos.Placa = edtPlaca.Text;
                     lancamentos.Responsavel = edtResponsavel.Text;
                     gastosbll.inserirLancamentoComoGasto(lancamentos);
@@ -91,6 +93,8 @@ namespace UI
             {
                 e.Handled = true;
             }
+
+            valor(ref txtValor);
         }
 
         private void verificarCampos()
@@ -178,6 +182,37 @@ namespace UI
         private void edtPlaca_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        public static void valor(ref TextBox txt)
+        {
+            string n = string.Empty;
+            double v = 0;
+
+            try
+            {
+                n = txt.Text.Replace(",", "").Replace(".", "");
+                if (n.Equals(""))
+                {
+                    n = "";
+                    n = n.PadLeft(3, '0');
+                    if(n.Length > 3 & n.Substring(0,1) == "0"){
+                        n = n.Substring(1, n.Length - 1);
+                        v = Convert.ToDouble(n) / 100;
+                        txt.Text = string.Format("{0,N}", v);
+                        txt.SelectionStart = txt.Text.Length;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro em valor");
+            }
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            valor(ref txtValor);
         }
     }
 }

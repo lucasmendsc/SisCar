@@ -102,5 +102,10 @@ namespace UI
                 e.Handled = true;
             }
         }
+
+        private void txtSangria_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
     }
 }

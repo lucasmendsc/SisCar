@@ -172,16 +172,27 @@ namespace UI
         {
             try
             {
-                if (lbSituacaoF.Visible)
+                //Verifica se o caixa anterior foi fechado
+                if (!lbSituacaoF.Visible)
                 {
-                   
+                    CaixaBLL caixabll = new CaixaBLL();
+                    DataTable dataTable = caixabll.recuperarUltimoCaixa();
+
+                    string data_temp = dataTable.Rows[0]["DATA"].ToString();
+                    string[] data = data_temp.Split(' ');
+                    string hoje = DateTime.Now.ToString("dd/MM/yyyy");
+                    if (!data[0].ToString().Equals(hoje))
+                    {
+                        MessageBox.Show("Não é possivel realizar novos lançamentos ! \n O caixa de hoje ainda não foi aberto\n");
+                    }
+                    else {
+                        
+                        int id_caixa = Convert.ToInt32(dataTable.Rows[0]["ID"].ToString());
+                        this.Hide();
+                        frmLancamento frmLancamento = new frmLancamento(id_caixa);
+                        frmLancamento.ShowDialog();
+                    }
                 }
-                CaixaBLL caixabll = new CaixaBLL();
-                DataTable dataTable = caixabll.recuperarUltimoCaixa();
-                int id_caixa = Convert.ToInt32(dataTable.Rows[0]["ID"].ToString());
-                this.Hide();
-                frmLancamento frmLancamento = new frmLancamento(id_caixa);
-                frmLancamento.ShowDialog();
             }
             finally
             {
@@ -219,13 +230,13 @@ namespace UI
                 {
                     entradas += Convert.ToDouble(linha["VALOR"].ToString());
                 }
-                else if (linha["TIPO"].Equals("SAIDA"))
+                else if (linha["TIPO"].Equals("SAIDA LOJA") || linha["TIPO"].Equals("SAIDA VEICULO"))
                 {
                     saidas += Convert.ToDouble(linha["VALOR"].ToString());
                 }
 
             }
-            saldo = entradas - saidas;
+            saldo = entradas + saidas;
             double saldoInicial = Convert.ToDouble(dataTable.Rows[0]["SALDO"].ToString());
             lbSaldoInicial.Text = saldoInicial.ToString();
             lbSaldo.Text = (saldoInicial + saldo).ToString();
@@ -267,20 +278,7 @@ namespace UI
 
             frmSelecionaRelatorio frmSeleciona = new frmSelecionaRelatorio();
             frmSeleciona.ShowDialog();
-
-            
-
-
            
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            int height = dataGridLanc.Height;
-            dataGridLanc.Height = dataGridLanc.RowCount * dataGridLanc.RowTemplate.Height * 2;
-            Bitmap bpm = new Bitmap(dataGridLanc.Height + 300, dataGridLanc.Width + 300);
-            dataGridLanc.DrawToBitmap(bpm, new Rectangle(0, 0, this.dataGridLanc.Height + 300, this.dataGridLanc.Width + 300));
-            e.Graphics.DrawImage(bpm, 0, 0);
         }
     }
 }

@@ -30,17 +30,28 @@ namespace UI
         {
             CaixaBLL caixabll = new CaixaBLL();
             Caixa caixa = new Caixa();
+            Lancamentos lancamentos = new Lancamentos();
             try
             {
 
                 if (verificarCampos())
                 {
+                   
+
                     caixa.Operador = txtOperador.Text;
                     caixa.Data = dtAbrirCaixa.Text;
                     caixa.Saldo = Convert.ToInt32(txtSaldo.Text);
                     caixa.Situacao = "A";
 
-                    caixabll.abrirCaixa(caixa);
+
+                    lancamentos.Descricao = "Abertura do caixa";
+                    lancamentos.Data = converteData(DateTime.Now.Date.ToString());
+                    lancamentos.Valor = caixa.Saldo;
+                    lancamentos.Responsavel = caixa.Operador;
+                    lancamentos.Tipo = "ABERTURA DO CAIXA";
+
+
+                    caixabll.abrirCaixa(caixa, lancamentos);
                     this.Close();                   
                 }
             }catch(Exception)

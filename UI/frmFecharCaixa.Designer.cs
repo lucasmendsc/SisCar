@@ -181,6 +181,7 @@
             this.txtSangria.Name = "txtSangria";
             this.txtSangria.Size = new System.Drawing.Size(100, 26);
             this.txtSangria.TabIndex = 21;
+            this.txtSangria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSangria_KeyDown);
             this.txtSangria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // frmFecharCaixa

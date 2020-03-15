@@ -50,5 +50,10 @@ namespace BLL
             MarcaDAL marcadal = new MarcaDAL();
             return marcadal.RetornaMarca();
         }
+        public DataTable RetornaMarcaPorId(int id)
+        {
+            MarcaDAL marcadal = new MarcaDAL();
+            return marcadal.RetornaMarcaPorId(id);
+        }
     }
 }

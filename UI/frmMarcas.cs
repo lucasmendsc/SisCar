@@ -136,5 +136,10 @@ namespace UI
             if (e.KeyCode == Keys.Enter)
                 PreencherDataGrid(txtCONSULTA.Text);
         }
+
+        private void frmMarcas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

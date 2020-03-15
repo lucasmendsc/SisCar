@@ -59,6 +59,7 @@
             this.txtOperador.Name = "txtOperador";
             this.txtOperador.Size = new System.Drawing.Size(195, 26);
             this.txtOperador.TabIndex = 1;
+            this.txtOperador.Text = "ADMIN";
             // 
             // label2
             // 

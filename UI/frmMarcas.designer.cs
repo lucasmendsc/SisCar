@@ -257,6 +257,7 @@
             this.Name = "frmMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcas";
+            this.Load += new System.EventHandler(this.frmMarcas_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMarcas_KeyDown);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -741,3 +741,5 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\UI\obj\Debug\UI.frmSelecionaRel
 C:\SisCar\UI\obj\Debug\UI.frmVisualizar.resources
 C:\SisCar\UI\obj\Debug\UI.frmImprimirMovimentacao.resources
 C:\SisCar\UI\obj\Debug\UI.frmGastosCarro.resources
+C:\SisCar\UI\obj\Debug\UI.frmRelatorioGeral.resources
+C:\SisCar\UI\obj\Debug\UI.frmLembretes.resources
