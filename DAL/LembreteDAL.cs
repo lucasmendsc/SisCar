@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,6 +68,44 @@ namespace DAL
             {
                 ConnectionFactory.Connect().Close();
             }
+        }
+
+        public DataTable ConsultarLembretes()
+        {
+            try
+            {
+                String consultaM = (String.Format(
+                         "SELECT * " +
+                         "FROM LEMBRETE " +
+                         "ORDER BY DESCRICAO"));
+
+                FbDataAdapter da = new FbDataAdapter
+                       (new FbCommand(consultaM, ConnectionFactory.Connect()));
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao buscar LEMBRETES!" + ex.Message);
+            }
+            finally
+            {
+                ConnectionFactory.Connect().Close();
+            }
+        }
+        public DataTable RetornaLembretePorId(int id)
+        {
+            String retornaM = (String.Format(
+                     "SELECT * FROM LEMBRETE WHERE ID = {0}", id));
+
+            FbDataAdapter da = new FbDataAdapter
+                   (new FbCommand(retornaM, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
         }
     }
 }
