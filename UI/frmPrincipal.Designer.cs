@@ -260,7 +260,7 @@
             // cadastrarToolStripMenuItem
             // 
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
             this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
             // 
@@ -318,6 +318,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.AutoSize = false;
             this.toolStrip1.BackColor = System.Drawing.Color.White;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
@@ -336,7 +337,7 @@
             this.toolStripSeparator6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(989, 148);
+            this.toolStrip1.Size = new System.Drawing.Size(989, 127);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -348,7 +349,7 @@
             this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(129, 145);
+            this.toolStripButton1.Size = new System.Drawing.Size(104, 124);
             this.toolStripButton1.Text = "Entrada";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.ToolTipText = "Entrada (Compra)";
@@ -357,7 +358,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 127);
             // 
             // toolStripButton2
             // 
@@ -366,7 +367,7 @@
             this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(137, 145);
+            this.toolStripButton2.Size = new System.Drawing.Size(104, 124);
             this.toolStripButton2.Text = "Saída";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.ToolTipText = "Saída - Venda";
@@ -376,7 +377,7 @@
             // 
             this.toolStripSeparator2.BackColor = System.Drawing.Color.White;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 127);
             // 
             // toolStripButton3
             // 
@@ -385,7 +386,7 @@
             this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(120, 145);
+            this.toolStripButton3.Size = new System.Drawing.Size(104, 124);
             this.toolStripButton3.Text = "Estoque";
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton3.ToolTipText = "Consulta Estoque";
@@ -396,7 +397,7 @@
             this.toolStripSeparator3.BackColor = System.Drawing.Color.Wheat;
             this.toolStripSeparator3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 127);
             // 
             // toolStripButton4
             // 
@@ -405,7 +406,7 @@
             this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(130, 145);
+            this.toolStripButton4.Size = new System.Drawing.Size(104, 124);
             this.toolStripButton4.Text = "Gráficos";
             this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton4.ToolTipText = "Gráficos das Negociações";
@@ -414,7 +415,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 127);
             // 
             // toolStripButton7
             // 
@@ -433,7 +434,7 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 127);
             // 
             // toolStripButton5
             // 
@@ -442,7 +443,7 @@
             this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(118, 145);
+            this.toolStripButton5.Size = new System.Drawing.Size(104, 124);
             this.toolStripButton5.Text = "Calculadora";
             this.toolStripButton5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -452,7 +453,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 127);
             // 
             // toolStripButton6
             // 
@@ -461,7 +462,7 @@
             this.toolStripButton6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(130, 145);
+            this.toolStripButton6.Size = new System.Drawing.Size(104, 124);
             this.toolStripButton6.Text = "Sair";
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton6.ToolTipText = "Fechar o sistema";
@@ -470,7 +471,7 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 148);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 127);
             // 
             // contextMenuStrip1
             // 
