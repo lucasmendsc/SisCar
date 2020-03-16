@@ -115,6 +115,7 @@
     <Compile Include="GastosBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="GraficoBLL.cs" />
+    <Compile Include="LembreteBLL.cs" />
     <Compile Include="LoginBLL.cs" />
     <Compile Include="MarcaBLL.cs" />
     <Compile Include="ModeloBLL.cs" />

@@ -10,14 +10,14 @@ namespace Models
     {
         private string id = "NULL";
         private string descricao;
-        private DateTime data;
-        private int status;
+        private string data;
+        private string status;
 
         public Lembrete()
         {
         }
 
-        public Lembrete(string descricao, DateTime data, int status)
+        public Lembrete(string descricao, string data, string status)
         {
             this.descricao = descricao;
             this.data = data;
@@ -27,8 +27,8 @@ namespace Models
       
 
         public string Descricao { get => descricao; set => descricao = value; }
-        public DateTime Data { get => data; set => data = value; }
-        public int Status { get => status; set => status = value; }
+        public string Data { get => data; set => data = value; }
+        public string Status { get => status; set => status = value; }
         public string Id { get => id; set => id = value; }
     }
 }

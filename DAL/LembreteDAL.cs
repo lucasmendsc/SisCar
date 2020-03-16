@@ -11,6 +11,21 @@ namespace DAL
 {
     public class LembreteDAL
     {
+        private static LembreteDAL mySelf;
+
+        private LembreteDAL()
+        {
+
+        }
+
+        public static LembreteDAL getInstance()
+        {
+            if (mySelf == null)
+                mySelf = new LembreteDAL();
+            return mySelf;
+        }
+
+
         public void InserirLembrete(Lembrete l)
         {
             try
@@ -20,11 +35,10 @@ namespace DAL
                     "DESCRICAO," +
                     "DATA," +
                     "STATUS)" +
-                    "VALUES ('NULL', " +
-                    "'{0}')" +
-                    "'{1}'" +
-                    "'{2}'" +
-                    "{3}",
+                    "VALUES (NULL, " +
+                    "'{0}'," +
+                    "'{1}'," +
+                    "'{2}')",
                     l.Descricao,
                     l.Data,
                     l.Status));
@@ -50,13 +64,13 @@ namespace DAL
             {
                 int Codigo = Convert.ToInt32(l.Id);
 
-                String excluiM = (String.Format(
+                String excluiL = (String.Format(
                     "DELETE FROM LEMBRETE " +
-                    "WHERE ID = '{0}'",
+                    "WHERE ID = {0}",
                     Codigo));
 
                 FbCommand comandoDelete = new FbCommand
-                    (excluiM, ConnectionFactory.Connect());
+                    (excluiL, ConnectionFactory.Connect());
                 comandoDelete.ExecuteNonQuery();
 
             }
@@ -70,17 +84,19 @@ namespace DAL
             }
         }
 
-        public DataTable ConsultarLembretes()
+        public DataTable ConsultarLembretes(string des)
         {
             try
             {
-                String consultaM = (String.Format(
+                String consultaL = (String.Format(
                          "SELECT * " +
                          "FROM LEMBRETE " +
-                         "ORDER BY DESCRICAO"));
+                         "WHERE DESCRICAO LIKE '%{0}%' " +
+                         "ORDER BY DESCRICAO",
+                         des));
 
                 FbDataAdapter da = new FbDataAdapter
-                       (new FbCommand(consultaM, ConnectionFactory.Connect()));
+                       (new FbCommand(consultaL, ConnectionFactory.Connect()));
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
@@ -97,15 +113,44 @@ namespace DAL
         }
         public DataTable RetornaLembretePorId(int id)
         {
-            String retornaM = (String.Format(
+            String retornaL = (String.Format(
                      "SELECT * FROM LEMBRETE WHERE ID = {0}", id));
 
             FbDataAdapter da = new FbDataAdapter
-                   (new FbCommand(retornaM, ConnectionFactory.Connect()));
+                   (new FbCommand(retornaL, ConnectionFactory.Connect()));
             DataTable dt = new DataTable();
             da.Fill(dt);
 
             return dt;
+        }
+
+        public void atualiizarLembrete(Lembrete l)
+        {
+            try
+            {
+                int Codigo = Convert.ToInt32(l.Id);
+
+                String updateL = (String.Format(
+                    "UPDATE LEMBRETE " +
+                    "SET DESCRICAO = '{1}', " +
+                    "DATA = '{2}', " +
+                    "STATUS = {3} " +
+                    "WHERE ID = {0} ",
+                    Codigo, l.Descricao, l.Data, l.Status));
+
+                FbCommand comandoDelete = new FbCommand
+                    (updateL, ConnectionFactory.Connect());
+                comandoDelete.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao atualizar LEMBRETE!" + ex.Message);
+            }
+            finally
+            {
+                ConnectionFactory.Connect().Close();
+            }
         }
     }
 }

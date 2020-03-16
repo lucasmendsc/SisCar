@@ -350,6 +350,7 @@
     <None Include="Properties\DataSources\Models.Caixa.datasource" />
     <None Include="Properties\DataSources\Models.Gastos.datasource" />
     <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
+    <None Include="Properties\DataSources\Models.Lembrete.datasource" />
     <None Include="Properties\DataSources\Models.Marca.datasource" />
     <None Include="Properties\DataSources\Models.Modelo.datasource" />
     <None Include="Properties\DataSources\Models.Movimentacao.datasource" />

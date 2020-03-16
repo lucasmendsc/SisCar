@@ -184,7 +184,8 @@ namespace UI
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
+            //Criar a forma de mostrar o lembrete
+            DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
         }
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)

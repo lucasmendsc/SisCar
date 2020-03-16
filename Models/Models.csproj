@@ -117,6 +117,7 @@
     <Compile Include="Lancamentos.cs" />
     <Compile Include="Gastos.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Lembrete.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Modelo.cs" />
