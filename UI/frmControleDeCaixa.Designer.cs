@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCaixa));
             this.dataGridLanc = new System.Windows.Forms.DataGridView();
             this.btAbrirCaixa = new System.Windows.Forms.Button();
@@ -46,14 +47,18 @@
             this.lbSaldoInicial = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLanc)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridLanc
             // 
+            this.dataGridLanc.AllowUserToAddRows = false;
+            this.dataGridLanc.AllowUserToDeleteRows = false;
             this.dataGridLanc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridLanc.Location = new System.Drawing.Point(12, 78);
             this.dataGridLanc.Name = "dataGridLanc";
+            this.dataGridLanc.ReadOnly = true;
             this.dataGridLanc.Size = new System.Drawing.Size(645, 299);
             this.dataGridLanc.TabIndex = 0;
             this.dataGridLanc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -236,7 +241,11 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // printDocument1
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmCaixa
             // 
@@ -293,5 +302,6 @@
         private System.Windows.Forms.Label lbSaldoInicial;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
