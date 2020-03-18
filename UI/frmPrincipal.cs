@@ -186,7 +186,7 @@ namespace UI
         {
             //Criar a forma de mostrar o lembrete
             DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
-            MessageBox.Show("");
+            MessageBox.Show("LEMBRETES\n\n" + dt.Rows[0]["descricao"].ToString()+"\n");
         }
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
