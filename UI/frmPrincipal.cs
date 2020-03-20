@@ -11,6 +11,7 @@ using System.Diagnostics;
 using BLL;
 using DAL;
 using Models;
+using Tulpep.NotificationWindow;
 
 namespace UI
 {
@@ -18,7 +19,8 @@ namespace UI
     {
         public frmPrincipal()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
@@ -46,13 +48,17 @@ namespace UI
             
             else if (perfilbll.VerificarCoreFundo(perfil).Equals("I"))
             
-                this.BackgroundImage = Image.FromFile(perfilbll.RetornarCoreFundo(perfil));                       
+                this.BackgroundImage = Image.FromFile(perfilbll.RetornarCoreFundo(perfil));
+
+            exibirLembretes();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel2.Text = "Data: " + DateTime.Now.ToShortDateString();
             toolStripStatusLabel3.Text = "Hora: " + DateTime.Now.ToShortTimeString();
+
+            
         }
 
         private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
@@ -183,10 +189,8 @@ namespace UI
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-            //Criar a forma de mostrar o lembrete
-            DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
-            MessageBox.Show("LEMBRETES\n\n" + dt.Rows[0]["descricao"].ToString()+"\n");
+        {         
+
         }
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,6 +209,29 @@ namespace UI
         {
             frmLembretes frmLembretes = new frmLembretes();
             frmLembretes.ShowDialog();
+        }
+
+        public void exibirLembretes()
+        {
+            DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                PopupNotifier popup = new PopupNotifier();
+                popup.TitleText = "LEMBRETE";
+                popup.ContentText = dr["descricao"].ToString();
+                popup.Delay = 1000000;
+                popup.Popup();// show 
+
+                               
+            }
+
+            
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            exibirLembretes();
         }
     }
 }

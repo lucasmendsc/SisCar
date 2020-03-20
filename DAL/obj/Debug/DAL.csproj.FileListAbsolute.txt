@@ -199,3 +199,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.csprojAssembl
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.pdb
+C:\SisCar\DAL\bin\Debug\Tulpep.NotificationWindow.dll

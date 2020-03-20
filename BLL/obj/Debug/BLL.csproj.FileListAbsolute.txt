@@ -242,3 +242,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\BLL\obj\Debug\BLL.csprojAssembl
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\BLL\obj\Debug\BLL.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\BLL\obj\Debug\BLL.pdb
+C:\SisCar\BLL\bin\Debug\Tulpep.NotificationWindow.dll

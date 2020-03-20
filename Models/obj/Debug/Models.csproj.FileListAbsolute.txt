@@ -131,3 +131,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\Models\obj\Debug\Models.csprojA
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\Models\obj\Debug\Models.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\Models\obj\Debug\Models.pdb
+C:\SisCar\Models\bin\Debug\Tulpep.NotificationWindow.dll

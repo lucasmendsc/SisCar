@@ -80,6 +80,9 @@
             this.papelDeParedeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.iconNotificacao = new System.Windows.Forms.NotifyIcon(this.components);
+            this.popupNotifier1 = new Tulpep.NotificationWindow.PopupNotifier();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -510,10 +513,34 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // iconNotificacao
+            // 
+            this.iconNotificacao.Icon = ((System.Drawing.Icon)(resources.GetObject("iconNotificacao.Icon")));
+            this.iconNotificacao.Text = "Connecta Tecnologia";
+            this.iconNotificacao.Visible = true;
+            // 
+            // popupNotifier1
+            // 
+            this.popupNotifier1.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            this.popupNotifier1.ContentText = null;
+            this.popupNotifier1.Image = null;
+            this.popupNotifier1.IsRightToLeft = false;
+            this.popupNotifier1.OptionsMenu = null;
+            this.popupNotifier1.Size = new System.Drawing.Size(400, 100);
+            this.popupNotifier1.TitleFont = new System.Drawing.Font("Segoe UI", 9F);
+            this.popupNotifier1.TitleText = null;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 10800000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -526,10 +553,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.Text = "Connecta Automotivo";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.Shown += new System.EventHandler(this.frmPrincipal_Shown);
@@ -597,5 +622,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem lembretesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon iconNotificacao;
+        private Tulpep.NotificationWindow.PopupNotifier popupNotifier1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

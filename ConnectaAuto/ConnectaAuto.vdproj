@@ -75,6 +75,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_534F276B88B74FF79CB76219AB0FA8CA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_568DD573188C519C47C299399C464265"
         "OwnerKey" = "8:_F5AD6432923E4CEEB058AE5E8E124BFA"
         "MsmSig" = "8:_UNDEFINED"
@@ -101,6 +107,12 @@
         {
         "MsmKey" = "8:_59660DFD0A1A48CBB2E7196BD4F1AC1D"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5F9833995C5CA47735E34FA2204F2749"
+        "OwnerKey" = "8:_F5AD6432923E4CEEB058AE5E8E124BFA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -136,13 +148,13 @@
         "Entry"
         {
         "MsmKey" = "8:_6D778D9BE02CE0A74F5F50C6B5574E91"
-        "OwnerKey" = "8:_F5AD6432923E4CEEB058AE5E8E124BFA"
+        "OwnerKey" = "8:_2EFDC538E24A6F32B13261F2B63E7BD2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6D778D9BE02CE0A74F5F50C6B5574E91"
-        "OwnerKey" = "8:_2EFDC538E24A6F32B13261F2B63E7BD2"
+        "OwnerKey" = "8:_F5AD6432923E4CEEB058AE5E8E124BFA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -255,12 +267,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D1AD825295764B61AAE07157DFF73789"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D4464BFFD2582584FE1D0BD6B21F888C"
         "OwnerKey" = "8:_720CD598F22293E99438B21A434F23AF"
         "MsmSig" = "8:_UNDEFINED"
@@ -315,14 +321,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2EFDC538E24A6F32B13261F2B63E7BD2"
+        "MsmKey" = "8:_FDB9C16F8B044F5BABE4D28B89121EA4"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F5AD6432923E4CEEB058AE5E8E124BFA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5F9833995C5CA47735E34FA2204F2749"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -388,12 +400,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6D778D9BE02CE0A74F5F50C6B5574E91"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_720CD598F22293E99438B21A434F23AF"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -427,6 +433,18 @@
         "OwnerKey" = "8:_568DD573188C519C47C299399C464265"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2EFDC538E24A6F32B13261F2B63E7BD2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6D778D9BE02CE0A74F5F50C6B5574E91"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -445,6 +463,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -461,6 +487,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -634,6 +668,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_534F276B88B74FF79CB76219AB0FA8CA"
+            {
+            "SourcePath" = "8:C:\\Program Files (x86)\\Connecta Tecnologia\\Connecta Automotivo\\BASE.FDB"
+            "TargetName" = "8:BASE.FDB"
+            "Tag" = "8:"
+            "Folder" = "8:_9E4AE69EBEEC46E6A5F73F85A0C3B000"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_568DD573188C519C47C299399C464265"
             {
             "AssemblyRegister" = "3:1"
@@ -714,6 +768,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5F9833995C5CA47735E34FA2204F2749"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Tulpep.NotificationWindow, Version=1.1.25.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_5F9833995C5CA47735E34FA2204F2749"
+                    {
+                    "Name" = "8:Tulpep.NotificationWindow.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Tulpep.NotificationWindow.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9E4AE69EBEEC46E6A5F73F85A0C3B000"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_61D0EE370DAC4B49843DE82E922EB3A2"
@@ -1055,26 +1140,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1AD825295764B61AAE07157DFF73789"
-            {
-            "SourcePath" = "8:..\\BASE.FDB"
-            "TargetName" = "8:BASE.FDB"
-            "Tag" = "8:"
-            "Folder" = "8:_9E4AE69EBEEC46E6A5F73F85A0C3B000"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D4464BFFD2582584FE1D0BD6B21F888C"
             {
             "AssemblyRegister" = "3:1"
@@ -1166,6 +1231,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FDB9C16F8B044F5BABE4D28B89121EA4"
+            {
+            "SourcePath" = "8:C:\\Program Files (x86)\\Connecta Tecnologia\\Connecta Automotivo\\03.ico"
+            "TargetName" = "8:03.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_9E4AE69EBEEC46E6A5F73F85A0C3B000"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }

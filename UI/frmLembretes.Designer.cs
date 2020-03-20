@@ -41,6 +41,7 @@
             this.btGRAVAR = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtData = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dtHora = new System.Windows.Forms.DateTimePicker();
             this.txtCOD_LEMBRETE = new System.Windows.Forms.MaskedTextBox();
@@ -55,7 +56,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCONSULTA = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dtData = new System.Windows.Forms.DateTimePicker();
             this.tabControlLembretes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -203,6 +203,14 @@
             this.panel1.Size = new System.Drawing.Size(428, 52);
             this.panel1.TabIndex = 1;
             // 
+            // dtData
+            // 
+            this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtData.Location = new System.Drawing.Point(341, 22);
+            this.dtData.Name = "dtData";
+            this.dtData.Size = new System.Drawing.Size(80, 20);
+            this.dtData.TabIndex = 19;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -342,14 +350,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Digite a descrição para consulta:";
             // 
-            // dtData
-            // 
-            this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtData.Location = new System.Drawing.Point(341, 22);
-            this.dtData.Name = "dtData";
-            this.dtData.Size = new System.Drawing.Size(80, 20);
-            this.dtData.TabIndex = 19;
-            // 
             // frmLembretes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,6 +363,7 @@
             this.Name = "frmLembretes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lembretes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLembretes_Load);
             this.tabControlLembretes.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
