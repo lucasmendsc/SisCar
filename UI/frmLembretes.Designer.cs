@@ -41,9 +41,7 @@
             this.btGRAVAR = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtData = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtHora = new System.Windows.Forms.DateTimePicker();
             this.txtCOD_LEMBRETE = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -56,6 +54,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCONSULTA = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.dtHora = new System.Windows.Forms.DateTimePicker();
             this.tabControlLembretes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -192,7 +191,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dtData);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dtHora);
             this.panel1.Controls.Add(this.txtCOD_LEMBRETE);
@@ -203,32 +201,16 @@
             this.panel1.Size = new System.Drawing.Size(428, 52);
             this.panel1.TabIndex = 1;
             // 
-            // dtData
-            // 
-            this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtData.Location = new System.Drawing.Point(341, 22);
-            this.dtData.Name = "dtData";
-            this.dtData.Size = new System.Drawing.Size(80, 20);
-            this.dtData.TabIndex = 19;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(316, 6);
+            this.label3.Location = new System.Drawing.Point(343, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "Data";
-            // 
-            // dtHora
-            // 
-            this.dtHora.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtHora.Location = new System.Drawing.Point(256, 22);
-            this.dtHora.Name = "dtHora";
-            this.dtHora.Size = new System.Drawing.Size(79, 20);
-            this.dtHora.TabIndex = 18;
             // 
             // txtCOD_LEMBRETE
             // 
@@ -350,6 +332,14 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Digite a descrição para consulta:";
             // 
+            // dtHora
+            // 
+            this.dtHora.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtHora.Location = new System.Drawing.Point(342, 22);
+            this.dtHora.Name = "dtHora";
+            this.dtHora.Size = new System.Drawing.Size(79, 20);
+            this.dtHora.TabIndex = 18;
+            // 
             // frmLembretes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,9 +351,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLembretes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lembretes";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLembretes_Load);
             this.tabControlLembretes.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -399,7 +388,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtHora;
         private System.Windows.Forms.CheckBox chkLembrar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource lembreteBindingSource;
@@ -408,6 +396,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DateTimePicker dtData;
+        private System.Windows.Forms.DateTimePicker dtHora;
     }
 }

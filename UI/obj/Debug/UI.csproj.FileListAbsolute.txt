@@ -745,3 +745,4 @@ C:\SisCar\UI\obj\Debug\UI.frmRelatorioGeral.resources
 C:\SisCar\UI\obj\Debug\UI.frmLembretes.resources
 C:\SisCar\UI\obj\Debug\UI.frmExibirLembrete.resources
 C:\SisCar\UI\bin\Debug\Tulpep.NotificationWindow.dll
+C:\SisCar\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache

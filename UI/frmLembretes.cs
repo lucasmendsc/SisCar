@@ -39,7 +39,15 @@ namespace UI
             Lembrete lembrete = new Lembrete();
             lembrete.Descricao = richTextBox1.Text;
             lembrete.Data = converteData(dtHora.Value.ToString());
-            lembrete.Status = "0";
+
+            if (chkLembrar.Checked)
+            {
+                lembrete.Status = "0";
+            }
+            else
+            {
+                lembrete.Status = "1";
+            }
             try
             {
                 if (txtCOD_LEMBRETE.Text.Equals(""))

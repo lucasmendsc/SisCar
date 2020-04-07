@@ -200,3 +200,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.csproj.CopyCo
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\DAL\obj\Debug\DAL.pdb
 C:\SisCar\DAL\bin\Debug\Tulpep.NotificationWindow.dll
+C:\SisCar\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache

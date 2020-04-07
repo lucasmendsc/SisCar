@@ -51,7 +51,6 @@
             this.corDeFundoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.papelDeParedeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lembretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -222,50 +221,42 @@
             // calculadoraToolStripMenuItem
             // 
             this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.calculadoraToolStripMenuItem.Text = "&Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
             // consultaDetranToolStripMenuItem
             // 
             this.consultaDetranToolStripMenuItem.Name = "consultaDetranToolStripMenuItem";
-            this.consultaDetranToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.consultaDetranToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultaDetranToolStripMenuItem.Text = "Consulta &Detran";
             this.consultaDetranToolStripMenuItem.Click += new System.EventHandler(this.consultaDetranToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(156, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // corDeFundoToolStripMenuItem
             // 
             this.corDeFundoToolStripMenuItem.Name = "corDeFundoToolStripMenuItem";
-            this.corDeFundoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.corDeFundoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.corDeFundoToolStripMenuItem.Text = "C&or de Fundo";
             this.corDeFundoToolStripMenuItem.Click += new System.EventHandler(this.corDeFundoToolStripMenuItem_Click);
             // 
             // papelDeParedeToolStripMenuItem
             // 
             this.papelDeParedeToolStripMenuItem.Name = "papelDeParedeToolStripMenuItem";
-            this.papelDeParedeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.papelDeParedeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.papelDeParedeToolStripMenuItem.Text = "&Papel de Parede";
             this.papelDeParedeToolStripMenuItem.Click += new System.EventHandler(this.papelDeParedeToolStripMenuItem_Click);
             // 
             // lembretesToolStripMenuItem
             // 
-            this.lembretesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarToolStripMenuItem});
             this.lembretesToolStripMenuItem.Name = "lembretesToolStripMenuItem";
             this.lembretesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.lembretesToolStripMenuItem.Text = "Lembretes";
-            // 
-            // cadastrarToolStripMenuItem
-            // 
-            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.cadastrarToolStripMenuItem.Text = "Cadastrar";
-            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
+            this.lembretesToolStripMenuItem.Click += new System.EventHandler(this.lembretesToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -621,7 +612,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem lembretesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon iconNotificacao;
         private Tulpep.NotificationWindow.PopupNotifier popupNotifier1;
         private System.Windows.Forms.Timer timer2;

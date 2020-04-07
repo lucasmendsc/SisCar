@@ -205,33 +205,41 @@ namespace UI
             frmCaixa.ShowDialog();
         }
 
-        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLembretes frmLembretes = new frmLembretes();
-            frmLembretes.ShowDialog();
-        }
 
         public void exibirLembretes()
         {
             DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
 
-            foreach (DataRow dr in dt.Rows)
+            if (dt.Rows.Count > 0)
             {
-                PopupNotifier popup = new PopupNotifier();
-                popup.TitleText = "LEMBRETE";
-                popup.ContentText = dr["descricao"].ToString();
-                popup.Delay = 1000000;
-                popup.Popup();// show 
-
-                               
-            }
-
-            
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr["status"].ToString().Equals("0"))
+                    {
+                        PopupNotifier popup = new PopupNotifier();
+                        popup.TitleText = "LEMBRETE";
+                        popup.ContentText = dr["descricao"].ToString();
+                        popup.Delay = 1000000;
+                        popup.Popup();// show
+                    }
+                }
+            }   
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             exibirLembretes();
+        }
+
+        private void lembretesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLembretes frmLembretes = new frmLembretes();
+            frmLembretes.ShowDialog();
+        }
+
+        public void metodo()
+        {
+
         }
     }
 }
