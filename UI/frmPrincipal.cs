@@ -208,7 +208,7 @@ namespace UI
 
         public void exibirLembretes()
         {
-            DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
+           /* DataTable dt = LembreteBLL.getInstance().consultarTodosLembretes(null);
 
             if (dt.Rows.Count > 0)
             {
@@ -223,13 +223,9 @@ namespace UI
                         popup.Popup();// show
                     }
                 }
-            }   
+            }   */
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            exibirLembretes();
-        }
 
         private void lembretesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -237,9 +233,5 @@ namespace UI
             frmLembretes.ShowDialog();
         }
 
-        public void metodo()
-        {
-
-        }
     }
 }

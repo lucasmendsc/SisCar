@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Models;
 using DAL;
 using System.Data;
+using System.Windows.Forms;
 
 namespace BLL
 {
     public class MovimentacaoBLL
     {
+        MovimentacaoDAL movDal = new MovimentacaoDAL();
         public bool verificarCampos(Movimentacao movimentacao)
         {
             if (movimentacao.Cod_Marca.Trim().Length == 0)
@@ -43,9 +45,9 @@ namespace BLL
                 throw new Exception("É obrigatório o preenchimento do campo Cor!");
             }
 
-            if (movimentacao.Placa.Trim().Length == 0 || movimentacao.Placa == null || movimentacao.Placa.Equals("   -"))
+            if (movimentacao.Placa.Trim().Length == 0 || movimentacao.Placa == null || movimentacao.Placa.Length < 7 || movimentacao.Placa.Length > 8)
             {
-                throw new Exception("É obrigatório o preenchimento do campo Placa!");
+                throw new Exception("Verifique o preenchimento do campo Placa!");
             }
 
             if (movimentacao.Renavam.Trim().Length == 0)
@@ -53,10 +55,36 @@ namespace BLL
                 throw new Exception("É obrigatório o preenchimento do campo CPF!");
             }
 
+            if (!verificaPlacaUnica(movimentacao.Placa))
+            {
+                if (MessageBox.Show("Deseja prosseguir para atualizar ?", "Veículo já existe", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    throw new Exception("Já existe um veículo com esta Placa");
+                }
+            }
+
+            
             return true;
         }
 
-       
+        public Boolean verificaPlacaUnica(string placa)
+        {
+            DataTable dt = movDal.ConsultarMovimentacaoEntrada(null);
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (placa.Equals(dr["placa"].ToString()))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+
 
         public bool verificarCamposCompra(Movimentacao movimentacao)
         {
@@ -84,30 +112,6 @@ namespace BLL
             return true;
         }
 
-        public bool verificarCamposVenda(Movimentacao movimentacao)
-        {
-            if (movimentacao.Valor_Saida.ToString().Trim().Length == 0)
-            {
-                movimentacao.Valor_Saida = "0";
-                //throw new Exception("É obrigatório o preenchimento do campo Valor de Saida!");
-            }
-
-            if (movimentacao.Cod_Cliente_Saida.Trim().Length == 0)
-            {
-                throw new Exception("É obrigatório o preenchimento do campo Cliente Saida!");
-            }
-
-            try
-            {
-                Convert.ToString(Convert.ToDateTime(movimentacao.Data_Saida));
-            }
-            catch
-            {
-                throw new Exception("Preencha o campo Data Saida Corretamente!");
-            }
-            
-            return true;
-        }
 
 
         public void inserirCodigo(Movimentacao movimentacao)

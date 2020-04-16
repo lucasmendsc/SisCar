@@ -131,7 +131,7 @@ namespace DAL
 
                 String excluiC = (String.Format(
                     "DELETE FROM CLIENTES " +
-                    "WHERE COD_CLIENTE = '{0}'",
+                    "WHERE COD_CLIENTE = {0}",
                     Codigo));
 
                 FbCommand comandoDelete = new FbCommand
@@ -141,7 +141,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao Excluir Cliente!" + ex.Message);
+                throw new Exception("Falha ao Excluir Cliente com registros de movimentação");
             }
             finally
             {

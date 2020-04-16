@@ -129,7 +129,8 @@ namespace DAL
                     "VALOR_ENTRADA, " +                    
                     "DATA_ENTRADA, " +                   
                     "COD_CLIENTE_ENTRADA) " +                    
-                    "VALUES ('{0}', " +
+                    "VALUES (NULL, " +
+                    "'{0}', " +
                     "'{1}', " +
                     "'{2}', " +
                     "'{3}', " +
@@ -140,9 +141,7 @@ namespace DAL
                     "'{8}', " +
                     "'{9}', " +
                     "'{10}', " +
-                    "'{11}', " +
-                    "'{12}') ",                   
-                    movimentacao.Cod_Mov_Veiculos,
+                    "'{11}') ",
                     movimentacao.Cod_Marca,
                     movimentacao.Cod_Modelo,
                     movimentacao.Versao,
@@ -160,9 +159,9 @@ namespace DAL
                     (insereE, ConnectionFactory.Connect());
                 comandoInsert.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Falha ao Inserir Movimentação!" + ex.Message);
+                throw new Exception("Falha ao Inserir Movimentação! Veículo Já existe.");
             }
             finally
             {
@@ -202,7 +201,7 @@ namespace DAL
                     "'{10}', " +
                     "'{11}', " +
                     "'{12}') ",
-                    movimentacao.Cod_Mov_Veiculos,
+                    "null",
                     movimentacao.Cod_Marca,
                     movimentacao.Cod_Modelo,
                     movimentacao.Versao,
@@ -236,16 +235,16 @@ namespace DAL
             {
                 String excluiC = (String.Format(
                     "DELETE FROM MOV_VEICULOS " +
-                    "WHERE COD_MOV_VEICULOS = '{0}'",
+                    "WHERE COD_MOV_VEICULOS = {0}",
                     movimentacao.Cod_Mov_Veiculos));
 
                 FbCommand comandoDelete = new FbCommand
                     (excluiC, ConnectionFactory.Connect());
                 comandoDelete.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Falha ao Excluir Movimentação!" + ex.Message);
+                throw new Exception("Falha ao Excluir Movimentação!");
             }
             finally
             {

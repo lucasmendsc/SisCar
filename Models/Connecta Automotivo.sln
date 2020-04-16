@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "..\BLL\BLL.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "..\UI\UI.csproj", "{F764C05F-4066-40AD-8646-8138E1D0C946}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ConnectaAuto", "..\ConnectaAuto\ConnectaAuto.vdproj", "{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Connecta Automotivo", "..\Connecta Automotivo\Connecta Automotivo.vdproj", "{8907D659-2158-4973-98C1-588F9BDFAB31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,12 +71,12 @@ Global
 		{F764C05F-4066-40AD-8646-8138E1D0C946}.Release|x64.Build.0 = Release|x64
 		{F764C05F-4066-40AD-8646-8138E1D0C946}.Release|x86.ActiveCfg = Release|x86
 		{F764C05F-4066-40AD-8646-8138E1D0C946}.Release|x86.Build.0 = Release|x86
-		{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}.Debug|Any CPU.ActiveCfg = Debug
-		{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}.Debug|x64.ActiveCfg = Debug
-		{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}.Debug|x86.ActiveCfg = Debug
-		{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}.Release|Any CPU.ActiveCfg = Release
-		{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}.Release|x64.ActiveCfg = Release
-		{B5C6F2A5-BEB2-4F57-AE12-A5A10F27BC50}.Release|x86.ActiveCfg = Release
+		{8907D659-2158-4973-98C1-588F9BDFAB31}.Debug|Any CPU.ActiveCfg = Debug
+		{8907D659-2158-4973-98C1-588F9BDFAB31}.Debug|x64.ActiveCfg = Debug
+		{8907D659-2158-4973-98C1-588F9BDFAB31}.Debug|x86.ActiveCfg = Debug
+		{8907D659-2158-4973-98C1-588F9BDFAB31}.Release|Any CPU.ActiveCfg = Release
+		{8907D659-2158-4973-98C1-588F9BDFAB31}.Release|x64.ActiveCfg = Release
+		{8907D659-2158-4973-98C1-588F9BDFAB31}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

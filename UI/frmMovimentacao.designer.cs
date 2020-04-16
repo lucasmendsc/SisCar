@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovimentacao));
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtPLACA = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCOD_CLIENTE = new System.Windows.Forms.TextBox();
             this.txtRG = new System.Windows.Forms.MaskedTextBox();
@@ -86,7 +87,6 @@
             this.btEXCLUIR = new System.Windows.Forms.Button();
             this.btGRAVAR = new System.Windows.Forms.Button();
             this.txtOBSERVACOES = new System.Windows.Forms.TextBox();
-            this.txtPLACA = new System.Windows.Forms.MaskedTextBox();
             this.txtVERSAO = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -100,6 +100,8 @@
             this.txtCONSULTA = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btFiltrar = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.clienteConsulta = new System.Windows.Forms.TextBox();
             this.btLimpaFiltro = new System.Windows.Forms.Button();
@@ -119,8 +121,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.btFiltrar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -140,6 +143,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage1.Controls.Add(this.txtPLACA);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.maskedTextBox1);
             this.tabPage1.Controls.Add(this.cbMODELO);
@@ -156,7 +160,6 @@
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.txtOBSERVACOES);
-            this.tabPage1.Controls.Add(this.txtPLACA);
             this.tabPage1.Controls.Add(this.txtVERSAO);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label7);
@@ -171,6 +174,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cadastro";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // txtPLACA
+            // 
+            this.txtPLACA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPLACA.Location = new System.Drawing.Point(460, 143);
+            this.txtPLACA.MaxLength = 20;
+            this.txtPLACA.Name = "txtPLACA";
+            this.txtPLACA.Size = new System.Drawing.Size(102, 20);
+            this.txtPLACA.TabIndex = 89;
             // 
             // groupBox2
             // 
@@ -866,16 +878,6 @@
             this.txtOBSERVACOES.Size = new System.Drawing.Size(680, 72);
             this.txtOBSERVACOES.TabIndex = 11;
             // 
-            // txtPLACA
-            // 
-            this.txtPLACA.Location = new System.Drawing.Point(463, 143);
-            this.txtPLACA.Mask = "AAA-9999";
-            this.txtPLACA.Name = "txtPLACA";
-            this.txtPLACA.PromptChar = ' ';
-            this.txtPLACA.Size = new System.Drawing.Size(93, 20);
-            this.txtPLACA.TabIndex = 9;
-            this.txtPLACA.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtPLACA_MaskInputRejected);
-            // 
             // txtVERSAO
             // 
             this.txtVERSAO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1012,6 +1014,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.label32);
+            this.panel3.Controls.Add(this.label31);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btFiltrar);
             this.panel3.Controls.Add(this.label17);
@@ -1030,11 +1034,39 @@
             this.panel3.Size = new System.Drawing.Size(704, 67);
             this.panel3.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(647, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 47);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Imprimir";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btFiltrar
+            // 
+            this.btFiltrar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btFiltrar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
+            this.btFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btFiltrar.Image")));
+            this.btFiltrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btFiltrar.Location = new System.Drawing.Point(535, 13);
+            this.btFiltrar.Name = "btFiltrar";
+            this.btFiltrar.Size = new System.Drawing.Size(50, 47);
+            this.btFiltrar.TabIndex = 14;
+            this.btFiltrar.Text = "OK";
+            this.btFiltrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btFiltrar.UseVisualStyleBackColor = false;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(192, 46);
+            this.label17.Location = new System.Drawing.Point(275, 46);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(101, 15);
             this.label17.TabIndex = 2;
@@ -1043,9 +1075,9 @@
             // 
             // clienteConsulta
             // 
-            this.clienteConsulta.Location = new System.Drawing.Point(299, 44);
+            this.clienteConsulta.Location = new System.Drawing.Point(382, 44);
             this.clienteConsulta.Name = "clienteConsulta";
-            this.clienteConsulta.Size = new System.Drawing.Size(230, 20);
+            this.clienteConsulta.Size = new System.Drawing.Size(148, 20);
             this.clienteConsulta.TabIndex = 2;
             this.clienteConsulta.TextChanged += new System.EventHandler(this.Cliente_consulta);
             this.clienteConsulta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -1150,7 +1182,7 @@
             this.tabClientes.Location = new System.Drawing.Point(4, 22);
             this.tabClientes.Name = "tabClientes";
             this.tabClientes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClientes.Size = new System.Drawing.Size(698, 554);
+            this.tabClientes.Size = new System.Drawing.Size(710, 554);
             this.tabClientes.TabIndex = 2;
             this.tabClientes.Text = "Consultar Clientes";
             // 
@@ -1185,9 +1217,6 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Digite o nome do cliente";
             // 
-            // printDocument1
-            //  this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // printPreviewDialog1
             // 
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -1213,33 +1242,27 @@
             this.visualizarToolStripMenuItem.Text = "Visualizar";
             this.visualizarToolStripMenuItem.Click += new System.EventHandler(this.visualizarToolStripMenuItem_Click);
             // 
-            // btFiltrar
+            // timer1
             // 
-            this.btFiltrar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btFiltrar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.btFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btFiltrar.Image")));
-            this.btFiltrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btFiltrar.Location = new System.Drawing.Point(535, 13);
-            this.btFiltrar.Name = "btFiltrar";
-            this.btFiltrar.Size = new System.Drawing.Size(50, 47);
-            this.btFiltrar.TabIndex = 14;
-            this.btFiltrar.Text = "OK";
-            this.btFiltrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btFiltrar.UseVisualStyleBackColor = false;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
+            // label31
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(647, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 47);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Imprimir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(171, 45);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(39, 13);
+            this.label31.TabIndex = 16;
+            this.label31.Text = "Quant.";
+            // 
+            // label32
+            // 
+            this.label32.Location = new System.Drawing.Point(217, 46);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 15);
+            this.label32.TabIndex = 17;
             // 
             // frmMovimentacao
             // 
@@ -1291,7 +1314,6 @@
         private System.Windows.Forms.Button btEXCLUIR;
         private System.Windows.Forms.Button btGRAVAR;
         private System.Windows.Forms.TextBox txtOBSERVACOES;
-        private System.Windows.Forms.MaskedTextBox txtPLACA;
         private System.Windows.Forms.TextBox txtVERSAO;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
@@ -1376,5 +1398,9 @@
         private System.Windows.Forms.TextBox clienteConsulta;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btFiltrar;
+        private System.Windows.Forms.TextBox txtPLACA;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
     }
 }

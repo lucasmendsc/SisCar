@@ -67,10 +67,6 @@ namespace UI
             txtOBSERVACOES.Clear();
             txtVALOR_ENTRADA.Clear();
             txtVALOR_SAIDA.Clear();
-            //txtCOD_CLIENTE_ENTRADA.Clear();
-            //txtCOD_CLIENTE_SAIDA.Clear();
-            //txtNOME_CLIENTE_ENTRADA.Clear();
-            //txtNOME_CLIENTE_SAIDA.Clear();            
             btEXCLUIR.Enabled = false;
             consulta = null;
         }
@@ -199,6 +195,7 @@ namespace UI
             string codCliente = cadastrarCliente();
             Movimentacao movimentacao = new Movimentacao();
             MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
+            
 
             try
             {
@@ -215,6 +212,7 @@ namespace UI
 
                 movimentacaobll.verificarCampos(movimentacao);
 
+
                 if (Entrada_Saida == "E" && codCliente != null)
                 {
                     movimentacao.Valor_Entrada = txtVALOR_ENTRADA.Text.Replace(",", ".");
@@ -227,7 +225,6 @@ namespace UI
                     movimentacao.Valor_Saida = txtVALOR_SAIDA.Text.Replace(",", ".");
                     movimentacao.Data_Saida = converterData(txtDATA_SAIDA.Text);
                     movimentacao.Cod_Cliente_Saida = codCliente;
-                    movimentacaobll.verificarCamposVenda(movimentacao);
                     ZeraCamposClientes();
                 }
 
@@ -257,13 +254,18 @@ namespace UI
                 }
 
                 ZeraCampos();
+
                 movimentacaobll.inserirCodigo(movimentacao);
                 txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("erro ao inserir: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
+
+            movimentacaobll.inserirCodigo(movimentacao);
+            txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
         }
 
         private void ZeraCamposClientes()
@@ -286,7 +288,6 @@ namespace UI
             ckRESTRICAO.Checked = false;
             txtCOD_CLIENTE.Enabled = false;
             txtNOME.Focus();
-            btEXCLUIR.Enabled = false;
 
         }
 
@@ -294,10 +295,21 @@ namespace UI
         {
             try{
                 Movimentacao movimentacao = new Movimentacao();
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
+                MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
-            movimentacao.Cod_Mov_Veiculos = txtCOD_MOV_VEICULOS.Text;
+                movimentacao.Cod_Mov_Veiculos = txtCOD_MOV_VEICULOS.Text;
 
+            if(MessageBox.Show("Deseja EXCLUIR o cliente da Movimentação?", "Excluir Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                    Cliente cliente = new Cliente();
+                    cliente.Cod_Cliente = txtCOD_CLIENTE.Text;
+                    ClienteBLL clienteBLL = new ClienteBLL();
+                    clienteBLL.excluirCliente(cliente);
+                    ZeraCamposClientes();
+
+                    MessageBox.Show("Cliente removido com sucesso !");
+
+            }
             if (MessageBox.Show("Deseja EXCLUIR essa Movimentação?", "Excluir Movimentação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 movimentacaobll.excluirMovimentacao(movimentacao);
@@ -307,8 +319,9 @@ namespace UI
                 consulta = null;
                 btEXCLUIR.Enabled = false;
             }
-            }catch(Exception){
-                MessageBox.Show("Ocorreu um erro ao excluir movimentação.");
+
+            }catch(Exception ex){
+                MessageBox.Show(ex.Message);
             }
             
         }
@@ -974,6 +987,7 @@ namespace UI
                     ckRESTRICAO.Checked = true;
                 else
                     ckRESTRICAO.Checked = false;
+                    btEXCLUIR.Enabled = true;
             }
             catch (Exception)
             {
@@ -1111,6 +1125,11 @@ namespace UI
 
             frmImprimirMovimentacao frmImprimir = new frmImprimirMovimentacao(dt);
             frmImprimir.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            PreencherDataGrid(null);
         }
     }
 }
