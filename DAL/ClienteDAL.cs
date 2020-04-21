@@ -79,7 +79,8 @@ namespace DAL
                     "SEXO, " +
                     "RESTRICAO, " +
                     "RG) " +
-                    "VALUES ({0}," +
+                    "VALUES (NULL, "+
+                    "'{0}'," +
                     "'{1}'," + 
                     "'{2}'," + 
                     "'{3}'," + 
@@ -91,9 +92,7 @@ namespace DAL
                     "'{9}'," +
                     "'{10}'," +
                     "'{11}'," + 
-                    "'{12}', " +
-                    "'{13}'); ",
-                    cliente.Cod_Cliente,
+                    "'{12}'); ",
                     cliente.Nome,
                     cliente.CPF,
                     cliente.Data_Nasc,
@@ -181,7 +180,7 @@ namespace DAL
             }
         }
 
-        public DataTable consultarClienteCpf(string cpf)
+        public Cliente consultarClienteCpf(string cpf)
         {
             String consultaC = (String.Format(
                     "SELECT *                 " +
@@ -195,7 +194,7 @@ namespace DAL
             da.Fill(dt);
 
             ConnectionFactory.Connect().Close();
-            return dt;
+            return DataTableParaCliente(dt);
         }
 
         public DataTable ConsultarCliente(String NomeCliente) 
@@ -244,20 +243,28 @@ namespace DAL
         }
 
 
-        public Cliente GetCliente(int codigo)
+        public Cliente GetCliente(int cod)
         {
-            Cliente cliente = new Cliente();
             String pesquisaC = (String.Format(
                     "SELECT * " +
                     "  FROM CLIENTES " +
                     " WHERE COD_CLIENTE = {0} ",
-                    codigo));
+                    cod));
 
             FbDataAdapter da = new FbDataAdapter(new FbCommand(pesquisaC, ConnectionFactory.Connect()));
             DataTable dt = new DataTable();
             da.Fill(dt);
             ConnectionFactory.Connect().Close();
-            if(dt.Rows.Count > 0)
+
+            return DataTableParaCliente(dt);
+                       
+        }
+
+        public Cliente DataTableParaCliente(DataTable dt)
+        {
+
+            Cliente cliente = new Cliente();
+            if (dt.Rows.Count > 0)
             {
                 cliente.Cod_Cliente = dt.Rows[0]["COD_CLIENTE"].ToString();
                 cliente.Nome = dt.Rows[0]["NOME"].ToString();
@@ -280,12 +287,6 @@ namespace DAL
             {
                 return null;
             }
-            
-
-
-            
-
-           
         }
     }
 }

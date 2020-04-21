@@ -100,6 +100,8 @@
             this.txtCONSULTA = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbQuant = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btFiltrar = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
@@ -122,8 +124,6 @@
             this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1014,7 +1014,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.label32);
+            this.panel3.Controls.Add(this.lbQuant);
             this.panel3.Controls.Add(this.label31);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btFiltrar);
@@ -1033,6 +1033,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(704, 67);
             this.panel3.TabIndex = 0;
+            // 
+            // lbQuant
+            // 
+            this.lbQuant.Location = new System.Drawing.Point(216, 45);
+            this.lbQuant.Name = "lbQuant";
+            this.lbQuant.Size = new System.Drawing.Size(41, 15);
+            this.lbQuant.TabIndex = 17;
+            this.lbQuant.UseWaitCursor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(171, 45);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(39, 13);
+            this.label31.TabIndex = 16;
+            this.label31.Text = "Quant.";
             // 
             // button1
             // 
@@ -1171,7 +1188,6 @@
             this.tabControl1.TabIndex = 1;
             this.tabControl1.TabStop = false;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
-            this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabClientes
             // 
@@ -1247,22 +1263,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(171, 45);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(39, 13);
-            this.label31.TabIndex = 16;
-            this.label31.Text = "Quant.";
-            // 
-            // label32
-            // 
-            this.label32.Location = new System.Drawing.Point(217, 46);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 15);
-            this.label32.TabIndex = 17;
             // 
             // frmMovimentacao
             // 
@@ -1400,7 +1400,7 @@
         private System.Windows.Forms.Button btFiltrar;
         private System.Windows.Forms.TextBox txtPLACA;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label lbQuant;
         private System.Windows.Forms.Label label31;
     }
 }

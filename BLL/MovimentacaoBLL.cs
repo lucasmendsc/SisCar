@@ -12,7 +12,7 @@ namespace BLL
 {
     public class MovimentacaoBLL
     {
-        MovimentacaoDAL movDal = new MovimentacaoDAL();
+       
         public bool verificarCampos(Movimentacao movimentacao)
         {
             if (movimentacao.Cod_Marca.Trim().Length == 0)
@@ -54,37 +54,8 @@ namespace BLL
             {
                 throw new Exception("É obrigatório o preenchimento do campo CPF!");
             }
-
-            if (!verificaPlacaUnica(movimentacao.Placa))
-            {
-                if (MessageBox.Show("Deseja prosseguir para atualizar ?", "Veículo já existe", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
-                    throw new Exception("Já existe um veículo com esta Placa");
-                }
-            }
-
-            
             return true;
         }
-
-        public Boolean verificaPlacaUnica(string placa)
-        {
-            DataTable dt = movDal.ConsultarMovimentacaoEntrada(null);
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    if (placa.Equals(dr["placa"].ToString()))
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-
 
         public bool verificarCamposCompra(Movimentacao movimentacao)
         {
@@ -126,22 +97,27 @@ namespace BLL
             movimentacaodal.InserirMovimentacaoEntrada(movimentacao);
         }
 
-        public void inserirMovimentacaoSaida(Movimentacao movimentacao)
+        public string inserirMovimentacaoSaida(Movimentacao movimentacao)
         {
             MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            movimentacaodal.InserirMovimentacaoSaida(movimentacao);
+
+            if (consultarMovimentacaoSaida(movimentacao.Placa) == null)
+            {
+                
+                movimentacaodal.InserirMovimentacaoSaida(movimentacao);
+                return "Movimentação inserida com sucesso !";
+            }
+            else
+            {
+                movimentacaodal.AtualizarMovimentacaoSaida(movimentacao);
+                return "Movimentação atualizada com secesso !";
+            }
         } 
 
         public void atulizarMovimentacaoEntrada(Movimentacao movimentacao)
         {
             MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
             movimentacaodal.AtualizarMovimentacaoEntrada(movimentacao);
-        }
-
-        public void atulizarMovimentacaoSaida(Movimentacao movimentacao)
-        {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            movimentacaodal.AtualizarMovimentacaoSaida(movimentacao);
         }
 
         public void excluirMovimentacao(Movimentacao movimentacao)
@@ -163,7 +139,7 @@ namespace BLL
         public DataTable consultarMovimentacaoSaida(String TEXTO)
         {
             MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.ConsultarMovimentacaoSaida(TEXTO);
+            return filtrarMovimentacaoSaida("01.01.2000",DateTime.Now.ToString("dd.MM.yyyy"));
         }
         public DataTable filtrarMovimentacaoSaida(string dataInicio, string dataFim)
         {

@@ -13,7 +13,7 @@ namespace BLL
     {
         public bool verificarCampos(Cliente cliente)
         {
-            if (cliente.Nome.Trim().Length == 0)
+            if (cliente.Nome.Trim().Length == 0 || cliente.Nome.Trim().Length < 3)
             {    
                 throw new Exception("É obrigatório o preenchimento do campo Nome!");                 
             }
@@ -21,6 +21,11 @@ namespace BLL
             if (cliente.CPF.Trim().Length == 0) 
             {
                 throw new Exception("É obrigatório o preenchimento do campo CPF!");
+            }
+
+            if(cliente.Rg.Trim().Length == 0)
+            {
+                throw new Exception("É obrigatório o preenchimento do campo RG!");
             }
 
             try
@@ -65,7 +70,7 @@ namespace BLL
             return clientedal.ConsultarCliente(NomeCliente);
         }
 
-        public DataTable consultarClienteCpf(string cpf)
+        public Cliente consultarClienteCpf(string cpf)
         {
             ClienteDAL clientedal = new ClienteDAL();
             return clientedal.consultarClienteCpf(cpf);
@@ -76,10 +81,10 @@ namespace BLL
             ClienteDAL clientedal = new ClienteDAL();
             clientedal.PesquisarCliente(cliente);
         }
-        public Cliente GetCliente(int codigo)
+        public Cliente GetCliente(int cod)
         {
             ClienteDAL clientedal = new ClienteDAL();
-            return clientedal.GetCliente(codigo);
+            return clientedal.GetCliente(cod);
         }
     }
 }

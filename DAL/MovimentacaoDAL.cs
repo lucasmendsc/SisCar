@@ -53,7 +53,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao Atualizar os Dados da Movimentação!" + ex.Message);
+                throw new Exception("Falha ao Atualizar os Dados da Movimentação! : \n" + ex.Message);
             }
             finally
             {
@@ -101,7 +101,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao Atualizar os Dados da Movimentação!" + ex.Message);
+                throw new Exception("Falha ao Atualizar os Dados da Movimentação ! : \n" + ex.Message);
             }
             finally
             {
@@ -159,9 +159,9 @@ namespace DAL
                     (insereE, ConnectionFactory.Connect());
                 comandoInsert.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Falha ao Inserir Movimentação! Veículo Já existe.");
+                throw new Exception("Falha ao Inserir Movimentação ! : \n"+ex.Message);
             }
             finally
             {
@@ -221,7 +221,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao Inserir Movimentação!" + ex.Message);
+                throw new Exception("Falha ao Inserir Movimentação ! : \n" + ex.Message);
             }
             finally
             {
@@ -244,7 +244,7 @@ namespace DAL
             }
             catch (Exception)
             {
-                throw new Exception("Falha ao Excluir Movimentação!");
+                throw new Exception("Falha ao Excluir Movimentação ! :");
             }
             finally
             {
@@ -276,7 +276,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao incluir campo na base de dados!" + ex.Message);
+                throw new Exception("Falha ao incluir campo na base de dados ! : \n" + ex.Message);
             }
             finally
             {
@@ -321,7 +321,7 @@ namespace DAL
                 ConnectionFactory.Connect().Close();
                 return dt;
             }catch (Exception ex){
-                throw new Exception("Falha buscar movimentações de entrada!" + ex.Message);
+                throw new Exception("Falha buscar movimentações de entrada ! : \n" + ex.Message);
             }
             finally
             {
@@ -368,7 +368,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha buscar movimentações de entrada!" + ex.Message);
+                throw new Exception("Falha buscar movimentações de entrada ! :\n" + ex.Message);
             }
             finally
             {
@@ -407,6 +407,7 @@ namespace DAL
                      "AND MV.COD_CLIENTE_SAIDA = C2.COD_CLIENTE " +
                      "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
                      "AND MV.PLACA LIKE '%{0}%' " +
+                     "AND MV.COD_CLIENTE_SAIDA <> NULL "+
                      "ORDER BY MV.COD_MOV_VEICULOS ", TEXTO));
 
 
@@ -418,7 +419,7 @@ namespace DAL
             return dt;
 
             }catch(Exception e){
-                throw new Exception("Falha ao filtrar movimentações!" + e.Message);
+                throw new Exception("Falha ao consultar movimentações de saídas !: \n" + e.Message);
             }finally{
                  ConnectionFactory.Connect().Close();
                 
@@ -426,6 +427,7 @@ namespace DAL
         
            
         }
+
         
         public DataTable filtrarMovimentacaoSaida(string dataInicio, string dataFim)
         {
@@ -507,7 +509,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao filtrar movimentações!" + ex.Message);
+                throw new Exception("Falha ao filtrar movimentações ! : \n" + ex.Message);
             }
             finally
             {
@@ -552,7 +554,7 @@ namespace DAL
             da.Fill(dt);
                  return dt;
             }catch(Exception e){
-                 throw new Exception("Falha ao filtrar movimentações!" + e.Message);
+                 throw new Exception("Falha ao filtrar movimentações ! : \n" + e.Message);
             }finally{
                 ConnectionFactory.Connect().Close();
             }
@@ -594,7 +596,7 @@ namespace DAL
             }
             catch(Exception ex)
             {
-                throw new Exception("Falha ao buscar todas as movimentações!" + ex.Message);
+                throw new Exception("Falha ao buscar todas as movimentações ! \n" + ex.Message);
             }
             finally
             {
