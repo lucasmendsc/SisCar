@@ -141,7 +141,7 @@ namespace DAL
                     "'{8}', " +
                     "'{9}', " +
                     "'{10}', " +
-                    "'{11}') ",
+                    "{11}) ",
                     movimentacao.Cod_Marca,
                     movimentacao.Cod_Modelo,
                     movimentacao.Versao,
