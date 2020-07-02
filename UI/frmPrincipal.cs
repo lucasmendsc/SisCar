@@ -233,5 +233,10 @@ namespace UI
             frmLembretes.ShowDialog();
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            frmExibirLembrete frmExibirLembrete = new frmExibirLembrete();
+            frmExibirLembrete.ShowDialog();
+        }
     }
 }

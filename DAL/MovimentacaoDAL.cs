@@ -13,6 +13,21 @@ namespace DAL
 {
     public class MovimentacaoDAL
     {
+
+        private static MovimentacaoDAL mySelf;
+
+        private MovimentacaoDAL()
+        {
+
+        }
+
+        public static MovimentacaoDAL getInstance()
+        {
+            if (mySelf == null)
+                mySelf = new MovimentacaoDAL();
+            return mySelf;
+        }
+
         public void AtualizarMovimentacaoSaida(Movimentacao movimentacao)
         {
             try
@@ -169,6 +184,48 @@ namespace DAL
             }
         }
 
+        public DataTable filtrarMovimentacaoSaidaPlaca(string tEXTO)
+        {
+            String consultaS = (String.Format(
+                      "SELECT MV.COD_MOV_VEICULOS, " +
+                      "MA.DS_MARCA, " +
+                      "MO.DS_MODELO, " +
+                      "MV.VERSAO, " +
+                      "MV.ANO_FABRICACAO, " +
+                      "MV.ANO_MODELO, " +
+                      "MV.COR, " +
+                      "MV.PLACA, " +
+                      "MV.RENAVAM, " +
+                      "MV.OBSERVACOES, " +
+                      "cast(MV.DATA_ENTRADA as date) AS DATA_ENTRADA, " +
+                      "MV.VALOR_ENTRADA, " +
+                      "C1.NOME, " +
+                      "cast(MV.DATA_SAIDA as date) AS DATA_SAIDA, " +
+                      "MV.VALOR_SAIDA, " +
+                      "C2.NOME, " +
+                      "C2.FONE1 " +
+                      "FROM MOV_VEICULOS MV, " +
+                      "MARCAS MA, " +
+                      "MODELOS MO, " +
+                      "CLIENTES C2, " +
+                      "CLIENTES C1 " +
+                     "WHERE MV.COD_MARCA = MA.COD_MARCA " +
+                     "AND MV.COD_MODELO = MO.COD_MODELO " +
+                     "AND MV.COD_CLIENTE_SAIDA = C2.COD_CLIENTE " +
+                     "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
+                     "AND MV.PLACA LIKE '%{0}%' " +
+                     "ORDER BY MV.COD_MOV_VEICULOS ", tEXTO));
+
+            FbDataAdapter da = new FbDataAdapter
+                    (new FbCommand(consultaS, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            ConnectionFactory.Connect().Close();
+            return dt;
+
+        }
+
         public void InserirMovimentacaoSaida(Movimentacao movimentacao)
         {
             try
@@ -313,8 +370,7 @@ namespace DAL
                      "AND MV.PLACA LIKE '%{0}%' " +
                      "ORDER BY MV.COD_MOV_VEICULOS ", TEXTO));
 
-            FbDataAdapter da = new FbDataAdapter
-                   (new FbCommand(consultaE, ConnectionFactory.Connect()));
+            FbDataAdapter da = new FbDataAdapter(new FbCommand(consultaE, ConnectionFactory.Connect()));
             DataTable dt = new DataTable();
             da.Fill(dt);
 
@@ -521,44 +577,126 @@ namespace DAL
             try{
                 ClienteDAL clienteDAL = new ClienteDAL();
                 DataTable data = clienteDAL.ConsultarCliente(nome.ToUpper());
-                String cod_cliente = data.Rows[0]["COD_CLIENTE"].ToString();
 
-                String consultaS = (String.Format(
-                     "SELECT MV.COD_MOV_VEICULOS, " +
-                     "MA.DS_MARCA, " +
-                     "MO.DS_MODELO, " +
-                     "MV.VERSAO, " +
-                     "MV.ANO_FABRICACAO, " +
-                     "MV.ANO_MODELO, " +
-                     "MV.COR, " +
-                     "MV.PLACA, " +
-                     "MV.RENAVAM, " +
-                     "MV.OBSERVACOES, " +
-                     "cast(MV.DATA_ENTRADA as date) AS DATA_ENTRADA, " +
-                     "MV.VALOR_ENTRADA, " +
-                     "C1.NOME, " +
-                     "cast(MV.DATA_SAIDA as date) AS DATA_SAIDA, " +
-                     "MV.VALOR_SAIDA, " +
-                     "C2.NOME, " +
-                     "C2.FONE1 " +
-                     "FROM MOV_VEICULOS MV, " +
-                     "MARCAS MA, " +
-                     "MODELOS MO, " +
-                     "CLIENTES C2, " +
-                     "CLIENTES C1 " +
-                    "WHERE COD_CLIENTE_ENTRADA = {0} ", cod_cliente ));
+                if (data.Rows.Count > 0)
+                {
+                    DataTable dt = new DataTable();
 
-            FbDataAdapter da = new FbDataAdapter
-                    (new FbCommand(consultaS, ConnectionFactory.Connect()));
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-                 return dt;
+                    for (int i = 0; i < data.Rows.Count; i++)
+                    {
+                        int cod_cliente = int.Parse(data.Rows[i]["COD_CLIENTE"].ToString());
+
+                        String cunsultaSaidaPorNome = (String.Format(
+                          "SELECT MV.COD_MOV_VEICULOS, " +
+                          "MA.DS_MARCA, " +
+                          "MO.DS_MODELO, " +
+                          "MV.VERSAO, " +
+                          "MV.ANO_FABRICACAO, " +
+                          "MV.ANO_MODELO, " +
+                          "MV.COR, " +
+                          "MV.PLACA, " +
+                          "MV.RENAVAM, " +
+                          "MV.OBSERVACOES, " +
+                          "cast(MV.DATA_ENTRADA as date) AS DATA_ENTRADA, " +
+                          "MV.VALOR_ENTRADA, " +
+                          "C1.NOME, " +
+                          "cast(MV.DATA_SAIDA as date) AS DATA_SAIDA, " +
+                          "MV.VALOR_SAIDA, " +
+                          "C2.NOME, " +
+                          "C2.FONE1 " +
+                          "FROM MOV_VEICULOS MV, " +
+                          "MARCAS MA, " +
+                          "MODELOS MO, " +
+                          "CLIENTES C2, " +
+                          "CLIENTES C1 " +
+                         "WHERE MV.COD_MARCA = MA.COD_MARCA " +
+                         "AND MV.COD_MODELO = MO.COD_MODELO " +
+                         "AND MV.COD_CLIENTE_SAIDA = C2.COD_CLIENTE " +
+                         "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
+                         "AND MV.COD_CLIENTE_SAIDA = {0} " +
+                         "ORDER BY MV.COD_MOV_VEICULOS ", cod_cliente));
+
+                        FbDataAdapter da = new FbDataAdapter(new FbCommand(
+                            cunsultaSaidaPorNome, ConnectionFactory.Connect()));
+                       
+                        da.Fill(dt);
+                    }
+                    return dt;
+                }
+                else
+                {
+                    throw new Exception("Cliente não encontrado");
+                }
             }catch(Exception e){
                  throw new Exception("Falha ao filtrar movimentações ! : \n" + e.Message);
             }finally{
                 ConnectionFactory.Connect().Close();
             }
     
+
+        }
+
+        public DataTable filtrarNomeEntrada(string nome)
+        {
+            try
+            {
+                ClienteDAL clienteDAL = new ClienteDAL();
+                DataTable data = clienteDAL.ConsultarCliente(nome.ToUpper());
+                if (data.Rows.Count > 0)
+                {
+                    
+                    DataTable dt = new DataTable();
+
+                    for (int i = 0; i < data.Rows.Count; i++)
+                    {
+                        int cod_cliente = int.Parse(data.Rows[i]["COD_CLIENTE"].ToString());
+
+                        String consultaS = (String.Format(
+                        "SELECT MV.COD_MOV_VEICULOS, " +
+                             "MA.DS_MARCA, " +
+                             "MO.DS_MODELO, " +
+                             "MV.VERSAO, " +
+                             "MV.ANO_FABRICACAO, " +
+                             "MV.ANO_MODELO, " +
+                             "MV.COR, " +
+                             "MV.PLACA, " +
+                             "MV.RENAVAM, " +
+                             "MV.OBSERVACOES, " +
+                             "cast(MV.DATA_ENTRADA as date) AS DATA_ENTRADA, " +
+                             "MV.VALOR_ENTRADA, " +
+                             "C1.NOME, " +
+                             "C1.FONE1 " +
+                             "FROM MOV_VEICULOS MV, " +
+                             "MARCAS MA, " +
+                             "MODELOS MO, " +
+                             "CLIENTES C1 " +
+                             "WHERE MV.COD_MARCA = MA.COD_MARCA " +
+                             "AND MV.COD_MODELO = MO.COD_MODELO " +
+                             "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
+                             "AND MV.COD_CLIENTE_ENTRADA = {0} " +
+                             "ORDER BY MV.COD_MOV_VEICULOS ", cod_cliente));
+
+                        FbDataAdapter da = new FbDataAdapter
+                                (new FbCommand(consultaS, ConnectionFactory.Connect()));
+                        
+                        da.Fill(dt);
+                    }
+                return dt;
+                }
+                else
+                {
+                    throw new Exception("Cliente não encontrado");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Falha ao filtrar movimentações ! : \n" + e.Message);
+            }
+            finally
+            {
+                ConnectionFactory.Connect().Close();
+            }
+
 
         }
 
@@ -602,6 +740,140 @@ namespace DAL
             {
                 ConnectionFactory.Connect().Close();
             }
+
+        }
+
+        public DataTable filtrarModeloSaida(string nome)
+        {
+            try
+            {
+                ModeloDAL modeloDAL = new ModeloDAL();
+                DataTable data = modeloDAL.ConsultarModelo(nome);
+
+                if (data.Rows.Count > 0)
+                {
+                    DataTable dt = new DataTable();
+
+                    for (int i = 0; i < data.Rows.Count; i++)
+                    {
+                        int cod_modelo = int.Parse(data.Rows[i]["COD_MODELO"].ToString());
+
+                        String cunsultaSaidaPorNome = (String.Format(
+                          "SELECT MV.COD_MOV_VEICULOS, " +
+                          "MA.DS_MARCA, " +
+                          "MO.DS_MODELO, " +
+                          "MV.VERSAO, " +
+                          "MV.ANO_FABRICACAO, " +
+                          "MV.ANO_MODELO, " +
+                          "MV.COR, " +
+                          "MV.PLACA, " +
+                          "MV.RENAVAM, " +
+                          "MV.OBSERVACOES, " +
+                          "cast(MV.DATA_ENTRADA as date) AS DATA_ENTRADA, " +
+                          "MV.VALOR_ENTRADA, " +
+                          "C1.NOME, " +
+                          "cast(MV.DATA_SAIDA as date) AS DATA_SAIDA, " +
+                          "MV.VALOR_SAIDA, " +
+                          "C2.NOME, " +
+                          "C2.FONE1 " +
+                          "FROM MOV_VEICULOS MV, " +
+                          "MARCAS MA, " +
+                          "MODELOS MO, " +
+                          "CLIENTES C2, " +
+                          "CLIENTES C1 " +
+                         "WHERE MV.COD_MARCA = MA.COD_MARCA " +
+                         "AND MV.COD_MODELO = MO.COD_MODELO " +
+                         "AND MV.COD_CLIENTE_SAIDA = C2.COD_CLIENTE " +
+                         "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
+                         "AND MV.COD_MODELO = {0} " +
+                         "ORDER BY MV.COD_MOV_VEICULOS ", cod_modelo));
+
+                        FbDataAdapter da = new FbDataAdapter(new FbCommand(
+                            cunsultaSaidaPorNome, ConnectionFactory.Connect()));
+
+                        da.Fill(dt);
+                    }
+                    return dt;
+                }
+                else
+                {
+                    throw new Exception("Modelo não encontrado");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Falha ao filtrar movimentações ! : \n" + e.Message);
+            }
+            finally
+            {
+                ConnectionFactory.Connect().Close();
+            }
+
+
+        }
+
+        public DataTable filtrarModeloEntrada(string nome)
+        {
+            try
+            {
+                ModeloDAL modeloDAL = new ModeloDAL();
+                DataTable data = modeloDAL.ConsultarModelo(nome.ToUpper());
+
+                if (data.Rows.Count > 0)
+                {
+
+                    DataTable dt = new DataTable();
+
+                    for (int i = 0; i < data.Rows.Count; i++)
+                    {
+                        int cod_modelo = int.Parse(data.Rows[i]["COD_MODELO"].ToString());
+
+                        String consultaS = (String.Format(
+                        "SELECT MV.COD_MOV_VEICULOS, " +
+                             "MA.DS_MARCA, " +
+                             "MO.DS_MODELO, " +
+                             "MV.VERSAO, " +
+                             "MV.ANO_FABRICACAO, " +
+                             "MV.ANO_MODELO, " +
+                             "MV.COR, " +
+                             "MV.PLACA, " +
+                             "MV.RENAVAM, " +
+                             "MV.OBSERVACOES, " +
+                             "cast(MV.DATA_ENTRADA as date) AS DATA_ENTRADA, " +
+                             "MV.VALOR_ENTRADA, " +
+                             "C1.NOME, " +
+                             "C1.FONE1 " +
+                             "FROM MOV_VEICULOS MV, " +
+                             "MARCAS MA, " +
+                             "MODELOS MO, " +
+                             "CLIENTES C1 " +
+                             "WHERE MV.COD_MARCA = MA.COD_MARCA " +
+                             "AND MV.COD_MODELO = MO.COD_MODELO " +
+                             "AND MV.COD_CLIENTE_ENTRADA = C1.COD_CLIENTE " +
+                             "AND MV.COD_MODELO = {0} " +
+                             "ORDER BY MV.COD_MOV_VEICULOS ", cod_modelo));
+
+                        FbDataAdapter da = new FbDataAdapter
+                                (new FbCommand(consultaS, ConnectionFactory.Connect()));
+
+                        da.Fill(dt);
+                    }
+                    return dt;
+                }
+                else
+                {
+                    throw new Exception("Modelo não encontrado");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Falha ao filtrar movimentações ! : \n" + e.Message);
+            }
+            finally
+            {
+                ConnectionFactory.Connect().Close();
+            }
+
 
         }
     }

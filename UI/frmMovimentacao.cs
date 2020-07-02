@@ -12,6 +12,7 @@ using DAL;
 using BLL;
 using System.Drawing.Printing;
 using System.Collections;
+using Microsoft.ReportingServices.Diagnostics.Internal;
 
 namespace UI
 {
@@ -27,11 +28,9 @@ namespace UI
         public frmMovimentacao()
         {
             InitializeComponent();
-
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
             Movimentacao movimentacao = new Movimentacao();
 
-            movimentacaobll.inserirCodigo(movimentacao);
+            MovimentacaoBLL.getInstance().inserirCodigo(movimentacao);
             txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
             btEXCLUIR.Enabled = false;
             cbMARCA.Focus();
@@ -39,8 +38,7 @@ namespace UI
             ClienteBLL clientebll = new ClienteBLL();
             Cliente cliente = new Cliente();
 
-            clientebll.inserirCodigo(cliente);
-            txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
+            txtCOD_CLIENTE.Text = clientebll.inserirCodigo().ToString();
             btEXCLUIR.Enabled = false;
             txtCOD_CLIENTE.Enabled = false;
 
@@ -49,10 +47,9 @@ namespace UI
 
         private void ZeraCampos()
         {
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
             Movimentacao movimentacao = new Movimentacao();
 
-            movimentacaobll.inserirCodigo(movimentacao);
+            MovimentacaoBLL.getInstance().inserirCodigo(movimentacao);
             txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
 
             //Limpa todos os campos  
@@ -71,48 +68,39 @@ namespace UI
             consulta = null;
         }
 
-        /*private void PreencherValorTotal(DataTable dataTable)
-         { 
-             double totalVendas = 0;
-             double totalCompras = 0;
-             foreach (DataRow linha in dataTable.Rows)
-             {
-                 if( !String.IsNullOrEmpty(linha[14].ToString()))
-                     totalVendas += Double.Parse(linha[14].ToString());
-                 if (!String.IsNullOrEmpty(linha[11].ToString()))
-                     totalCompras += Double.Parse(linha[11].ToString());
-             }
+        //aqui verifico se estou na tela de entrada ou tela de saida
+       
 
-
-             lbValorTotal.Text = "R$ " + totalVendas.ToString();
-             lbValorLucro.Text = "R$ " + (totalVendas - totalCompras).ToString();
-         }*/
-
-
-        private void PreencherDataGrid(String Texto)
+        private void PreencherDataGrid(DataTable dt, String Texto)
         {
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
+                if (Entrada_Saida == "E")
+                {
+                    if (dt == null) {
+                        DataTable apenasEntrada = MovimentacaoBLL.getInstance().consultarMovimentacaoApenasEntrada(Texto);
+                        dataGridView1.DataSource = apenasEntrada;
 
+                        preencheLabelQuantidade(apenasEntrada);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = dt;
+                        preencheLabelQuantidade(dt);
+                    }
 
-            if (Entrada_Saida == "E")
-            {
-                DataTable apenasEntrada = movimentacaobll.consultarMovimentacaoApenasEntrada(Texto);
-                dataGridView1.DataSource = apenasEntrada;
-                dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
-                // dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
-                dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
+                    dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
+                    // dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
+                    dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
 
-                dataGridView1.Columns[11].Visible = false;
+                    dataGridView1.Columns[11].Visible = false;
 
-                lbQuant.Text = (apenasEntrada.Rows.Count).ToString();
+                    
 
-            }
-            else
-            {
+                }
+                else
+                {
                 if (chkBoxFiltro.Checked)
                 {
-                    DataTable entradas = movimentacaobll.consultarMovimentacaoEntrada(Texto);
-                    dataGridView1.DataSource = entradas;
+                    dataGridView1.DataSource = dt;
                     dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
                     dataGridView1.Columns[1].HeaderText = "Marca";
                     dataGridView1.Columns[2].HeaderText = "Modelo";
@@ -127,47 +115,55 @@ namespace UI
                     dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
                     dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
 
-                    preencheLabelQuantidade(entradas);
+                    preencheLabelQuantidade(dt);
 
                     dataGridView1.Refresh();
 
                 }
                 else
                 {
-                    DataTable saidas = movimentacaobll.consultarMovimentacaoSaida(Texto);
 
-                    dataGridView1.DataSource = saidas;
+                    if (dt == null)
+                    {
+                        DataTable saidas = MovimentacaoBLL.getInstance().consultarMovimentacaoSaida(Texto);
+                        dataGridView1.DataSource = saidas;
+                        preencheLabelQuantidade(saidas);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = dt;
+                        preencheLabelQuantidade(dt);
+                    }
+
                     dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
-                    //dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
                     dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
                     dataGridView1.Columns[13].HeaderText = "Dt. Saída";
-                    dataGridView1.Columns[14].HeaderText = "Vr. Saída";
                     dataGridView1.Columns[15].HeaderText = "Cliente Saída";
 
                     dataGridView1.Columns[11].Visible = false;
                     dataGridView1.Columns[14].Visible = false;
 
-                    preencheLabelQuantidade(saidas);
-                    //PreencherValorTotal(dataTable);
                 }
 
-            }
+                }
 
-            dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
-            dataGridView1.Columns[1].HeaderText = "Marca";
-            dataGridView1.Columns[2].HeaderText = "Modelo";
-            dataGridView1.Columns[3].HeaderText = "Versão";
-            dataGridView1.Columns[4].HeaderText = "Ano Fab.";
-            dataGridView1.Columns[5].HeaderText = "Ano Mod.";
-            dataGridView1.Columns[6].HeaderText = "Cor";
-            dataGridView1.Columns[7].HeaderText = "Placa";
-            dataGridView1.Columns[8].HeaderText = "Renavam";
-            dataGridView1.Columns[9].HeaderText = "Observações";
+                dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
+                dataGridView1.Columns[1].HeaderText = "Marca";
+                dataGridView1.Columns[2].HeaderText = "Modelo";
+                dataGridView1.Columns[3].HeaderText = "Versão";
+                dataGridView1.Columns[4].HeaderText = "Ano Fab.";
+                dataGridView1.Columns[5].HeaderText = "Ano Mod.";
+                dataGridView1.Columns[6].HeaderText = "Cor";
+                dataGridView1.Columns[7].HeaderText = "Placa";
+                dataGridView1.Columns[8].HeaderText = "Renavam";
+                dataGridView1.Columns[9].HeaderText = "Observações";
 
-            dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[0].Visible = false;
+
+
+                dataGridView1.Refresh();
+           
             
-
-            dataGridView1.Refresh();
 
         }
 
@@ -176,8 +172,8 @@ namespace UI
             if (e.KeyCode == Keys.Escape)
                 ZeraCampos();
 
-            if (e.KeyCode == Keys.Enter)
-                SendKeys.Send("{TAB}");
+            //if (e.KeyCode == Keys.Enter)
+                //SendKeys.Send("{TAB}");
         }
 
         private void frmMovimentacao_Load(object sender, EventArgs e)
@@ -201,7 +197,7 @@ namespace UI
 
                 btGRAVAR.Enabled = false;
                 btEXCLUIR.Enabled = false;
-                PreencherDataGrid(null);
+                PreencherDataGrid(null,null);
                 
             }
 
@@ -213,9 +209,7 @@ namespace UI
 
         private string converterData(string data)
         {
-            string[] dt = data.Split('/');
-
-            return dt[0] + "." + dt[1] + "." + dt[2];
+            return data.Replace('/','.');
         }
 
         private void btGRAVAR_Click(object sender, EventArgs e)
@@ -223,7 +217,6 @@ namespace UI
 
             string codCliente = cadastrarCliente();
             Movimentacao movimentacao = new Movimentacao();
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
             
 
             try
@@ -231,15 +224,15 @@ namespace UI
                 movimentacao.Cod_Mov_Veiculos = txtCOD_MOV_VEICULOS.Text;
                 movimentacao.Cod_Marca = Convert.ToString(cbMARCA.SelectedValue);
                 movimentacao.Cod_Modelo = Convert.ToString(cbMODELO.SelectedValue);
-                movimentacao.Versao = txtVERSAO.Text;
+                movimentacao.Versao = (txtVERSAO.Text).Replace(',',' ');
                 movimentacao.Ano_Fabricacao = cbANO_FABRICACAO.Text;
                 movimentacao.Ano_Modelo = cbANO_MODELO.Text;
                 movimentacao.Cor = txtCOR.Text;
-                movimentacao.Placa = txtPLACA.Text;
+                movimentacao.Placa = (txtPLACA.Text).Replace(' ','0');
                 movimentacao.Renavam = txtRENAVAM.Text;
-                movimentacao.Observacoes = txtOBSERVACOES.Text;
+                movimentacao.Observacoes = (txtOBSERVACOES.Text).Replace(',','.');
 
-                movimentacaobll.verificarCampos(movimentacao);
+                MovimentacaoBLL.getInstance().verificarCampos(movimentacao);
 
 
                 if (Entrada_Saida == "E" && codCliente != null)
@@ -255,7 +248,7 @@ namespace UI
                     movimentacao.Valor_Entrada = "0";
                     movimentacao.Data_Entrada = converterData(txtDATA_ENTRADA.Text);
                     movimentacao.Cod_Cliente_Entrada = codCliente;
-                    movimentacaobll.verificarCamposCompra(movimentacao);
+                    MovimentacaoBLL.getInstance().verificarCamposCompra(movimentacao);
                 }
                 else
                 {
@@ -267,25 +260,25 @@ namespace UI
 
                 if (consulta == null && Entrada_Saida == "E")
                 {
-                    movimentacaobll.inserirMovimentacaoEntrada(movimentacao);
+                    MovimentacaoBLL.getInstance().inserirMovimentacaoEntrada(movimentacao);
                     MessageBox.Show("A movimentação foi inserida com Sucesso!", "Cadastro Efetuado com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 }
                 else if (consulta == null && Entrada_Saida == "S")
                 {
-                    movimentacaobll.inserirMovimentacaoSaida(movimentacao);
+                    MovimentacaoBLL.getInstance().inserirMovimentacaoSaida(movimentacao);
                     MessageBox.Show("A saida foi inserida com Sucesso!", "Cadastro Efetuado com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 }
                 else if (consulta != null && Entrada_Saida == "E")
                 {
-                    movimentacaobll.atulizarMovimentacaoEntrada(movimentacao);
+                    MovimentacaoBLL.getInstance().atulizarMovimentacaoEntrada(movimentacao);
                     MessageBox.Show("A atualização da movimentação foi efetuado com Sucesso!", "Cadastro Efetuado com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 }
                 else if (consulta != null && Entrada_Saida == "S")
                 {
-                    MessageBox.Show(movimentacaobll.inserirMovimentacaoSaida(movimentacao),"Atenção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show(MovimentacaoBLL.getInstance().inserirMovimentacaoSaida(movimentacao),"Atenção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     //movimentacaobll.atulizarMovimentacaoSaida(movimentacao);
                     //MessageBox.Show("A saida foi efetuado com Sucesso!", "Atualização Efetuada com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -294,7 +287,7 @@ namespace UI
 
                 ZeraCampos();
                 ZeraCamposClientes();
-                movimentacaobll.inserirCodigo(movimentacao);
+                MovimentacaoBLL.getInstance().inserirCodigo(movimentacao);
                 txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
                 
             }
@@ -303,7 +296,7 @@ namespace UI
                 MessageBox.Show("Falha ao inserir entrada/saida: "+ ex.Message);
             }
 
-            movimentacaobll.inserirCodigo(movimentacao);
+            MovimentacaoBLL.getInstance().inserirCodigo(movimentacao);
             txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
         }
 
@@ -334,7 +327,6 @@ namespace UI
         {
             try{
                 Movimentacao movimentacao = new Movimentacao();
-                MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
                 movimentacao.Cod_Mov_Veiculos = txtCOD_MOV_VEICULOS.Text;
 
@@ -351,9 +343,9 @@ namespace UI
             }
             if (MessageBox.Show("Deseja EXCLUIR essa Movimentação?", "Excluir Movimentação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                movimentacaobll.excluirMovimentacao(movimentacao);
+                MovimentacaoBLL.getInstance().excluirMovimentacao(movimentacao);
                 ZeraCampos();
-                movimentacaobll.inserirCodigo(movimentacao);
+                MovimentacaoBLL.getInstance().inserirCodigo(movimentacao);
                 txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
                 consulta = null;
                 btEXCLUIR.Enabled = false;
@@ -365,15 +357,9 @@ namespace UI
             
         }
 
-        private void txtCONSULTA_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                PreencherDataGrid(txtCONSULTA.Text);
-        }
-
         private void tabPage2_Enter(object sender, EventArgs e)
         {
-            PreencherDataGrid(null);
+            PreencherDataGrid(null,null);
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -381,7 +367,6 @@ namespace UI
             ClienteBLL clientebll = new ClienteBLL();
             Cliente cliente = new Cliente();
             Movimentacao movimentacao = new Movimentacao();
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
             btGRAVAR.Enabled = true;
             btEXCLUIR.Enabled = true;
@@ -468,7 +453,7 @@ namespace UI
             {
                 MessageBox.Show("A Pesquisa selecionada, não contém Dados!", "Consulta Vazia!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 ZeraCampos();
-                movimentacaobll.inserirCodigo(movimentacao);
+                MovimentacaoBLL.getInstance().inserirCodigo(movimentacao);
                 txtCOD_MOV_VEICULOS.Text = movimentacao.Cod_Mov_Veiculos;
             }
         }
@@ -519,13 +504,9 @@ namespace UI
         private void filtrarDataGrid(string dataInicio, string dataFim)
         {
 
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
-
-
-
             if (Entrada_Saida == "E")
             {
-                DataTable entradas = movimentacaobll.filtrarMovimentacaoEntrada(dataInicio, dataFim);
+                DataTable entradas = MovimentacaoBLL.getInstance().filtrarMovimentacaoEntrada(dataInicio, dataFim);
                 dataGridView1.DataSource = entradas;
                 dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
                 dataGridView1.Columns[1].HeaderText = "Marca";
@@ -548,7 +529,7 @@ namespace UI
             {
                 if (chkBoxFiltro.Checked)
                 {
-                    DataTable entradas = movimentacaobll.filtrarMovimentacaoEntrada(dataInicio, dataFim);
+                    DataTable entradas = MovimentacaoBLL.getInstance().filtrarMovimentacaoEntrada(dataInicio, dataFim);
                     dataGridView1.DataSource = entradas;
                     dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
                     dataGridView1.Columns[1].HeaderText = "Marca";
@@ -568,7 +549,7 @@ namespace UI
                 }
                 else
                 {
-                    DataTable saidas = movimentacaobll.filtrarMovimentacaoSaida(dataInicio, dataFim);
+                    DataTable saidas = MovimentacaoBLL.getInstance().filtrarMovimentacaoSaida(dataInicio, dataFim);
                     dataGridView1.DataSource = saidas;
                     dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
                     dataGridView1.Columns[1].HeaderText = "Marca";
@@ -596,16 +577,6 @@ namespace UI
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             switch (MouseButtons)
@@ -628,30 +599,7 @@ namespace UI
             rowSelected = e.RowIndex;
             
         }
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtRENAVAM_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCONSULTA_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbValorTotal_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btFiltrar_Click(object sender, EventArgs e)
         {
@@ -666,68 +614,23 @@ namespace UI
 
         private void chkBoxFiltro_CheckedChanged(object sender, EventArgs e)
         {
-
-
             if (chkBoxFiltro.Checked)
             {
                 String texto = "";
-                MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
-                DataTable entradas = movimentacaobll.consultarMovimentacaoEntrada(texto);
-                dataGridView1.DataSource = entradas;
-                dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
-                dataGridView1.Columns[1].HeaderText = "Marca";
-                dataGridView1.Columns[2].HeaderText = "Modelo";
-                dataGridView1.Columns[3].HeaderText = "Versão";
-                dataGridView1.Columns[4].HeaderText = "Ano Fab.";
-                dataGridView1.Columns[5].HeaderText = "Ano Mod.";
-                dataGridView1.Columns[6].HeaderText = "Cor";
-                dataGridView1.Columns[7].HeaderText = "Placa";
-                dataGridView1.Columns[8].HeaderText = "Renavam";
-                dataGridView1.Columns[9].HeaderText = "Observações";
-                dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
-                dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
-                dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
-
-                preencheLabelQuantidade(entradas);
-
-                dataGridView1.Refresh();
+                DataTable entradas = MovimentacaoBLL.getInstance().consultarMovimentacaoEntrada(texto);
+                PreencherDataGrid(entradas, texto);
             }
             else
             {
-
-                PreencherDataGrid("");
+                PreencherDataGrid(null,"");
             }
 
         }
 
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCIDADE_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void ZeraCamposC()
         {
-            ClienteBLL clientebll = new ClienteBLL();
-            Cliente cliente = new Cliente();
-
-            clientebll.inserirCodigo(cliente);
-            txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-
+ 
             //Limpa todos os campos
             txtCOD_CLIENTE.Clear();
             txtNOME.Clear();
@@ -827,19 +730,18 @@ namespace UI
                 if (clienteBusca == null)
                 {
                     clientebll.inserirCliente(cliente);
-                    codClienteInsert = cliente.Cod_Cliente;
+                    codClienteInsert = clientebll.inserirCodigo().ToString();
+                    txtCOD_CLIENTE.Text = codClienteInsert;
                     MessageBox.Show("O cliente " + cliente.Nome + " foi cadastrado!", "Cadastro Efetuado com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    clientebll.inserirCodigo(cliente);
-                    txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
 
                 }
                 else
                 {
+                    cliente.Cod_Cliente = clienteBusca.Cod_Cliente;
                     clientebll.atulizarCliente(cliente);
-                    codClienteInsert = cliente.Cod_Cliente;
+                    codClienteInsert = clienteBusca.Cod_Cliente;
+                    txtCOD_CLIENTE.Text = clienteBusca.Cod_Cliente;
                     MessageBox.Show("O cliente : " + cliente.Nome + " foi atualizado com Sucesso!", "Atualização Efetuada com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    clientebll.inserirCodigo(cliente);
-                    txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
                     consulta1 = null;
                 }
 
@@ -858,61 +760,10 @@ namespace UI
             return str.Replace(',',' ');
         }
 
-        private void tabPage2_EnterC(object sender, EventArgs e)
-        {
-            PreencherDataGridC(null);
-        }
-
-        private void txtCONSULTA_KeyDownC(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-
-                PreencherDataGridC(txtCONSULTA.Text);
-
-        }
-
-        private void dataGridView1_DoubleClickC(object sender, EventArgs e)
-        {
-
-        }
-
-        //Excluir cliente
-        private void Excluir_Cliente(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            ClienteBLL clientebll = new ClienteBLL();
-
-            try{
-            cliente.Cod_Cliente = txtCOD_CLIENTE.Text;
-            cliente.Nome = txtNOME.Text;
-
-            if (MessageBox.Show("Deseja EXCLUIR o usuário " + cliente.Nome + "?", "Excluir Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                clientebll.excluirCliente(cliente);
-                ZeraCamposC();
-                clientebll.inserirCodigo(cliente);
-                txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-                consulta1 = null;
-            }
-            }catch(Exception){
-                MessageBox.Show("Ocorreu um erro ao excluir um cliente.");
-            }
-            
-        }
-
-        private void txtDATA_NASC_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
 
         private void label20_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void preencherDataGrid_clientes()
@@ -940,10 +791,6 @@ namespace UI
             preencheLabelQuantidade(clientes);
         }
 
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btLimparCampos_Click(object sender, EventArgs e)
         {
@@ -953,81 +800,11 @@ namespace UI
 
         private void btLimpaFiltro_Click(object sender, EventArgs e)
         {
-            PreencherDataGrid(null);
+            PreencherDataGrid(null,null);
         }
 
 
-        private void edtCpfConsultaCliente_KeyDown_1(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ClienteBLL clientebll = new ClienteBLL();
-                DataTable clientes = clientebll.consultarCliente(edtCpfConsultaCliente.Text);
-                dataGridViewCliente.DataSource = clientes;
-                dataGridViewCliente.Columns[0].HeaderText = "Código";
-                dataGridViewCliente.Columns[1].HeaderText = "Nome";
-                dataGridViewCliente.Columns[2].HeaderText = "CPF";
-                dataGridViewCliente.Columns[3].HeaderText = "Data Nasc.";
-                dataGridViewCliente.Columns[4].HeaderText = "Endereço";
-                dataGridViewCliente.Columns[5].HeaderText = "Bairro";
-                dataGridViewCliente.Columns[6].HeaderText = "CEP";
-                dataGridViewCliente.Columns[7].HeaderText = "Cidade";
-                dataGridViewCliente.Columns[8].HeaderText = "Estado";
-                dataGridViewCliente.Columns[9].HeaderText = "Fone 1";
-                dataGridViewCliente.Columns[10].HeaderText = "Fone 2";
-                dataGridViewCliente.Columns[11].HeaderText = "Sexo";
-                dataGridViewCliente.Columns[12].HeaderText = "Restrição";
 
-                preencheLabelQuantidade(clientes);
-            }
-        }
-
-        private void edtCpfConsultaCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_DoubleClick(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-
-            try
-            {
-
-                txtCOD_CLIENTE.Text = dataGridViewCliente.CurrentRow.Cells[0].Value.ToString();
-                txtNOME.Text = dataGridViewCliente.CurrentRow.Cells[1].Value.ToString();
-                txtCPF.Text = dataGridViewCliente.CurrentRow.Cells[2].Value.ToString();
-                txtRG.Text = dataGridViewCliente.CurrentRow.Cells[13].Value.ToString();
-                txtDATA_NASC.Text = dataGridViewCliente.CurrentRow.Cells[3].Value.ToString();
-                txtENDERECO.Text = dataGridViewCliente.CurrentRow.Cells[4].Value.ToString();
-                txtBAIRRO.Text = dataGridViewCliente.CurrentRow.Cells[5].Value.ToString();
-                txtCEP.Text = dataGridViewCliente.CurrentRow.Cells[6].Value.ToString();
-                txtCIDADE.Text = dataGridViewCliente.CurrentRow.Cells[7].Value.ToString();
-                cbESTADO.Text = dataGridViewCliente.CurrentRow.Cells[8].Value.ToString();
-                txtFONE1.Text = dataGridViewCliente.CurrentRow.Cells[9].Value.ToString();
-                txtFONE2.Text = dataGridViewCliente.CurrentRow.Cells[10].Value.ToString();
-                cliente.Sexo = dataGridViewCliente.CurrentRow.Cells[11].Value.ToString();
-                cliente.Restricao = dataGridViewCliente.CurrentRow.Cells[12].Value.ToString();
-
-
-                if (cliente.Sexo == "M")
-                    rbMASCULINO.Checked = true;
-                else
-                    rbFEMININO.Checked = true;
-
-                if (cliente.Restricao == "S")
-                    ckRESTRICAO.Checked = true;
-                else
-                    ckRESTRICAO.Checked = false;
-                    btEXCLUIR.Enabled = true;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("A Pesquisa selecionada, não contém Dados!", "Consulta Vazia!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-
-            tabControl1.SelectTab(0);
-        }
 
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -1096,61 +873,20 @@ namespace UI
             
         }
 
+       
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void label17_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cliente_consulta(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                MovimentacaoBLL movimentacaoBLL = new MovimentacaoBLL();
-                //movimentacaoBLL.filtrarNomeSaida(clienteConsulta.Text);
-                dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
-                dataGridView1.Columns[1].HeaderText = "Marca";
-                dataGridView1.Columns[2].HeaderText = "Modelo";
-                dataGridView1.Columns[3].HeaderText = "Versão";
-                dataGridView1.Columns[4].HeaderText = "Ano Fab.";
-                dataGridView1.Columns[5].HeaderText = "Ano Mod.";
-                dataGridView1.Columns[6].HeaderText = "Cor";
-                dataGridView1.Columns[7].HeaderText = "Placa";
-                dataGridView1.Columns[8].HeaderText = "Renavam";
-                dataGridView1.Columns[9].HeaderText = "Observações";
-                dataGridView1.Columns[10].HeaderText = "Dt. Entrada";
-                //dataGridView1.Columns[11].HeaderText = "Vr. Entrada";
-                dataGridView1.Columns[12].HeaderText = "Cliente Entrada";
-            }
-        }
-
-        private void txtPLACA_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             DataTable dt = null;
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
             if (Entrada_Saida == "E")
             { 
-                dt = movimentacaobll.consultarMovimentacaoApenasEntrada(null);
+                dt = MovimentacaoBLL.getInstance().consultarMovimentacaoApenasEntrada(null);
             }
             else
             {
-                dt = movimentacaobll.consultarMovimentacaoSaida(null);
+                dt = MovimentacaoBLL.getInstance().consultarMovimentacaoSaida(null);
             }
 
 
@@ -1163,7 +899,7 @@ namespace UI
         {
             if (!chkBoxFiltro.Enabled)
             {
-                PreencherDataGrid(null);
+                PreencherDataGrid(null,null);
             }
                 
         }
@@ -1181,8 +917,7 @@ namespace UI
 
         public Boolean verificaPlacaUnica(string placa)
         {
-            MovimentacaoDAL movDal = new MovimentacaoDAL();
-            DataTable dt = movDal.ConsultarMovimentacaoEntrada(null);
+            DataTable dt = MovimentacaoDAL.getInstance().ConsultarMovimentacaoEntrada(null);
 
             if (dt.Rows.Count > 0)
             {
@@ -1195,6 +930,117 @@ namespace UI
                 }
             }
             return true;
+        }
+
+
+        private void txtOBSERVACOES_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                string temp = txtOBSERVACOES.Text;
+                txtOBSERVACOES.Clear();
+                txtOBSERVACOES.Text = temp+"\n";
+                txtOBSERVACOES.Focus();
+            }
+        }
+
+        private void txtCONSULTA_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if(txtCONSULTA.Text == " ")
+                {
+                    PreencherDataGrid(null, null);
+                }
+                else
+                {
+                    string placa = txtCONSULTA.Text.ToUpper();
+                    if (Entrada_Saida == "E" || chkBoxFiltro.Checked)
+                    {
+                        
+                        PreencherDataGrid(MovimentacaoBLL.getInstance().consultarMovimentacaoEntrada(placa), null);
+                        txtCONSULTA.Clear();
+                    }
+                    else
+                    {
+                        PreencherDataGrid(MovimentacaoBLL.getInstance().consultarMovimentacaoSaida(placa), null);
+                        txtCONSULTA.Clear();
+                    }
+                }
+            }
+
+            if(e.KeyCode == Keys.Tab)
+            {
+                clienteConsulta.Focus();
+            }
+        }
+
+        //consultar por nome
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (Entrada_Saida == "E" || chkBoxFiltro.Checked)
+                {
+                    try
+                    {
+                        PreencherDataGrid(MovimentacaoBLL.getInstance().filtrarNomeEntrada(clienteConsulta.Text), null);
+                        clienteConsulta.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    if (dataGridView1.DataSource != null)
+                    {
+                        try
+                        {
+                            PreencherDataGrid(MovimentacaoBLL.getInstance().filtrarNomeSaida(clienteConsulta.Text), null);
+                            clienteConsulta.Clear();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+            }
+            if (e.KeyCode == Keys.Tab)
+            {
+                txtModelo.Focus();
+            }
+        }
+
+        private void txtModelo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    if (Entrada_Saida == "E" || chkBoxFiltro.Checked)
+                    {
+                    
+                        PreencherDataGrid(MovimentacaoBLL.getInstance().filtrarModeloEntrada(txtModelo.Text),null);
+                        txtModelo.Clear();
+                    }
+                    else
+                    {
+                        PreencherDataGrid(MovimentacaoBLL.getInstance().filtrarModeloSaida(txtModelo.Text), null);
+                        txtModelo.Clear();
+                    }
+                }catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            if(e.KeyCode == Keys.Tab)
+            {
+                btFiltrar.Focus();
+            }
         }
     }
 

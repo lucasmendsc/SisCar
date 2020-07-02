@@ -148,7 +148,7 @@ namespace DAL
             }
         }
 
-        public void InserirCodigo(Cliente cliente)
+        public int InserirCodigo()
         {
             try
             {
@@ -161,14 +161,11 @@ namespace DAL
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                cliente.Cod_Cliente = dt.Rows[0]["max"].ToString();
+                string cod = dt.Rows[0]["max"].ToString();
 
-                if (cliente.Cod_Cliente == "")
-                    cliente.Cod_Cliente = "0";
+                int Codigo = Convert.ToInt32(cod);
 
-                int Codigo = Convert.ToInt32(cliente.Cod_Cliente);
-                Codigo = Codigo + 1;
-                cliente.Cod_Cliente = Codigo.ToString();
+                return Codigo;
             }
             catch (Exception ex)
             {
@@ -204,7 +201,7 @@ namespace DAL
                 String consultaC = (String.Format(
                     "SELECT *                 " +
                     "  FROM CLIENTES          " +
-                    " WHERE NOME LIKE '%{0}%' ",
+                    " WHERE NOME LIKE '{0}%' ",
                     NomeCliente));
 
                 FbDataAdapter da = new FbDataAdapter

@@ -40,10 +40,10 @@ namespace BLL
             return true;            
         }
 
-        public void inserirCodigo(Cliente cliente)
+        public int inserirCodigo()
         {
             ClienteDAL clientedal = new ClienteDAL();
-            clientedal.InserirCodigo(cliente);
+            return clientedal.InserirCodigo();
         }
 
         public void inserirCliente(Cliente cliente)

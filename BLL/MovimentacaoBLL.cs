@@ -12,7 +12,21 @@ namespace BLL
 {
     public class MovimentacaoBLL
     {
-       
+
+      private static MovimentacaoBLL mySelf;
+
+      private MovimentacaoBLL()
+        {
+
+        }
+
+        public static MovimentacaoBLL getInstance()
+        {
+            if (mySelf == null)
+                mySelf = new MovimentacaoBLL();
+            return mySelf;
+        }
+
         public bool verificarCampos(Movimentacao movimentacao)
         {
             if (movimentacao.Cod_Marca.Trim().Length == 0)
@@ -87,79 +101,83 @@ namespace BLL
 
         public void inserirCodigo(Movimentacao movimentacao)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            movimentacaodal.InserirCodigo(movimentacao);
+            MovimentacaoDAL.getInstance().InserirCodigo(movimentacao);
         }
 
         public void inserirMovimentacaoEntrada(Movimentacao movimentacao)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            movimentacaodal.InserirMovimentacaoEntrada(movimentacao);
+            MovimentacaoDAL.getInstance().InserirMovimentacaoEntrada(movimentacao);
         }
 
         public string inserirMovimentacaoSaida(Movimentacao movimentacao)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
 
             if (consultarMovimentacaoSaida(movimentacao.Placa) == null)
             {
-                
-                movimentacaodal.InserirMovimentacaoSaida(movimentacao);
+
+                MovimentacaoDAL.getInstance().InserirMovimentacaoSaida(movimentacao);
                 return "Movimentação inserida com sucesso !";
             }
             else
             {
-                movimentacaodal.AtualizarMovimentacaoSaida(movimentacao);
+                MovimentacaoDAL.getInstance().AtualizarMovimentacaoSaida(movimentacao);
                 return "Movimentação atualizada com secesso !";
             }
         } 
 
         public void atulizarMovimentacaoEntrada(Movimentacao movimentacao)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            movimentacaodal.AtualizarMovimentacaoEntrada(movimentacao);
+            MovimentacaoDAL.getInstance().AtualizarMovimentacaoEntrada(movimentacao);
         }
 
         public void excluirMovimentacao(Movimentacao movimentacao)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            movimentacaodal.ExcluirMovimentacao(movimentacao);
+            MovimentacaoDAL.getInstance().ExcluirMovimentacao(movimentacao);
         }
         public DataTable consultarMovimentacaoEntrada(string texto)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.ConsultarMovimentacaoEntrada(texto);
+            return MovimentacaoDAL.getInstance().ConsultarMovimentacaoEntrada(texto);
         }
         public DataTable consultarMovimentacaoApenasEntrada(String TEXTO)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.ConsultarMovimentacaoApenasEntrada(TEXTO); 
+            return MovimentacaoDAL.getInstance().ConsultarMovimentacaoApenasEntrada(TEXTO); 
         }
 
         public DataTable consultarMovimentacaoSaida(String TEXTO)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return filtrarMovimentacaoSaida("01.01.2000",DateTime.Now.ToString("dd.MM.yyyy"));
+            return MovimentacaoDAL.getInstance().filtrarMovimentacaoSaidaPlaca(TEXTO);
         }
         public DataTable filtrarMovimentacaoSaida(string dataInicio, string dataFim)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.filtrarMovimentacaoSaida(dataInicio, dataFim);
+            return MovimentacaoDAL.getInstance().filtrarMovimentacaoSaida(dataInicio, dataFim);
         }
+       
         public DataTable filtrarMovimentacaoEntrada(string dataInicio, string dataFim)
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.filtrarMovimentacaoEntrada(dataInicio, dataFim);
+            return MovimentacaoDAL.getInstance().filtrarMovimentacaoEntrada(dataInicio, dataFim);
         }
         public DataTable cunsultarTodaMovimentacao()
         {
-            MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.consultarTodaMovimentacao();
+            return MovimentacaoDAL.getInstance().consultarTodaMovimentacao();
         }
 
         public DataTable filtrarNomeSaida(string nome){
-             MovimentacaoDAL movimentacaodal = new MovimentacaoDAL();
-            return movimentacaodal.filtrarNomeSaida(nome);
+            return MovimentacaoDAL.getInstance().filtrarNomeSaida(nome);
+        }
+
+        public DataTable filtrarNomeEntrada(string nome)
+        {
+            return MovimentacaoDAL.getInstance().filtrarNomeEntrada(nome);
+        }
+
+        public DataTable filtrarModeloEntrada(string nome)
+        {
+            return MovimentacaoDAL.getInstance().filtrarModeloEntrada(nome);
+        }
+
+        public DataTable filtrarModeloSaida(string nome)
+        {
+            return MovimentacaoDAL.getInstance().filtrarModeloSaida(nome);
         }
     }
 }

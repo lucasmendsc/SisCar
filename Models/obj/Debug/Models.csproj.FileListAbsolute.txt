@@ -133,3 +133,4 @@ C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\Models\obj\Debug\Models.dll
 C:\Users\lucas\OneDrive\Área de Trabalho\SisCar\Models\obj\Debug\Models.pdb
 C:\SisCar\Models\bin\Debug\Tulpep.NotificationWindow.dll
 C:\SisCar\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\SisCar\Models\obj\Debug\Models.csprojAssemblyReference.cache

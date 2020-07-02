@@ -361,6 +361,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DAL.MovimentacaoDAL.datasource" />
     <None Include="Properties\DataSources\Models.Caixa.datasource" />
+    <None Include="Properties\DataSources\Models.Cliente.datasource" />
     <None Include="Properties\DataSources\Models.Gastos.datasource" />
     <None Include="Properties\DataSources\Models.Lancamentos.datasource" />
     <None Include="Properties\DataSources\Models.Lembrete.datasource" />
@@ -397,6 +398,24 @@
   <ItemGroup>
     <Content Include="desktop.ico" />
     <Content Include="favicon %281%29.ico" />
+    <None Include="Resources\casa %281%29.png" />
+    <None Include="Resources\casa %282%29.png" />
+    <None Include="Resources\casa.png" />
+    <None Include="Resources\de-volta.png" />
+    <None Include="Resources\do-utilizador.png" />
+    <None Include="Resources\fechar.png" />
+    <None Include="Resources\gostar.png" />
+    <None Include="Resources\impressao.png" />
+    <None Include="Resources\lixo.png" />
+    <None Include="Resources\lupa.png" />
+    <None Include="Resources\proximo.png" />
+    <None Include="Resources\refrescar.png" />
+    <None Include="Resources\lupa_35_35.jpg" />
+    <None Include="Resources\lupa %281%29.png" />
+    <None Include="Resources\tese.jpg" />
+    <None Include="Resources\14.png" />
+    <None Include="Resources\14.1.png" />
+    <None Include="Resources\11.1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -124,6 +124,19 @@ namespace DAL
             return dt;
         }
 
+        public DataTable RetornaLembretePorStatus(int status)
+        {
+            String retornaL = (String.Format(
+                     "SELECT * FROM LEMBRETE WHERE status = {0}", status));
+
+            FbDataAdapter da = new FbDataAdapter
+                   (new FbCommand(retornaL, ConnectionFactory.Connect()));
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
         public void atualiizarLembrete(Lembrete l)
         {
             try

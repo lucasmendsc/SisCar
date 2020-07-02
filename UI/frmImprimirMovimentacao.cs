@@ -20,7 +20,6 @@ namespace UI
         ArrayList modelos = new ArrayList();
         ArrayList mov = new ArrayList();
 
-        MovimentacaoBLL movBLL = new MovimentacaoBLL();
         MarcaBLL marcaBLL = new MarcaBLL();
         ModeloBLL modeloBLL = new ModeloBLL();
         ClienteBLL clienteBLL = new ClienteBLL();
@@ -41,7 +40,7 @@ namespace UI
             DataTable dtMarcas = marcaBLL.consultarMarca("%");
             DataTable dtModelos = modeloBLL.consultarModelo("%");
             DataTable dtCliente = clienteBLL.consultarCliente("%");
-            DataTable dtMov = movBLL.cunsultarTodaMovimentacao();
+            DataTable dtMov = MovimentacaoBLL.getInstance().cunsultarTodaMovimentacao();
 
             foreach (DataRow row in dtMov.Rows)
             {

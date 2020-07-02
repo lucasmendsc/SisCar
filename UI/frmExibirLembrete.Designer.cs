@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExibirLembrete));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.lbLembrete = new System.Windows.Forms.Label();
+            this.listCheck = new System.Windows.Forms.CheckedListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -41,39 +41,35 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // lbLembrete
+            // listCheck
             // 
-            this.lbLembrete.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.lbLembrete.Location = new System.Drawing.Point(5, 13);
-            this.lbLembrete.Name = "lbLembrete";
-            this.lbLembrete.Size = new System.Drawing.Size(353, 66);
-            this.lbLembrete.TabIndex = 0;
-            this.lbLembrete.Text = "label1";
-            this.lbLembrete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.listCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCheck.ForeColor = System.Drawing.Color.Blue;
+            this.listCheck.FormattingEnabled = true;
+            this.listCheck.Location = new System.Drawing.Point(-1, 1);
+            this.listCheck.Name = "listCheck";
+            this.listCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listCheck.Size = new System.Drawing.Size(264, 289);
+            this.listCheck.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(5, 82);
+            this.button1.Location = new System.Drawing.Point(140, 296);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Não Lembrar novamente";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Não lembrar mais";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmExibirLembrete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(358, 105);
+            this.ClientSize = new System.Drawing.Size(264, 323);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbLembrete);
+            this.Controls.Add(this.listCheck);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -87,7 +83,7 @@
 
         #endregion
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Label lbLembrete;
+        private System.Windows.Forms.CheckedListBox listCheck;
         private System.Windows.Forms.Button button1;
     }
 }

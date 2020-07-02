@@ -26,9 +26,8 @@ namespace UI
 
         private void PreencherDataGrid(String Texto)
         {
-            MovimentacaoBLL movimentacaobll = new MovimentacaoBLL();
 
-            dataGridView1.DataSource = movimentacaobll.consultarMovimentacaoApenasEntrada(Texto);
+            dataGridView1.DataSource = MovimentacaoBLL.getInstance().consultarMovimentacaoApenasEntrada(Texto);
             dataGridView1.Columns[0].HeaderText = "Cód. Mov.";
             dataGridView1.Columns[1].HeaderText = "Marca";
             dataGridView1.Columns[2].HeaderText = "Modelo";

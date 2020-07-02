@@ -26,40 +26,12 @@ namespace UI
             ClienteBLL clientebll = new ClienteBLL();
             Cliente cliente = new Cliente();
 
-            clientebll.inserirCodigo(cliente);
+            //clientebll.inserirCodigo(cliente);
             //txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
             //btEXCLUIR.Enabled = false;
             //txtCOD_CLIENTE.Enabled = false;
         }
 
-        private void ZeraCampos()
-        {
-            ClienteBLL clientebll = new ClienteBLL();
-            Cliente cliente = new Cliente();
-
-            clientebll.inserirCodigo(cliente);
-           // txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-
-            //Limpa todos os campos
-            ///txtCOD_CLIENTE.Clear();
-            //txtNOME.Clear();
-            //txtCPF.Clear();
-            //txtDATA_NASC.Clear();
-            //txtENDERECO.Clear();
-            //txtBAIRRO.Clear();
-            //txtCEP.Clear();
-            //txtCIDADE.Clear();
-            //txtFONE1.Clear();
-            //txtFONE2.Clear();
-            //cbESTADO.SelectedIndex = -1;
-            //rbMASCULINO.Checked = false;
-            //rbFEMININO.Checked = false;
-            //ckRESTRICAO.Checked = false;
-            //txtCOD_CLIENTE.Enabled = false;
-            //txtNOME.Focus();
-            //btEXCLUIR.Enabled = false;
-            consulta1 = null;
-        }
 
         private void PreencherDataGrid(String NomeCliente)
         {
@@ -81,79 +53,14 @@ namespace UI
             dataGridView1.Columns[12].HeaderText = "Restrição";
         }
 
-        private void btFECHAR_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
 
         private void frmClientes_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
-                ZeraCampos();
+                
 
             if (e.KeyCode == Keys.Enter)
                 SendKeys.Send("{TAB}");
-        }
-
-        private void btGRAVAR_Click(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            ClienteBLL clientebll = new ClienteBLL();
-
-            try
-            {
-                //cliente.Cod_Cliente = txtCOD_CLIENTE.Text;
-                //cliente.Nome = txtNOME.Text;
-                //cliente.CPF = txtCPF.Text;
-                //cliente.Data_Nasc = txtDATA_NASC.Text;
-                //cliente.Endereco = txtENDERECO.Text;
-                //cliente.Bairro = txtBAIRRO.Text;
-                //cliente.CEP = txtCEP.Text;
-                //cliente.Cidade = txtCIDADE.Text;
-                //cliente.Fone1 = txtFONE1.Text;
-                //cliente.Fone2 = txtFONE2.Text;
-                //cliente.Estado = cbESTADO.Text;
-
-                string[] dtNascimento = cliente.Data_Nasc.Split('/');
-                cliente.Data_Nasc = dtNascimento[0] + "." + dtNascimento[1] + "." + dtNascimento[2];
-
-
-
-                //if (rbMASCULINO.Checked)
-                //    cliente.Sexo = "M";
-                //else
-                //    cliente.Sexo = "F";
-
-                //if (ckRESTRICAO.Checked)
-                //    cliente.Restricao = "S";
-                //else
-                //   cliente.Restricao = "N";
-
-                clientebll.verificarCampos(cliente);
-
-                if (consulta1 == null)
-                {
-                    clientebll.inserirCliente(cliente);
-                    MessageBox.Show("O usuário " + cliente.Nome + " foi cadastrado!", "Cadastro Efetuado com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    ZeraCampos();
-                    clientebll.inserirCodigo(cliente);
-                //    txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-                }
-                else
-                {
-                    clientebll.atulizarCliente(cliente);
-                    MessageBox.Show("A atualização do usuário: " + cliente.Nome + " foi feita com Sucesso!", "Atualização Efetuada com Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    ZeraCampos();
-                    clientebll.inserirCodigo(cliente);
-                  //  txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-                    consulta1 = null;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao cadastrar um cliente " + ex.Message);
-            }
         }
 
         private void tabPage2_Enter(object sender, EventArgs e)
@@ -209,39 +116,6 @@ namespace UI
             {
                 MessageBox.Show("A Pesquisa selecionada, não contém Dados!", "Consulta Vazia!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-        }
-
-        private void btEXCLUIR_Click(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            ClienteBLL clientebll = new ClienteBLL();
-
-            //cliente.Cod_Cliente = txtCOD_CLIENTE.Text;
-            //cliente.Nome = txtNOME.Text;
-            try{
-                 if (MessageBox.Show("Deseja EXCLUIR o usuário " + cliente.Nome + "?", "Excluir Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                 {
-                    clientebll.excluirCliente(cliente);                
-                    ZeraCampos();
-                    clientebll.inserirCodigo(cliente);
-                    //txtCOD_CLIENTE.Text = cliente.Cod_Cliente;
-                    consulta1 = null;
-                    // btEXCLUIR.Enabled = false;
-                  }
-            }catch(Exception){
-                MessageBox.Show("Ocorreu um erro ao excluir o cliente.");
-            }
-           
-        }
-
-        private void txtDATA_NASC_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void cbESTADO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
